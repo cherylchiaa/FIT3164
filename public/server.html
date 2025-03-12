@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,5 +19,116 @@
 
 
     <script src="script.js"></script>  <!-- Link to JavaScript if needed -->
+</body>
+</html> -->
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Visualization App</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        /* Fullscreen Map */
+        #map {
+            height: 100vh; /* Full height */
+            width: 100vw;  /* Full width */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1; /* Ensure it's behind other UI elements */
+        }
+
+        /* Floating UI Panel */
+        .control-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .bottom-nav button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Control Panel -->
+    <div class="control-panel">
+        <input type="text" placeholder="Search..." />
+        <br><br>
+        <label>Year:</label>
+        <select>
+            <option>2024</option>
+            <option>2023</option>
+        </select>
+        <label>Month:</label>
+        <select>
+            <option>Jan</option>
+            <option>Feb</option>
+        </select>
+        <br><br>
+        <input type="range" min="1" max="31">
+        <br><br>
+        <button>Temperature</button>
+        <button>Rainfall</button>
+        <button>Wind</button>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <button>🏠 Home</button>
+        <button>📊 Statistics</button>
+    </div>
+
+    <!-- Leaflet Map Script -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize Map
+        var map = L.map('map', {
+            center: [-25.2744, 133.7751],
+            zoom: 5, // Using decimal zoom
+            zoomSnap: 0.1, // Allows smaller zoom steps when scrolling
+            zoomDelta: 0.5  // How much zoom changes per action
+        });
+
+
+        // Add Tile Layer (Google Satellite-style)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+    </script>
+
 </body>
 </html>
