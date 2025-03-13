@@ -1,0 +1,3 @@
+{"type":"FeatureCollection", "features": [
+{"type":"Feature","geometry":null,"properties":{"SAL_CODE21":"ZZZZZ","SAL_NAME21":"Outside Australia","STE_CODE21":"Z","STE_NAME21":"Outside Australia","AUS_CODE21":"ZZZ","AUS_NAME21":"Outside Australia","AREASQKM21":0,"LOCI_URI21":"http://linked.data.gov.au/dataset/asgsed3/SAL/ZZZZZ","SHAPE_Leng":0,"SHAPE_Area":0}}
+]}
