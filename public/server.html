@@ -117,17 +117,31 @@
     <script>
         // Initialize Map
         var map = L.map('map', {
-            center: [-25.2744, 133.7751],
-            zoom: 5, // Using decimal zoom
+            center: [-28.2744, 133.7751],
+            zoom: 4.8, // Using decimal zoom
             zoomSnap: 0.1, // Allows smaller zoom steps when scrolling
-            zoomDelta: 0.5  // How much zoom changes per action
+            zoomDelta: 0.5,  // How much zoom changes per action
+            minZoom: 4, // Prevent zooming out too much
+            maxZoom: 10, // Prevent zooming in too much
+            maxBounds: [ // Restrict panning within this bounding box
+                [-45, 110], // Southwest corner (covers Tasmania)
+                [-9, 155]   // Northeast corner (covers Queensland)
+            ],
+            maxBoundsViscosity: 1.0 // Ensures users can't drag out
         });
 
 
         // Add Tile Layer (Google Satellite-style)
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: '© OpenStreetMap contributors'
+        // }).addTo(map);
+
+        L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            attribution: '© Google Maps'
         }).addTo(map);
+
+
+
     </script>
 
 </body>
