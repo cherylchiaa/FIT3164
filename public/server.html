@@ -1,31 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Menu with Subpages</title>
-    <link rel="stylesheet" href="styles.css">  <!-- Link to external CSS -->
-    <title>About</title>
-</head>
-<body>
-    <h1>DS_09 Weather Visualisation</h1>
-    <p>This is a weather visualization web application.</p>
-    <!-- Main Navigation Menu -->
-    <nav>
-        <ul>
-            <li><a href="statistics.html">Statistics</a></li>
-        </ul>
-    </nav>
-
-
-    <script src="script.js"></script>  <!-- Link to JavaScript if needed -->
-</body>
-</html> -->
-
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +8,12 @@
     <style>
         /* Fullscreen Map */
         #map {
-            height: 100vh; /* Full height */
-            width: 100vw;  /* Full width */
+            height: 100vh;
+            width: 100vw;
             position: absolute;
             top: 0;
             left: 0;
-            z-index: 1; /* Ensure it's behind other UI elements */
+            z-index: 1;
         }
 
         /* Floating UI Panel */
@@ -55,7 +27,6 @@
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
             z-index: 1000;
         }
-
         /* Bottom Navigation */
         .bottom-nav {
             position: absolute;
@@ -77,6 +48,7 @@
             font-size: 16px;
             cursor: pointer;
         }
+
     </style>
 </head>
 <body>
@@ -112,37 +84,12 @@
         <button>📊 Statistics</button>
     </div>
 
-    <!-- Leaflet Map Script -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script>
-        // Initialize Map
-        var map = L.map('map', {
-            center: [-28.2744, 133.7751],
-            zoom: 4.8, // Using decimal zoom
-            zoomSnap: 0.1, // Allows smaller zoom steps when scrolling
-            zoomDelta: 0.5,  // How much zoom changes per action
-            minZoom: 4, // Prevent zooming out too much
-            maxZoom: 10, // Prevent zooming in too much
-            maxBounds: [ // Restrict panning within this bounding box
-                [-45, 110], // Southwest corner (covers Tasmania)
-                [-9, 155]   // Northeast corner (covers Queensland)
-            ],
-            maxBoundsViscosity: 1.0 // Ensures users can't drag out
-        });
 
-
-        // Add Tile Layer (Google Satellite-style)
-        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //     attribution: '© OpenStreetMap contributors'
-        // }).addTo(map);
-
-        L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-            attribution: '© Google Maps'
-        }).addTo(map);
-
-
-
-    </script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Your script -->
+<script src="script.js"></script>
 
 </body>
 </html>
+
