@@ -3,14 +3,14 @@ var map = L.map('map').setView([-25.2744, 133.7751], 5.5);
 
 // Add Google Satellite Tile Layer
 L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
-    attribution: '©️ Google Maps'
+    attribution: '© Google Maps'
 }).addTo(map);
 
-// Default transparent style (invisible)
-const invisibleStyle = {
-    color: 'transparent',
-    weight: 0,
-    fillColor: 'transparent',
+// Default state border style
+const stateBorderStyle = {
+    color: "#ff0000", // Red border for states
+    weight: 2,
+    fillColor: "transparent",
     fillOpacity: 0
 };
 
@@ -22,98 +22,150 @@ const highlightStyle = {
     fillOpacity: 0.5
 };
 
-// Style on click
-const clickedStyle = {
-    color: 'blue',
-    weight: 3,
-    fillColor: 'lightblue',
-    fillOpacity: 0.6
+// Store state and suburb layers
+let allStatesLayer = L.layerGroup().addTo(map);  // Holds all state borders
+let suburbLayerGroup = L.layerGroup().addTo(map); // Holds suburbs
+let currentState = null; // Currently selected state
+
+// **INSERT YOUR STATE BORDER GEOJSON FILES HERE**
+const stateGeoJSONUrls = {
+    "New South Wales": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/nsw.json",
+    "Victoria": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/vic.json",
+    "Queensland": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/queensland.json",
+    "South Australia": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/south.json",
+    "Western Australia": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/west.json",
+    "Tasmania": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/tasmania.json",
+    "Northern Territory": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/north.json",
+    "Australian Capital Territory": "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/state/act.json"
 };
 
-// Variable to track the last clicked layer
-let clickedLayer = null;
+// **INSERT YOUR SUBURB GEOJSON FILES HERE**
+const suburbGeoJSONUrls = {
+    "New South Wales": [
+        "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/NSW1.json",
+        "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/NSW2.json",
+        "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/NSW3.json"
+    ],
+    "Victoria": ["https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/victoria.geojson"],
+    "Queensland": ["https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/queensland.geojson"],
+    "South Australia": ["https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/south.geojson"],
+    "Western Australia": ["https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/west.geojson"],
+    "Tasmania": ["https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/tasmania.geojson"],
+    "Northern Territory": ["https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/north.geojson"],
+    "Australian Capital Territory": ["https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/suburb/ACT.geojson"]
+};
 
-// Handle mouseover (show highlight)
+
+// Function to highlight a state when hovered
 function highlightFeature(e) {
     var layer = e.target;
     layer.setStyle(highlightStyle);
     layer.bringToFront();
 }
 
-// Handle mouseout (reset if not clicked)
+// Function to reset state style when mouse leaves
 function resetHighlight(e) {
     var layer = e.target;
-    if (layer !== clickedLayer) {
-        layer.setStyle(invisibleStyle);
-    }
+    layer.setStyle(stateBorderStyle);
 }
 
-// Handle click (permanent highlight)
-function handleClick(e, feature, layer) {
-    // Reset previously clicked layer
-    if (clickedLayer && clickedLayer !== layer) {
-        clickedLayer.setStyle(invisibleStyle);
-    }
+// Function to handle state selection
+function handleStateClick(e, feature, layer, stateName) {
+    if (currentState === stateName) return;
 
-    // Set new clicked layer
-    clickedLayer = layer;
+    // Clear previous suburb layers
+    suburbLayerGroup.clearLayers();
 
-    // Apply clicked style
-    layer.setStyle(clickedStyle);
+    // Show all state borders again (reset view)
+    loadAllStateBorders(stateName);
 
-    // Popup showing name (fallback if name not defined)
-    const stateName = feature.properties.name || feature.properties.SAL_NAME21 || "Unknown area";
-    L.popup()
-        .setLatLng(e.latlng)
-        .setContent(`You clicked on <strong>${stateName}</strong>`)
-        .openOn(map);
+    // Set new state and zoom
+    currentState = stateName;
+    map.fitBounds(layer.getBounds());
+
+    // Load suburbs for the selected state
+    loadSuburbsForState(stateName);
+
+    resetHighlight()
 }
 
-// Function to attach interactivity
-function onEachFeature(feature, layer) {
-    layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: function (e) {
-            handleClick(e, feature, layer);
-        }
+function loadAllStateBorders(excludeState = null) {
+    allStatesLayer.clearLayers(); // Clear existing state borders
+
+    Object.entries(stateGeoJSONUrls).forEach(([stateName, url]) => {
+        // Skip the excluded state
+        if (stateName === excludeState) return;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                L.geoJSON(data, {
+                    style: stateBorderStyle,
+                    onEachFeature: function (feature, layer) {
+                        layer.on({
+                            mouseover: highlightFeature,
+                            mouseout: resetHighlight,
+                            click: function (e) {
+                                handleStateClick(e, feature, layer, stateName);
+                            }
+                        });
+                    }
+                }).addTo(allStatesLayer);
+            })
+            .catch(error => console.error(`Error loading state border for ${stateName}:`, error));
     });
 }
 
-// List of GeoJSON files
-const geojsonFiles = [
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/NSW1.json",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/NSW2.json",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/NSW3.json",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/ACT.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/north.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/west.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/other.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/outside.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/queensland.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/victoria.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/south.geojson",
-    "https://raw.githubusercontent.com/cherylchiaa/FIT3164/refs/heads/main/tasmania.geojson"
-    // Add others as needed...
-];
+// Function to load suburbs when a state is selected
+function loadSuburbsForState(stateName) {
+    if (suburbGeoJSONUrls[stateName]) {
+        suburbGeoJSONUrls[stateName].forEach(url => {
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    L.geoJSON(data, {
+                        style: {
+                            color: "#000000", // Default suburb border color
+                            weight: 1,
+                            fillOpacity: 0
+                        },
+                        onEachFeature: function (feature, layer) {
+                            const suburbName = feature.properties.SAL_NAME21 || "Unknown Suburb";
 
-// Load each GeoJSON and apply interactivity
-async function loadGeoJSONFiles() {
-    for (let i = 0; i < geojsonFiles.length; i++) {
-        try {
-            const response = await fetch(geojsonFiles[i]);
-            const data = await response.json();
+                            // Show suburb name when hovered
+                            layer.on("mouseover", function (e) {
+                                layer.setStyle({
+                                    color: "#0000ff", // Highlight border on hover
+                                    weight: 2,
+                                    fillColor: "#00ff00",
+                                    fillOpacity: 0.7
+                                });
+                            });
 
-            // Add GeoJSON with invisible default style and interactivity
-            L.geoJSON(data, {
-                style: invisibleStyle,
-                onEachFeature: onEachFeature
-            }).addTo(map);
-        } catch (err) {
-            console.error(`Error loading ${geojsonFiles[i]}:`, err);
-        }
+                            // Reset to normal style when mouse leaves
+                            layer.on("mouseout", function () {
+                                layer.setStyle({
+                                    color: "#000000", // Default suburb border
+                                    weight: 1,
+                                    fillOpacity: 0
+                                });
+                            });
+
+                            // Click event to display suburb name
+                            layer.on("click", function () {
+                                alert(`Suburb: ${suburbName}`);
+                            });
+                        }
+                    }).addTo(suburbLayerGroup);
+                })
+                .catch(error => console.error(`Error loading suburbs for ${stateName}:`, error));
+        });
+    } else {
+        console.warn(`No suburb data available for ${stateName}`);
     }
 }
 
-// Call function to load all files
-loadGeoJSONFiles();
+
+// Initial load of all states
+loadAllStateBorders();
+
