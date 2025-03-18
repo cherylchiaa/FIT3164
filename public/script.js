@@ -65,6 +65,7 @@ function highlightFeature(e) {
 
 // Function to reset state style when mouse leaves
 function resetHighlight(e) {
+    if (!e || !e.target) return;
     var layer = e.target;
     layer.setStyle(stateBorderStyle);
 }
@@ -133,7 +134,7 @@ function loadSuburbsForState(stateName) {
                             const suburbName = feature.properties.SAL_NAME21 || "Unknown Suburb";
 
                             // Show suburb name when hovered
-                            layer.on("mouseover", function (e) {
+                            layer.on("mouseover", function () {
                                 layer.setStyle({
                                     color: "#0000ff", // Highlight border on hover
                                     weight: 2,
@@ -151,10 +152,36 @@ function loadSuburbsForState(stateName) {
                                 });
                             });
 
-                            // Click event to display suburb name
-                            layer.on("click", function () {
-                                alert(`Suburb: ${suburbName}`);
+                            // Click event to fetch weather data
+                            layer.on("click", async function (e) {
+                                const latlng = e.latlng;
+                                console.log(`📍 Clicked on: ${suburbName}`);
+                                console.log(`🌍 Coordinates: Latitude: ${latlng.lat}, Longitude: ${latlng.lng}`);
+                            
+                                // Fetch weather data from the nearest available station
+                                const weatherData = await fetchWeatherData(latlng.lat, latlng.lng, "2024-01-01");
+                            
+                                let popupContent = `<strong>${suburbName}</strong><br>Lat: ${latlng.lat.toFixed(6)}, Lng: ${latlng.lng.toFixed(6)}`;
+                            
+                                if (weatherData) {
+                                    popupContent += `
+                                        <hr>
+                                        <strong>Nearest Station with Data:</strong> ${weatherData.stationName} (${weatherData.stationId})<br>
+                                        <strong>Temperature:</strong> ${weatherData.tavg ?? "N/A"}°C<br>
+                                        <strong>Min Temp:</strong> ${weatherData.tmin ?? "N/A"}°C<br>
+                                        <strong>Max Temp:</strong> ${weatherData.tmax ?? "N/A"}°C<br>
+                                        <strong>Precipitation:</strong> ${weatherData.prcp ?? "N/A"} mm
+                                    `;
+                                } else {
+                                    popupContent += `<br><br>⚠ No weather data available at any nearby stations.`;
+                                }
+                            
+                                L.popup()
+                                    .setLatLng(latlng)
+                                    .setContent(popupContent)
+                                    .openOn(map);
                             });
+                            
                         }
                     }).addTo(suburbLayerGroup);
                 })
@@ -165,6 +192,63 @@ function loadSuburbsForState(stateName) {
     }
 }
 
+
+const API_KEY = "b0b28c687emshb3573bfc282d14cp12ee6djsn3c6a84518f23"; 
+const API_HOST = "meteostat.p.rapidapi.com";
+
+// Function to get the nearest weather station
+async function fetchWeatherData(latitude, longitude, date) {
+    const url = `https://meteostat.p.rapidapi.com/stations/nearby?lat=${latitude}&lon=${longitude}&limit=5`;
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "X-RapidAPI-Key": API_KEY,
+                "X-RapidAPI-Host": API_HOST
+            }
+        });
+
+        const stationData = await response.json();
+        if (!stationData.data.length) {
+            console.log("❌ No nearby stations found.");
+            return null;
+        }
+
+        let i = 0;
+        while (i < stationData.data.length) {
+            const station = stationData.data[i];
+            const stationId = station.id;
+            const stationName = station.name;
+
+            const weatherUrl = `https://meteostat.p.rapidapi.com/stations/daily?station=${stationId}&start=${date}&end=${date}&units=metric`;
+
+            const weatherResponse = await fetch(weatherUrl, {
+                method: "GET",
+                headers: {
+                    "X-RapidAPI-Key": API_KEY,
+                    "X-RapidAPI-Host": API_HOST
+                }
+            });
+
+            const weatherData = await weatherResponse.json();
+            
+            if (weatherData.data.length > 0) {
+                console.log(`✅ Found weather data at ${stationName} (${stationId}):`, weatherData.data[0]);
+                return { stationId, stationName, ...weatherData.data[0] }; // Return the first station with data
+            }
+
+            console.log(`⚠ No data at ${stationName} (${stationId}), trying next station...`);
+            i++;
+        }
+
+        console.log("❌ No weather data found for any nearby stations.");
+        return null;
+    } catch (error) {
+        console.error("❌ Error fetching weather data:", error.message);
+        return null;
+    }
+}
 
 // Initial load of all states
 loadAllStateBorders();
