@@ -3,11 +3,14 @@ const express = require('express');
 const axios = require('axios');
 require('dotenv').config();
 const path = require('path'); // Required for file paths
+const mongoose = require("mongoose");
 
 const app = express();
 
 // Define the port number
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+const Weather = require("./model/Weather");
 
 // Serve static files from the "public" folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -64,6 +67,30 @@ app.get('/api/meteostat', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+async function connectDB() {
+  try {
+      await mongoose.connect(process.env.MONGO_URI, {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          serverSelectionTimeoutMS: 30000,
+      });
+      console.log("✅ Connected to MongoDB Atlas");
+
+      // ✅ Fetch and Print First Weather Record
+      const firstDoc = await Weather.findOne();
+      if (firstDoc) {
+          console.log("🌍 First Weather Data:", firstDoc);
+      } else {
+          console.log("⚠️ No weather data found.");
+      }
+
+  } catch (error) {
+      console.error("❌ MongoDB Connection Error:", error.message);
+      process.exit(1);
+  }
+}
+connectDB();
 
 // Start the server
 app.listen(PORT, () => {
