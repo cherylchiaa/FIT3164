@@ -92,6 +92,52 @@ async function connectDB() {
 }
 connectDB();
 
+app.get('/api/geocode', async (req, res) => {
+  const place = req.query.place;
+  if (!place) {
+    return res.status(400).json({ message: 'Missing place parameter' });
+  }
+
+  try {
+    const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json`, {
+      params: {
+        q: place,
+        key: process.env.OPENCAGE_API_KEY
+      }
+    });
+
+    res.json(response.data);
+  } catch (error) {
+    console.error("Geocode API error:", error.message);
+    res.status(500).json({ message: 'Geocoding failed' });
+  }
+});
+
+app.get('/weather', async (req, res) => {
+  console.log("📡 /weather route hit");
+  const { station, date } = req.query;
+  console.log("📥 Received query:", req.query);
+  console.log(station)
+  if (!station || !date) {
+    return res.status(400).json({ message: "Missing station or date" });
+  }
+
+  try {
+    const result = await Weather.find({
+      station_name: new RegExp(station, 'i'), // Case-insensitive match
+      time: {
+        $gte: new Date(date + 'T00:00:00Z'),
+        $lte: new Date(date + 'T23:59:59Z')
+      }
+    });
+
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Database query failed" });
+  }
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

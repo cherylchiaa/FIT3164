@@ -58,19 +58,13 @@
 
     <!-- Control Panel -->
     <div class="control-panel">
-        <input type="text" placeholder="Search..." />
+        <span class="search-icon">🔍</span>
+        <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
+        <ul id="suggestion-list" class="suggestions"></ul>
         <br><br>
-        <label>Year:</label>
-        <select>
-            <option>2024</option>
-            <option>2023</option>
-        </select>
-        <label>Month:</label>
-        <select>
-            <option>Jan</option>
-            <option>Feb</option>
-        </select>
-        <br><br>
+        <span>Date:</span>
+            <input type="date" id="date" value="2023-12-31">
+            <br><br>
         <input type="range" min="1" max="31">
         <br><br>
         <button>Temperature</button>
@@ -79,10 +73,6 @@
     </div>
 
     <!-- Bottom Navigation -->
-    <!-- <div class="bottom-nav">
-        <button>🏠 Home</button>
-        <button>📊 Statistics</button>
-    </div> -->
     <div class="bottom-nav">
         <!-- Link to Home Page -->
         <button onclick="window.location.href = 'server.html'">🏠 Home</button>

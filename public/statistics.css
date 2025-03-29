@@ -161,3 +161,22 @@ input[type="date"] {
     font-size: 16px;
     cursor: pointer;
 }
+
+/* HI anyone see this help change so that the suggestions go under the search bar tq idk how to do css*/
+.suggestions {
+    list-style-type: none;
+    margin-top: 80px; /* Push below the input */
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent background */
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    width: 90%;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+}
