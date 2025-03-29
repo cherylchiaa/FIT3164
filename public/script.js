@@ -65,6 +65,7 @@ function highlightFeature(e) {
 
 // Function to reset state style when mouse leaves
 function resetHighlight(e) {
+    if (!e || !e.target) return;
     var layer = e.target;
     layer.setStyle(stateBorderStyle);
 }
@@ -152,9 +153,34 @@ function loadSuburbsForState(stateName) {
                             });
 
                             // Click event to display suburb name
-                            layer.on("click", function () {
-                                alert(`Suburb: ${suburbName}`);
-                            });
+                            layer.on("click", async function (e) {
+                                const latlng = e.latlng;
+                                console.log(`📍 Clicked on: ${suburbName}`);
+                                console.log(`🌍 Coordinates: Latitude: ${latlng.lat}, Longitude: ${latlng.lng}`);
+                            
+                                // Fetch weather data from the nearest available station
+                                const weatherData = await fetchWeatherData(latlng.lat, latlng.lng, "2024-01-01");
+                            
+                                let popupContent = `<strong>${suburbName}</strong><br>Lat: ${latlng.lat.toFixed(6)}, Lng: ${latlng.lng.toFixed(6)}`;
+                            
+                                if (weatherData) {
+                                    popupContent += `
+                                        <hr>
+                                        <strong>Nearest Station with Data:</strong> ${weatherData.stationName} (${weatherData.stationId})<br>
+                                        <strong>Temperature:</strong> ${weatherData.tavg ?? "N/A"}°C<br>
+                                        <strong>Min Temp:</strong> ${weatherData.tmin ?? "N/A"}°C<br>
+                                        <strong>Max Temp:</strong> ${weatherData.tmax ?? "N/A"}°C<br>
+                                        <strong>Precipitation:</strong> ${weatherData.prcp ?? "N/A"} mm
+                                    `;
+                                } else {
+                                    popupContent += `<br><br>⚠ No weather data available at any nearby stations.`;
+                                }
+                            
+                                L.popup()
+                                    .setLatLng(latlng)
+                                    .setContent(popupContent)
+                                    .openOn(map);
+                                });
                         }
                     }).addTo(suburbLayerGroup);
                 })
@@ -169,3 +195,20 @@ function loadSuburbsForState(stateName) {
 // Initial load of all states
 loadAllStateBorders();
 
+async function fetchWeatherData(latitude, longitude, date) {
+    try {
+      const response = await fetch(`/api/meteostat?lat=${latitude}&lon=${longitude}&date=${date}`);
+      const data = await response.json();
+  
+      if (data && data.stationId) {
+        console.log(`✅ Found weather data at ${data.stationName.en || data.stationName} (${data.stationId}):`, data);
+        return data;
+      } else {
+        console.log("❌ No weather data found for any nearby stations.");
+        return null;
+      }
+    } catch (err) {
+      console.error("❌ Error fetching weather data:", err);
+      return null;
+    }
+  }
