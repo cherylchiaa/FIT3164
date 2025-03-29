@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="statistics.css">
+    
+    <!-- Internal CSS -->
+    <style>
+        body {
+            background-image: url('images/cloudy_sky.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            padding: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-card">
+        <div class="weather-info">
+            <label for="date">Australia</label><br>
+
+            <!-- Date input (selectable) -->
+            <span>Date:</span>
+            <input type="date" id="date" value="2023-12-31"><br><br>
+
+            <span>Season: Summer</span><br>
+            <span>Temperature: 29°C</span><br>
+            <span>Wind Speed: 22 kph</span><br>
+            <span>Rain: 0 mm</span>
+        </div>
+
+
+        <div class="search-container">
+            <!-- Search Bar with Icon -->
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-bar" placeholder="Search Location">
+        </div>
+
+        <div class="selection-container">
+            <label for="statistics-options">Choose View:</label>
+            <select id="statistics-options">
+                <option value="current-year">View statistics of the current year</option>
+                <option value="current-month">View statistics of the current month</option>
+                <option value="long-term">View long term trend of this location</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Weather Info Cards -->
+        <div class="info-card">
+            <h3>Temperature at 9am and 3pm in December</h3>
+            <p>Comparison of temperatures at 9am and 3pm throughout December.</p>
+        </div>
+        <div class="info-card">
+            <h3>Rainfall in December</h3>
+            <p>Shows the rainfall distribution for December.</p>
+        </div>
+        <div class="info-card">
+            <h3>Average Wind Speed in December</h3>
+            <p>Displays the average wind speed throughout December.</p>
+        </div>
+    </div>
+
+
+
+    <div class="bottom-nav">
+        <!-- Link to Home Page -->
+        <button onclick="window.location.href = 'server.html'">🏠 Home</button>
+        
+        <!-- Link to Statistics Page (Redirect to another HTML file) -->
+        <button onclick="window.location.href = 'statistics.html'">📊 Statistics</button>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

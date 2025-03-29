@@ -1,0 +1,163 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    height: 100vh;
+}
+
+.weather-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 20px;
+    width: 1350px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+
+/* Making the font larger for the label */
+label {
+    font-size: 40px; /* Increase font size */
+    font-weight: bold;
+}
+
+/* Making the font larger for the date label */
+span {
+    font-size: 18px; /* Increase font size */
+    font-weight: normal; /* Optional: make the text weight normal */
+    margin-bottom: 5px; /* Optional: add space between lines */
+}
+
+/* Making the font larger for the input */
+input[type="date"] {
+    padding: 8px;
+    font-size: 18px; /* Increase font size */
+    width: 20%;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Optional: Make other text larger if needed */
+.weather-card span {
+    font-size: 18px; /* Increase font size for all span text */
+}
+
+/* Container for the search bar */
+.search-container {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 5px 15px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Search input field */
+#search-bar {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px;
+    background-color: transparent;
+    font-family: Arial, sans-serif;
+}
+
+/* Search icon styling */
+.search-icon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+
+/* Main container to align the cards side by side */
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 20px; /* Optional: add some margin around the container */
+    margin-bottom: 80px;
+}
+
+/* Individual info card styling */
+.info-card {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 20px;
+    width: 30%; /* Each card will take up 30% of the available width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    height: 280px;
+}
+
+.info-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Styling for the selection container */
+.selection-container {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selection-container label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#statistics-options {
+    font-size: 14px;
+    padding: 5px;
+    width: 250px; /* Width of the dropdown */
+    border-radius: 5px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.bottom-nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
