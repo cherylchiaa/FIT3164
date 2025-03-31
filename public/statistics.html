@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+  <html lang="en">
+    <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="statistics.css">
-    
-    <!-- Internal CSS -->
-    <style>
-        body {
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="statistics.css">
+          
+          <!-- Internal CSS -->
+          <style>
+          body {
             background-image: url('images/cloudy_sky.jpg');
             background-size: cover;
             background-position: center;
@@ -16,80 +16,114 @@
             margin: 0;
             height: 100vh;
             font-family: Arial, sans-serif;
-        }
-
+          }
+        
         .container {
-            padding: 20px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
+          padding: 20px;
+          color: white;
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
         }
-    </style>
-</head>
-<body>
-    <div class="weather-card">
-        <div class="weather-info">
-            <label for="date">Australia</label><br>
-        
-            <!-- Date input (selectable) -->
-            <span>Date:</span>
-            <input type="date" id="date" value="2023-12-31">
-            <br><br>
-        
-            <span>Season: <span id="season">Summer</span></span><br>
-            <span>Average Temperature: <span id="avg-temperature">--</span></span><br>
-            <span>Minimum Temperature: <span id="min-temperature">--</span></span><br>
-            <span>Maximum Temperature: <span id="max-temperature">--</span></span><br>
-            <span>Rain: <span id="prcp">--</span></span>
-            <span>Wind Speed: <span id="windSpeed">--</span></span><br>
-
-        </div>
-        
-
-
-        <div class="search-container">
-            <!-- Search Bar with Icon -->
-            <span class="search-icon">🔍</span>
-            <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
-            <ul id="suggestion-list" class="suggestions"></ul>
-        </div>
-
-        <div class="selection-container">
-            <label for="statistics-options">Choose Data Window:</label>
-            <select id="statistics-options">
-                <option value="current-month">Current Month</option>
-                <option value="current-year">Current Year</option>
-                <option value="long-term">Long Term</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="main-container">
-        <!-- Weather Info Cards -->
-        <div class="info-card">
-            <h3>Temperature at 9am and 3pm in December</h3>
-            <p>Comparison of temperatures at 9am and 3pm throughout December.</p>
-        </div>
-        <div class="info-card">
-            <h3>Rainfall in December</h3>
-            <p>Shows the rainfall distribution for December.</p>
-        </div>
-        <div class="info-card">
-            <h3>Average Wind Speed in December</h3>
-            <p>Displays the average wind speed throughout December.</p>
-        </div>
-    </div>
-
-
-
-    <div class="bottom-nav">
-        <!-- Link to Home Page -->
-        <button onclick="window.location.href = 'server.html'">🏠 Home</button>
-        
-        <!-- Link to Statistics Page (Redirect to another HTML file) -->
-        <button onclick="window.location.href = 'statistics.html'">📊 Statistics</button>
-    </div>
-    
-    <script src="statistics.js"></script>
-</body>
-</html>
+        </style>
+          </head>
+          <body>
+          <div class="weather-card">
+          <label for="date">Australia</label><br>
+          <div class="weather-info">
+          
+          
+          <!-- Date input (selectable) -->
+          <br><br>
+          
+          <!-- <span>Season: <span id="season">Summer</span></span><br>
+          <span>Average Temperature: <span id="avg-temperature">--</span></span><br>
+          <span>Minimum Temperature: <span id="min-temperature">--</span></span><br>
+          <span>Maximum Temperature: <span id="max-temperature">--</span></span><br>
+          <span>Rain: <span id="prcp">--</span></span>
+          <span>Wind Speed: <span id="windSpeed">--</span></span><br> -->
+          
+          <div class="left-container">
+          <span>Season: <span id="season">Summer</span></span><br>
+          <span>Rain: <span id="prcp">--</span></span><br>
+          <span>Wind Speed: <span id="windSpeed">--</span></span><br>
+          </div>
+          
+          <div class="right-container">           
+          <span>Average Temperature: <span id="avg-temperature">--</span></span><br>
+          <span>Minimum Temperature: <span id="min-temperature">--</span></span><br>
+          <span>Maximum Temperature: <span id="max-temperature">--</span></span><br>
+          </div>
+          
+          </div>
+          
+          
+          
+          <div class="search-container">
+          <!-- Search Bar with Icon -->
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
+          <ul id="suggestion-list" class="suggestions"></ul>
+          </div>
+          
+          <div class="selection-container">
+          <label for="statistics-options">Choose Data Window:</label>
+          <br>
+          <br>
+          <!-- <select id="statistics-options">
+          <option value="current-month">Current Month</option>
+          <option value="current-year">Current Year</option>
+          <option value="long-term">Long Term</option>
+          </select> -->
+          <label>
+          <input type="radio" name="statistics-options" value="current-month" checked>
+          Current Month
+        </label><br>
+          <label>
+          <input type="radio" name="statistics-options" value="current-year">
+          Current Year
+        </label><br>
+          <label>
+          <input type="radio" name="statistics-options" value="long-term">
+          Long Term
+        </label>
+          </div>
+          
+          <div class="date-container">
+          <span>You are viewing date:</span>
+          <br>
+          <br>
+          <input type="date" id="date" value="2023-12-31">
+          </div>  
+          
+          </div>
+          
+          <div class="main-container">
+          <!-- Weather Info Cards -->
+          <div class="info-card">
+          <h3>Temperature at 9am and 3pm in December</h3>
+          <p>Comparison of temperatures at 9am and 3pm throughout December.</p>
+          </div>
+          <div class="info-card">
+          <h3>Rainfall in December</h3>
+          <p>Shows the rainfall distribution for December.</p>
+          </div>
+          <div class="info-card">
+          <h3>Average Wind Speed in December</h3>
+          <p>Displays the average wind speed throughout December.</p>
+          </div>
+          </div>
+          
+          
+          
+          <div class="bottom-nav">
+          <!-- Link to Home Page -->
+          <button onclick="window.location.href = 'server.html'">🏠 Home</button>
+          
+          <!-- Link to Statistics Page (Redirect to another HTML file) -->
+          <button onclick="window.location.href = 'statistics.html'">📊 Statistics</button>
+          </div>
+          
+          <script src="statistics.js"></script>
+          </body>
+          </html>
+          
