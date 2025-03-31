@@ -1,5 +1,5 @@
 // Initialize Map (Centered on Australia)
-var map = L.map('map').setView([-25.2744, 133.7751], 5.5);
+var map = L.map('map').setView([-28.2744, 129.7751], 5);
 
 // Add Google Satellite Tile Layer
 L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
@@ -8,7 +8,8 @@ L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
 
 // Default state border style
 const stateBorderStyle = {
-    color: "#ff0000", // Red border for states
+    // color: "#ff0000", 
+    color: "none", 
     weight: 2,
     fillColor: "transparent",
     fillOpacity: 0
@@ -16,9 +17,9 @@ const stateBorderStyle = {
 
 // Style on hover
 const highlightStyle = {
-    color: '#000',
-    weight: 2,
-    fillColor: '#ff7800',
+    color: 'white',
+    weight: 5,
+    fillColor: 'none',
     fillOpacity: 0.5
 };
 
@@ -126,7 +127,7 @@ function loadSuburbsForState(stateName) {
                 .then(data => {
                     L.geoJSON(data, {
                         style: {
-                            color: "#000000", // Default suburb border color
+                            color: "transparent", 
                             weight: 1,
                             fillOpacity: 0
                         },
@@ -136,20 +137,33 @@ function loadSuburbsForState(stateName) {
                             // Show suburb name when hovered
                             layer.on("mouseover", function (e) {
                                 layer.setStyle({
-                                    color: "#0000ff", // Highlight border on hover
-                                    weight: 2,
-                                    fillColor: "#00ff00",
+                                    color: "white", // Highlight border on hover
+                                    weight: 3,
+                                    fillColor: "transparent",
                                     fillOpacity: 0.7
                                 });
+
+                            // Bind and show the tooltip with the suburb name
+                            layer.bindTooltip(suburbName, {
+                                permanent: false,  // Tooltip only shows when hovered
+                                direction: 'top',  // Position the tooltip above the area
+                                opacity: 0.8,      // Tooltip opacity
+                                className: 'custom-tooltip' // Optional: Custom class for styling the tooltip
+                            }).openTooltip();
+                        
                             });
 
                             // Reset to normal style when mouse leaves
                             layer.on("mouseout", function () {
                                 layer.setStyle({
-                                    color: "#000000", // Default suburb border
+                                    color: "transparent", // Default suburb border
                                     weight: 1,
                                     fillOpacity: 0
                                 });
+
+                            // Close the tooltip when mouse leaves the area
+                            layer.closeTooltip();
+
                             });
 
                             // Click event to display suburb name
