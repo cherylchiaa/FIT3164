@@ -53,7 +53,7 @@ async function fetchWeatherForSelectedPlace(place,date) {
     if (!coords) return;
   
     // Step 2: Get nearest station using coordinates
-    const station = await getNearestWeatherStation(coords.lat, coords.lng);
+    const station = await getNearestWeatherStation(coords.lat, coords.lng, date);
     console.log(station)
     if (!station) {
       console.log("⚠️ No nearby weather station found.");
@@ -106,16 +106,20 @@ async function fetchWeatherForSelectedPlace(place,date) {
     }
   }
 
-  async function getNearestWeatherStation(lat, lon) {
+  async function getNearestWeatherStation(lat, lon, date) {
     try {
-      const response = await fetch(`/api/station?lat=${lat}&lon=${lon}`);
+      const response = await fetch(`/api/meteostat?lat=${lat}&lon=${lon}&date=${date}`);
       const data = await response.json();
   
       if (response.ok) {
-        console.log("📡 Nearest station:", data);
-        return data;
+        console.log("📡 Nearest station with data:", data);
+        return {
+          id: data.stationId,
+          name: data.stationName,
+          ...data
+        };
       } else {
-        console.warn("⚠️ No nearby station found");
+        console.warn("⚠️ No nearby station found with data");
         return null;
       }
     } catch (err) {
@@ -123,6 +127,7 @@ async function fetchWeatherForSelectedPlace(place,date) {
       return null;
     }
   }
+  
   
   
     

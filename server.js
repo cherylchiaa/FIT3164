@@ -138,37 +138,6 @@ app.get('/weather', async (req, res) => {
   }
 });
 
-app.get('/api/station', async (req, res) => {
-  const { lat, lon } = req.query;
-
-  if (!lat || !lon) {
-    return res.status(400).json({ message: 'Missing lat or lon' });
-  }
-
-  try {
-    const stationRes = await axios.get(
-      `https://meteostat.p.rapidapi.com/stations/nearby?lat=${lat}&lon=${lon}&limit=1`,
-      {
-        headers: {
-          'X-RapidAPI-Key': process.env.METEOSTAT_API_KEY,
-          'X-RapidAPI-Host': 'meteostat.p.rapidapi.com'
-        }
-      }
-    );
-
-    const stations = stationRes.data.data;
-    if (stations.length > 0) {
-      res.json(stations[0]); // return only the nearest station
-    } else {
-      res.status(404).json({ message: 'No station found' });
-    }
-  } catch (error) {
-    console.error("❌ Meteostat station error:", error.message);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

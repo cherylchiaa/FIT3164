@@ -19,8 +19,8 @@ const stateBorderStyle = {
 const highlightStyle = {
     color: 'white',
     weight: 5,
-    fillColor: 'none',
-    fillOpacity: 0.5
+    fillColor: '#000000',
+    fillOpacity: 0
 };
 
 // Store state and suburb layers
@@ -95,7 +95,6 @@ function loadAllStateBorders(excludeState = null) {
     allStatesLayer.clearLayers(); // Clear existing state borders
 
     Object.entries(stateGeoJSONUrls).forEach(([stateName, url]) => {
-        // Skip the excluded state
         if (stateName === excludeState) return;
 
         fetch(url)
@@ -104,12 +103,31 @@ function loadAllStateBorders(excludeState = null) {
                 L.geoJSON(data, {
                     style: stateBorderStyle,
                     onEachFeature: function (feature, layer) {
-                        layer.on({
-                            mouseover: highlightFeature,
-                            mouseout: resetHighlight,
-                            click: function (e) {
-                                handleStateClick(e, feature, layer, stateName);
-                            }
+                        // Calculate the center of the polygon
+                        const center = layer.getBounds().getCenter();
+
+                        // Bind a tooltip at the center
+                        const tooltip = L.tooltip({
+                            permanent: false,
+                            direction: 'center',
+                            className: 'state-tooltip'
+                        })
+                        .setContent(stateName)
+                        .setLatLng(center);
+
+                        // Add tooltip manually to the map (not attached to the layer)
+                        layer.on("mouseover", function () {
+                            highlightFeature({ target: layer });
+                            map.openTooltip(tooltip);
+                        });
+
+                        layer.on("mouseout", function () {
+                            resetHighlight({ target: layer });
+                            map.closeTooltip(tooltip);
+                        });
+
+                        layer.on("click", function (e) {
+                            handleStateClick(e, feature, layer, stateName);
                         });
                     }
                 }).addTo(allStatesLayer);
@@ -117,6 +135,8 @@ function loadAllStateBorders(excludeState = null) {
             .catch(error => console.error(`Error loading state border for ${stateName}:`, error));
     });
 }
+
+
 
 // Function to load suburbs when a state is selected
 function loadSuburbsForState(stateName) {
