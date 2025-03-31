@@ -82,8 +82,7 @@ async function fetchWeatherForSelectedPlace(place,date) {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(placeName)
-    console.log(data)
+
       if (data.results.length > 0) {
         const result = data.results.find(r =>
             (r.components.suburb && r.components.suburb.toLowerCase() === placeName.toLowerCase()) ||
@@ -95,6 +94,7 @@ async function fetchWeatherForSelectedPlace(place,date) {
         if (!result) return null;
   
         const { lat, lng } = result.geometry;
+        console.log(lat,lng)
         return { lat, lng };
       } else {
         console.warn("No coordinates found for", placeName);

@@ -169,14 +169,11 @@ function loadSuburbsForState(stateName) {
                             // Click event to display suburb name
                             layer.on("click", async function (e) {
                                 const latlng = e.latlng;
-                                console.log(`📍 Clicked on: ${suburbName}`);
-                                console.log(`🌍 Coordinates: Latitude: ${latlng.lat}, Longitude: ${latlng.lng}`);
+
                                 const selectedDate = document.getElementById("date").value;
                                 // Fetch weather data from the nearest available station
-                                const weatherData = await fetchWeatherData(latlng.lat, latlng.lng, selectedDate);
                             
                                 const data = await fetchWeatherData(latlng.lat, latlng.lng, selectedDate);
-                                console.log(latlng.lat, latlng.lng)
                                 });
                         }
                     }).addTo(suburbLayerGroup);
@@ -229,6 +226,7 @@ async function getCoordinatesFromPlaceName(placeName) {
         if (!result) return null;
   
         const { lat, lng } = result.geometry;
+        console.log(lat,lng)
         return { lat, lng };
       } else {
         console.warn("No coordinates found for", placeName);
@@ -296,7 +294,6 @@ function showSuggestions() {
         console.warn("⚠️ Could not retrieve coordinates.");
         return;
       }
-      console.log(coords.lat,coords.lng)
       await fetchWeatherData(coords.lat, coords.lng, selectedDate);
     };
 
