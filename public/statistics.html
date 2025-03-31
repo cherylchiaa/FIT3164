@@ -30,30 +30,36 @@
     <div class="weather-card">
         <div class="weather-info">
             <label for="date">Australia</label><br>
-
+        
             <!-- Date input (selectable) -->
             <span>Date:</span>
-            <input type="date" id="date" value="2023-12-31"><br><br>
+            <input type="date" id="date" value="2023-12-31">
+            <br><br>
+        
+            <span>Season: <span id="season">Summer</span></span><br>
+            <span>Average Temperature: <span id="avg-temperature">--</span></span><br>
+            <span>Minimum Temperature: <span id="min-temperature">--</span></span><br>
+            <span>Maximum Temperature: <span id="max-temperature">--</span></span><br>
+            <span>Rain: <span id="prcp">--</span></span>
+            <span>Wind Speed: <span id="windSpeed">--</span></span><br>
 
-            <span>Season: Summer</span><br>
-            <span>Temperature: 29°C</span><br>
-            <span>Wind Speed: 22 kph</span><br>
-            <span>Rain: 0 mm</span>
         </div>
+        
 
 
         <div class="search-container">
             <!-- Search Bar with Icon -->
             <span class="search-icon">🔍</span>
-            <input type="text" id="search-bar" placeholder="Search Location">
+            <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
+            <ul id="suggestion-list" class="suggestions"></ul>
         </div>
 
         <div class="selection-container">
-            <label for="statistics-options">Choose View:</label>
+            <label for="statistics-options">Choose Data Window:</label>
             <select id="statistics-options">
-                <option value="current-year">View statistics of the current year</option>
-                <option value="current-month">View statistics of the current month</option>
-                <option value="long-term">View long term trend of this location</option>
+                <option value="current-month">Current Month</option>
+                <option value="current-year">Current Year</option>
+                <option value="long-term">Long Term</option>
             </select>
         </div>
     </div>
@@ -84,6 +90,6 @@
         <button onclick="window.location.href = 'statistics.html'">📊 Statistics</button>
     </div>
     
-    <script src="script.js"></script>
+    <script src="statistics.js"></script>
 </body>
 </html>

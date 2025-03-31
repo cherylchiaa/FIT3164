@@ -3,7 +3,7 @@ var map = L.map('map').setView([-25.2744, 133.7751], 5.5);
 
 // Add Google Satellite Tile Layer
 L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
-    attribution: '© Google Maps'
+    attribution: '©️ Google Maps'
 }).addTo(map);
 
 // Default state border style
@@ -157,29 +157,12 @@ function loadSuburbsForState(stateName) {
                                 const latlng = e.latlng;
                                 console.log(`📍 Clicked on: ${suburbName}`);
                                 console.log(`🌍 Coordinates: Latitude: ${latlng.lat}, Longitude: ${latlng.lng}`);
-                            
+                                const selectedDate = document.getElementById("date").value;
                                 // Fetch weather data from the nearest available station
-                                const weatherData = await fetchWeatherData(latlng.lat, latlng.lng, "2024-01-01");
+                                const weatherData = await fetchWeatherData(latlng.lat, latlng.lng, selectedDate);
                             
-                                let popupContent = `<strong>${suburbName}</strong><br>Lat: ${latlng.lat.toFixed(6)}, Lng: ${latlng.lng.toFixed(6)}`;
-                            
-                                if (weatherData) {
-                                    popupContent += `
-                                        <hr>
-                                        <strong>Nearest Station with Data:</strong> ${weatherData.stationName} (${weatherData.stationId})<br>
-                                        <strong>Temperature:</strong> ${weatherData.tavg ?? "N/A"}°C<br>
-                                        <strong>Min Temp:</strong> ${weatherData.tmin ?? "N/A"}°C<br>
-                                        <strong>Max Temp:</strong> ${weatherData.tmax ?? "N/A"}°C<br>
-                                        <strong>Precipitation:</strong> ${weatherData.prcp ?? "N/A"} mm
-                                    `;
-                                } else {
-                                    popupContent += `<br><br>⚠ No weather data available at any nearby stations.`;
-                                }
-                            
-                                L.popup()
-                                    .setLatLng(latlng)
-                                    .setContent(popupContent)
-                                    .openOn(map);
+                                const data = await fetchWeatherData(latlng.lat, latlng.lng, selectedDate);
+                                console.log(latlng.lat, latlng.lng)
                                 });
                         }
                     }).addTo(suburbLayerGroup);
@@ -212,3 +195,125 @@ async function fetchWeatherData(latitude, longitude, date) {
       return null;
     }
   }
+
+async function getCoordinatesFromPlaceName(placeName) {
+    const url = `/api/geocode?place=${encodeURIComponent(placeName)}`;
+  
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      console.log(placeName)
+    console.log(data)
+      if (data.results.length > 0) {
+        const result = data.results.find(r =>
+            (r.components.suburb && r.components.suburb.toLowerCase() === placeName.toLowerCase()) ||
+            (r.components.city && r.components.city.toLowerCase() === placeName.toLowerCase()) ||
+            (r.components.town && r.components.town.toLowerCase() === placeName.toLowerCase()) ||
+            (r.components.municipality && r.components.municipality.toLowerCase() === placeName.toLowerCase())
+          );
+
+        if (!result) return null;
+  
+        const { lat, lng } = result.geometry;
+        return { lat, lng };
+      } else {
+        console.warn("No coordinates found for", placeName);
+        return null;
+      }
+    } catch (err) {
+      console.error("Geocoding error:", err);
+      return null;
+    }
+  }
+  
+  async function handleStateSearchSelection(stateName) {
+    suburbLayerGroup.clearLayers();
+    loadAllStateBorders(stateName);
+    currentState = stateName;
+  
+    const response = await fetch(stateGeoJSONUrls[stateName]);
+    const data = await response.json();
+  
+    const layer = L.geoJSON(data);
+    map.fitBounds(layer.getBounds());
+  
+    loadSuburbsForState(stateName);
+  }
+
+  let locations = [];
+
+fetch('all-suburbs.json')
+  .then(res => res.json())
+  .then(data => {
+    locations = data;
+    console.log("✅ Place data loaded.");
+  })
+  .catch(err => console.error("❌ Failed to load all-suburbs.json:", err));
+
+function showSuggestions() {
+  const input = document.getElementById("search-bar").value.toLowerCase();
+  const suggestionList = document.getElementById("suggestion-list");
+
+  suggestionList.innerHTML = '';
+
+  // Filter matches
+  const matches = input
+    ? locations.filter(loc =>
+        (loc.suburb || loc.state).toLowerCase().startsWith(input)
+      ).slice(0, 5)
+    : locations.slice(0, 8);
+
+  matches.forEach(loc => {
+    const name = loc.suburb || loc.state;
+    const li = document.createElement("li");
+    li.textContent = name;
+
+    li.onclick = async () => {
+      document.getElementById("search-bar").value = name;
+      suggestionList.style.display = 'none';
+      const selectedDate = document.getElementById("date").value;
+      console.log(`✅ User selected: ${name}`);
+
+      await handleStateSearchSelection(loc.state);
+
+    
+    const coords = await getCoordinatesFromPlaceName(loc.suburb);
+      if (!coords) {
+        console.warn("⚠️ Could not retrieve coordinates.");
+        return;
+      }
+      console.log(coords.lat,coords.lng)
+      await fetchWeatherData(coords.lat, coords.lng, selectedDate);
+    };
+
+    suggestionList.appendChild(li);
+  });
+
+  suggestionList.style.display = matches.length ? 'block' : 'none';
+}
+
+document.getElementById("date").addEventListener("change", async () => {
+    const selectedPlace = document.getElementById("search-bar").value;
+    const selectedDate = document.getElementById("date").value;
+  
+    if (selectedPlace && selectedDate) {
+      const state = getStateFromSuburb(selectedPlace);
+      if (state) {
+        await handleStateSearchSelection(state);
+      }
+  
+      const coords = await getCoordinatesFromPlaceName(selectedPlace);
+      if (coords) {
+        await fetchWeatherData(coords.lat, coords.lng, selectedDate);
+      } else {
+        console.warn("⚠️ Could not find coordinates for selected place.");
+      }
+    }
+  });
+  
+function getStateFromSuburb(suburbName) {
+  const match = locations.find(
+    loc => loc.suburb && loc.suburb.toLowerCase() === suburbName.toLowerCase()
+  );
+  return match ? match.state : null;
+}
