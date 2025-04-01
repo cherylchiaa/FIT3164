@@ -261,3 +261,7 @@ label {
     background-color: rgb(36, 80, 152); /* Change background color to light blue on hover */
     color: white; /* Change text color to white on hover */
 }
+
+.move-up-chart {
+    margin-top: -10px; /* Adjust the negative value to your liking */
+}  

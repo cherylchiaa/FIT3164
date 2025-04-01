@@ -68,6 +68,52 @@ app.get('/api/meteostat', async (req, res) => {
   }
 });
 
+app.get('/api/chart', async (req, res) => {
+  const { lat, lon, start, end } = req.query;
+
+  if (!lat || !lon || !start || !end) {
+    return res.status(400).json({ message: 'Missing required parameters' });
+  }
+
+  try {
+    // Get nearest weather station
+    const stationRes = await axios.get(
+      `https://meteostat.p.rapidapi.com/stations/nearby?lat=${lat}&lon=${lon}&limit=1`,
+      {
+        headers: {
+          'X-RapidAPI-Key': process.env.METEOSTAT_API_KEY,
+          'X-RapidAPI-Host': 'meteostat.p.rapidapi.com'
+        }
+      }
+    );
+
+    const station = stationRes.data.data[0];
+    if (!station) {
+      return res.status(404).json({ message: 'No nearby station found' });
+    }
+
+    // Fetch daily weather data
+    const weatherRes = await axios.get(
+      `https://meteostat.p.rapidapi.com/stations/daily?station=${station.id}&start=${start}&end=${end}&units=metric`,
+      {
+        headers: {
+          'X-RapidAPI-Key': process.env.METEOSTAT_API_KEY,
+          'X-RapidAPI-Host': 'meteostat.p.rapidapi.com'
+        }
+      }
+    );
+
+    res.json({
+      stationId: station.id,
+      stationName: station.name,
+      data: weatherRes.data.data
+    });
+  } catch (error) {
+    console.error("❌ Chart API error:", error.message);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
 async function connectDB() {
   try {
     await mongoose.connect(process.env.MONGO_URI, {

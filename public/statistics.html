@@ -28,7 +28,7 @@
           </head>
           <body>
           <div class="weather-card">
-          <label for="date">Australia</label><br>
+          <label id="location-label">Australia</label><br>
           <div class="weather-info">
           
           
@@ -41,11 +41,11 @@
           <span>Maximum Temperature: <span id="max-temperature">--</span></span><br>
           <span>Rain: <span id="prcp">--</span></span>
           <span>Wind Speed: <span id="windSpeed">--</span></span><br> -->
-          
+
           <div class="left-container">
-          <span>Season: <span id="season">Summer</span></span><br>
-          <span>Rain: <span id="prcp">--</span></span><br>
-          <span>Wind Speed: <span id="windSpeed">--</span></span><br>
+            <span>Season: <span id="season">Summer</span></span><br>
+            <span>Rain: <span id="prcp">--</span></span><br>
+            <span>Wind Speed: <span id="windSpeed">--</span></span><br>
           </div>
           
           <div class="right-container">           
@@ -100,16 +100,21 @@
           <div class="main-container">
           <!-- Weather Info Cards -->
           <div class="info-card">
-          <h3>Temperature at 9am and 3pm in December</h3>
-          <p>Comparison of temperatures at 9am and 3pm throughout December.</p>
+            <h3 id="temp-title">Min and Max Temperatures in December</h3>
+            <p id="temp-desc">Shows the daily minimum and maximum temperatures for December.</p>
+            <div class="chart-wrapper move-up-chart">
+              <canvas id="temperatureChart"></canvas>
+            </div>
           </div>
           <div class="info-card">
-          <h3>Rainfall in December</h3>
-          <p>Shows the rainfall distribution for December.</p>
+            <h3 id="rain-title">Rainfall in December</h3>
+            <p id="rain-desc">Shows the rainfall distribution for December.</p>
+            <canvas id="rainfallChart"></canvas>
           </div>
           <div class="info-card">
-          <h3>Average Wind Speed in December</h3>
-          <p>Displays the average wind speed throughout December.</p>
+            <h3 id="wind-title">Average Wind Speed in December</h3>
+            <p id="wind-desc">Displays the average wind speed throughout December.</p>
+            <canvas id="windChart"></canvas>
           </div>
           </div>
           
@@ -123,6 +128,7 @@
           <button onclick="window.location.href = 'statistics.html'">📊 Statistics</button>
           </div>
           
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
           <script src="statistics.js"></script>
           </body>
           </html>
