@@ -70,27 +70,32 @@ app.get('/api/meteostat', async (req, res) => {
 
 async function connectDB() {
   try {
-      await mongoose.connect(process.env.MONGO_URI, {
-          useNewUrlParser: true,
-          useUnifiedTopology: true,
-          serverSelectionTimeoutMS: 30000,
-      });
-      console.log("✅ Connected to MongoDB Atlas");
+    await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 30000,
+    });
 
-      // ✅ Fetch and Print First Weather Record
-      const firstDoc = await Weather.findOne();
-      if (firstDoc) {
-          console.log("🌍 First Weather Data:", firstDoc);
-      } else {
-          console.log("⚠️ No weather data found.");
-      }
+    console.log("✅ Connected to MongoDB Atlas");
+
+    // ✅ Fetch and Print First Valid Weather Record
+    const firstDoc = await Weather.findOne();
+
+    if (firstDoc) {
+      console.log("🌍 First Weather Record with Coordinates:");
+      console.log(firstDoc);
+    } else {
+      console.log("⚠️ No weather record found.");
+    }
 
   } catch (error) {
-      console.error("❌ MongoDB Connection Error:", error.message);
-      process.exit(1);
+    console.error("❌ MongoDB Connection Error:", error.message);
+    process.exit(1);
   }
 }
+
 connectDB();
+
 
 app.get('/api/geocode', async (req, res) => {
   const place = req.query.place;
@@ -126,15 +131,55 @@ app.get('/weather', async (req, res) => {
     const result = await Weather.find({
       station_name: new RegExp(station, 'i'), // Case-insensitive match
       time: {
+        $gte: new Date(date + 'T00:00:00Z').getTime(),
+        $lte: new Date(date + 'T23:59:59Z').getTime()
+      }
+      
+    });
+
+    res.json(result);
+    console.log(result)
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Database query failed" });
+  }
+});
+  
+app.get('/api/heatmap', async (req, res) => {
+  const { date } = req.query;
+
+  if (!date) {
+    return res.status(400).json({ message: "Missing date" });
+  }
+
+  try {
+    const weatherData = await Weather.find({
+      time: {
         $gte: new Date(date + 'T00:00:00Z'),
         $lte: new Date(date + 'T23:59:59Z')
       }
     });
 
-    res.json(result);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Database query failed" });
+    const results = [];
+
+    for (const record of weatherData) {
+      if (
+        record.tavg == null ||
+        record.latitude == null ||
+        record.longitude == null
+      ) continue;
+
+      results.push({
+        latitude: record.latitude,
+        longitude: record.longitude,
+        tavg: record.tavg
+      });
+    }
+
+    res.json(results);
+  } catch (error) {
+    console.error("🔥 Heatmap API error:", error.message);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
