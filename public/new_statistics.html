@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="new_statistics.css">
+</head>
+<body>
+
+<!-- Main Container with Two Columns -->
+<div class="container">
+    <!-- Column One: Good Morning John and Chart -->
+    <div class="column-one">
+        <!-- Left Section for Weather Info -->
+        <div class="left-section">
+            <h1>Hello, John</h1>
+            <p>Clayton, Victoria</p>
+            <p>Partly Cloudy</p>
+
+            <div class="search-container">
+                <!-- Search Bar with Icon -->
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
+                <ul id="suggestion-list" class="suggestions"></ul>
+            </div>
+
+            <div class="selection-container">
+                <label for="statistics-options">Analysis Across:</label>
+                <select id="statistics-options">
+                    <option value="current-month" selected>Current Month</option>
+                    <option value="current-year">Current Year</option>
+                    <option value="long-term">Long Term</option>
+                </select>
+            </div>
+
+            <div class="date-container">
+                <span>View Date:</span>
+                <input type="date" id="date" value="2023-12-31">
+            </div> 
+        </div>
+
+        <!-- Chart Section -->
+        <div class="chart-section">
+            <h3>Min and Max Temperatures in December</h3>
+        </div>
+
+        <div class="white-box-container">
+            <!-- First White Box (e.g., Hourly Forecast) -->
+            <div class="white-box">
+                <h3>Average Rainfall</h3>
+            </div>
+
+            <!-- Second White Box (e.g., Monthly Rainfall) -->
+            <div class="white-box">
+                <h3>Average Windspeed</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Column Two: Weather Details -->
+    <div class="column-two">
+        <!-- <div class="right-section">
+            <h2>Weather Details</h2>
+            <span>Season: <span id="season">Summer</span></span><br>
+            <span>Rain: <span id="prcp">--</span></span><br>
+            <span>Wind Speed: <span id="windSpeed">--</span></span><br>
+           
+            <span>Average Temperature: <span id="avg-temperature">--</span></span><br>
+            <span>Minimum Temperature: <span id="min-temperature">--</span></span><br>
+            <span>Maximum Temperature: <span id="max-temperature">--</span></span><br>
+        </div> -->
+
+        <div class="right-section">
+            <label id="location-label">Australia</label><br>
+            <div class="weather-info">
+                <span>Season</span> <span>|</span> <span id="season">--</span>
+            </div>
+            <div class="weather-info">
+                <span>Rainfall      </span> <span>|</span> <span id="prcp">--</span>
+            </div>
+            <div class="weather-info">
+                <span>Wind Speed</span> <span>|</span> <span id="windSpeed">--</span>
+            </div>
+            <div class="weather-info">
+                <span>Avg Temp</span> <span>|</span> <span id="avg-temperature">--</span>
+            </div>
+            <div class="weather-info">
+                <span>Min Temp</span> <span>|</span> <span id="min-temperature">--</span>
+            </div>
+            <div class="weather-info">
+                <span>Max Temp</span> <span>|</span> <span id="max-temperature">--</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

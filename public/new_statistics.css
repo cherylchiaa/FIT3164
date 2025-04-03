@@ -1,0 +1,271 @@
+/* General Body Style */
+body, html {
+    height: 100%; 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f5; /* Light grey background */
+    color: #333;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 20px; /* Adds padding to the left */
+}
+
+/* Main Container with Two Columns */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%; /* Full height of the screen */
+}
+
+/* Column One: Good Morning John and Chart */
+.column-one {
+    display: flex;
+    flex-direction: column; /* Stack Good Morning and Chart vertically */
+    width: 60%; /* Adjust width of column one */
+    padding: 20px;
+}
+
+/* Left Section Style (Good Morning and Weather Info) */
+.left-section {
+    /* background-color: #2f3c63;
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px; /* Space between Good Morning and Chart */
+    
+    background-color: #2f3c63;
+    background-image: url('images/sky.jpg'); /* Add your image here */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: bottom; /* Centers the image within the section */
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px; /* Space between Good Morning and Chart */
+    width: 98%;
+    /* opacity: 0.7; */
+}
+
+/* Container for the search bar */
+.search-container {
+    position: absolute;
+    top: 40px;
+    /* right: 50px; */
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0px 15px ;
+    width: 10.5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 46%;
+}
+
+/* Search input field */
+#search-bar {
+    border: none;
+    outline: none;
+    font-size: 12px;
+    width: 100%;
+    padding: 0px;
+    background-color: transparent;
+    font-family: Arial, sans-serif;
+}
+
+/* Search icon styling */
+.search-icon {
+    margin-right:10px;
+    font-size: 12px;
+}
+
+.selection-container {
+    position: absolute;
+    padding: 15px;
+    width: 10%; /* Set width for the container */
+    margin-left: 45%;
+    margin-top: -8%;
+}
+
+label {
+    font-size: 14px;
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+    outline: none;
+}
+
+select:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue shadow */
+}
+
+.date-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: left; 
+    font-family: Arial, sans-serif;
+    color: white;
+    margin-left: 46%;
+    margin-top: -3%;
+}
+
+.date-container span {
+    font-size: 14px; /* Font size for the label */
+    /* margin-right: 10px;  */
+    /* font-weight: bold;  */
+    margin-bottom: 10px;
+}
+
+#date {
+    padding: 2px 8px;
+    font-size: 14px; /* Adjust font size of the input */
+    border: 1px solid white;
+    border-radius: 5px; 
+    background-color: #fff; /* White background for the input */
+    color: #333; /* Text color inside the input field */
+    outline: none; /* Remove the default outline */
+    width: 100%; 
+}
+
+/* Focus style for the input field */
+#date:focus {
+    border-color: #007BFF; /* Blue border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue shadow */
+}
+
+
+
+/* Chart Section */
+.chart-section {
+    width: 98%;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px; 
+    height: 30%;
+}
+
+.chart-section h3 {
+    font-size: 18px;
+    color: #333;
+    margin-top: 0%;
+}
+
+
+/* Container for the two white boxes */
+.white-box-container {
+    display: flex;
+    justify-content: space-between; /* Space out the boxes */
+    gap: 20px; /* Adds space between the boxes */
+    width: 105%;
+    height: 32%;
+    
+}
+
+/* White Box Styling (Hourly Forecast, Monthly Rainfall, etc.) */
+.white-box {
+    width: 100%; /* Adjust width of each box to be side by side */
+    background-color: white;
+    padding: 20px;
+    /* margin-bottom: 5%;  */
+    border-radius: 15px;
+    box-sizing: border-box;
+    height : 100%;
+}
+
+.white-box h3 {
+    color: #333;
+    margin-top: 0%;
+}
+
+
+/* Column Two: Weather Details (Right Section) */
+.column-two {
+    width: 33%; /* Adjust width of column two */
+    padding: 0px;
+    margin-left: auto;
+}
+
+/* Right Section for Vertical Blue Box */
+/* .right-section {
+    background-color: #2f3c63; 
+    color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%; 
+    margin-right: 0%;
+    text-align: center;
+} */
+
+
+.right-section {
+    background-color: #2f3c63; /* Dark blue background */
+    background-image: url('images/plain_ocean.png'); /* Add your image here */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: left; /* Centers the image within the section */
+    opacity: 1;
+    color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%; /* Ensure it stretches to the bottom */
+    margin-right: 0%;
+    /* margin-bottom: 20%; */
+    text-align: center; /* Align text to the left */
+}
+
+
+#location-label {
+    font-size: 50px;
+    font-weight: bold;
+    color: white; /* Dark grey color */
+    padding: 10px 15px; /* Add some padding */
+    border-radius: 5px; /* Rounded corners */
+    display: inline-block; /* Ensures the label takes up only the necessary width */
+    margin-bottom: 10px; /* Adds space below the label */
+}
+
+.weather-info {
+    display: flex;
+    justify-content: center; /* Align the elements to the left */
+    align-items: center; /* Align the text vertically */
+    margin-bottom: 20px; /* Add space between rows */
+    width: 100%; /* Ensure the weather-info is stretched across the container */
+    margin-right: 15%;
+    font-size: 15px;
+}
+
+.weather-info span:first-child {
+    width: 150px; /* Set a fixed width for the title */
+    text-align: center; /* Align the title to the left */
+}
+
+.weather-info span:nth-child(2) {
+    margin-left: 10px; /* Add space after the first span (the title) */
+    text-align: center;
+}
+
+.weather-info span:last-child {
+    margin-left: 40px; /* Add space before the value */
+    text-align: center;
+}
