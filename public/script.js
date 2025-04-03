@@ -1,5 +1,5 @@
 // Initialize Map (Centered on Australia)
-var map = L.map('map').setView([-28.2744, 129.7751], 5);
+var map = L.map('map').setView([-28.2744, 133.7751], 5);
 
 // Add Google Satellite Tile Layer
 L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
