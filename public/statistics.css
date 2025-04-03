@@ -265,3 +265,9 @@ label {
 .move-up-chart {
     margin-top: -10px; /* Adjust the negative value to your liking */
 }  
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

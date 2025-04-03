@@ -26,7 +26,7 @@
             border-radius: 16px;
             gap: 15px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            width: 230px;
+            width: 200px;
             z-index: 999;
             font-size: 16px;
         }
@@ -132,7 +132,6 @@
         }
 
 
-
     </style>
 </head>
 <body>
@@ -145,16 +144,33 @@
         <span class="search-icon">🔍</span>
         <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
         <ul id="suggestion-list" class="suggestions"></ul>
-        <br><br>
+        
         <span>Date:</span>
             <input type="date" id="date" value="2023-12-31">
+            <br>
+        <br>
+        <div id="layerToggle">
+            <label>
+                <input type="radio" name="layer" value="Base" onchange="loadChoropleth('Base')" checked>
+                Base Map
+              </label>
+              <br><br>
+            <label>
+              <input type="radio" name="layer" value="Temperature" onchange="loadChoropleth('Temperature')">
+              Temperature
+            </label>
             <br><br>
-        <input type="range" min="1" max="31">
-        <br><br>
-        <button onclick="loadChoropleth()">Temperature</button>
-
-        <button>Rainfall</button>
-        <button>Wind</button>
+            <label>
+              <input type="radio" name="layer" value="Wind" onchange="loadChoropleth('Wind')">
+              Wind Speed
+            </label>
+            <br><br>
+            <label>
+              <input type="radio" name="layer" value="Rain" onchange="loadChoropleth('Rain')">
+              Rainfall
+            </label>
+          </div>
+          
     </div>
 
     <!-- Bottom Navigation -->
@@ -168,34 +184,73 @@
 
     <!-- Info Popup -->
     <div id="info-popup" class="info-popup hidden">
-    <!-- <div id="info-popup" class="info-popup"> -->
-        <h2 id="popup-location">Victoria</h2>
-          
-        <div class="popup-section">
-            <h3>Temperature</h3>
-            <div class="popup-value" id="popup-temp">20</div>
-            <span class="popup-unit">degree celsius</span>
+        <!-- <div id="info-popup" class="info-popup"> -->
+            <h2 id="popup-location">Victoria</h2>
+              
+            <div class="popup-section">
+                <h3>Temperature</h3>
+                <div class="popup-value" id="popup-temp">20</div>
+                <span class="popup-unit">degree celsius</span>
+            </div>
+              
+            <div class="popup-section">
+                <h3>Wind Speed</h3>
+                <div class="popup-value" id="popup-wind">22.5</div>
+                <span class="popup-unit">kph</span>
+            </div>
+              
+            <div class="popup-section">
+                <h3>Rainfall</h3>
+                <div class="popup-value" id="popup-rain">1.5</div>
+                <span class="popup-unit">mm</span>
+            </div>
+        
         </div>
-          
-        <div class="popup-section">
-            <h3>Wind Speed</h3>
-            <div class="popup-value" id="popup-wind">22.5</div>
-            <span class="popup-unit">kph</span>
-        </div>
-          
-        <div class="popup-section">
-            <h3>Rainfall</h3>
-            <div class="popup-value" id="popup-rain">1.5</div>
-            <span class="popup-unit">mm</span>
-        </div>
+        
+        <button id="toggle-popup-btn" class="toggle-popup-btn hidden">
+            <img id="toggle-icon" src="icons/minimize.png"/>
+        </button>  
     
+
+    <div id="loading-overlay" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  text-align: center;
+">
+
+  <div style="
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: inline-block;
+  ">
+    <img src="load.gif" id="spinner-image" style="
+      width: 120px;
+      height: 90px;
+      animation: spin 1s linear infinite;
+      display: block;
+      margin: 0 auto;
+    " alt="Loading...">
+
+    <div style="
+      margin-top: 4px;
+      font-size: 1em;
+      font-weight: 500;
+      color: #333;
+    ">
+      Loading...
     </div>
-    
-    <button id="toggle-popup-btn" class="toggle-popup-btn hidden">
-        <img id="toggle-icon" src="icons/minimize.png"/>
-    </button>  
+  </div>
+</div>
 
 
+  
+  
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
