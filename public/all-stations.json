@@ -1,0 +1,4880 @@
+[
+  {
+    "id": "94100",
+    "name": "Kalumburu",
+    "latitude": -14.3,
+    "longitude": 126.6
+  },
+  {
+    "id": "94101",
+    "name": "Kalumburu",
+    "latitude": -14.2833,
+    "longitude": 126.6333
+  },
+  {
+    "id": "94102",
+    "name": "Troughton Island",
+    "latitude": -13.8,
+    "longitude": 126.1
+  },
+  {
+    "id": "94116",
+    "name": "Dum In Mirrie",
+    "latitude": -12.6,
+    "longitude": 130.4
+  },
+  {
+    "id": "94117",
+    "name": "Mango Farm",
+    "latitude": -13.7333,
+    "longitude": 130.6667
+  },
+  {
+    "id": "94118",
+    "name": "Pine Creek Council",
+    "latitude": -13.8242,
+    "longitude": 131.8322
+  },
+  {
+    "id": "94119",
+    "name": "Pirlangimpi",
+    "latitude": -11.4,
+    "longitude": 130.4
+  },
+  {
+    "id": "94120",
+    "name": "Darwin Airport",
+    "latitude": -12.4,
+    "longitude": 130.9
+  },
+  {
+    "id": "94121",
+    "name": "Channel Point",
+    "latitude": -13.1667,
+    "longitude": 130.1167
+  },
+  {
+    "id": "94125",
+    "name": "Batchelor",
+    "latitude": -13.1,
+    "longitude": 131.0
+  },
+  {
+    "id": "94127",
+    "name": "Point Stuart",
+    "latitude": -12.2,
+    "longitude": 131.9
+  },
+  {
+    "id": "94128",
+    "name": "Douglas River",
+    "latitude": -13.8,
+    "longitude": 131.2
+  },
+  {
+    "id": "94129",
+    "name": "Cape Don Aws",
+    "latitude": -11.3167,
+    "longitude": 131.7667
+  },
+  {
+    "id": "94130",
+    "name": "Bradshaw",
+    "latitude": -14.9,
+    "longitude": 130.8
+  },
+  {
+    "id": "94131",
+    "name": "Tindal",
+    "latitude": -14.5,
+    "longitude": 132.4
+  },
+  {
+    "id": "94132",
+    "name": "Katherine / Tindal",
+    "latitude": -14.45,
+    "longitude": 132.2667
+  },
+  {
+    "id": "94134",
+    "name": "Black Point Port Essington",
+    "latitude": -11.15,
+    "longitude": 132.1333
+  },
+  {
+    "id": "94135",
+    "name": "McCluer Island",
+    "latitude": -11.0,
+    "longitude": 133.0
+  },
+  {
+    "id": "94137",
+    "name": "Jabiru",
+    "latitude": -12.7,
+    "longitude": 132.9
+  },
+  {
+    "id": "94138",
+    "name": "Oenpelli Airport",
+    "latitude": -12.3,
+    "longitude": 133.0
+  },
+  {
+    "id": "94139",
+    "name": "Warruwi",
+    "latitude": -11.7,
+    "longitude": 133.4
+  },
+  {
+    "id": "94140",
+    "name": "Milingimbi",
+    "latitude": -12.1,
+    "longitude": 134.9
+  },
+  {
+    "id": "94141",
+    "name": "Central Arnhem Plateau",
+    "latitude": -13.3,
+    "longitude": 133.1
+  },
+  {
+    "id": "94143",
+    "name": "Bulman",
+    "latitude": -13.7,
+    "longitude": 134.3
+  },
+  {
+    "id": "94148",
+    "name": "Ngukurr AWS",
+    "latitude": -14.7,
+    "longitude": 134.7
+  },
+  {
+    "id": "94149",
+    "name": "Alyangula Police Police Station",
+    "latitude": -13.8333,
+    "longitude": 136.4167
+  },
+  {
+    "id": "94150",
+    "name": "Gove Airport",
+    "latitude": -12.3,
+    "longitude": 136.8
+  },
+  {
+    "id": "94152",
+    "name": "Borroloola",
+    "latitude": -16.1,
+    "longitude": 136.3
+  },
+  {
+    "id": "94153",
+    "name": "Groote Eylandt Airport",
+    "latitude": -14.0,
+    "longitude": 136.5
+  },
+  {
+    "id": "94170",
+    "name": "Weipa",
+    "latitude": -12.7,
+    "longitude": 141.9
+  },
+  {
+    "id": "94171",
+    "name": "Scherger",
+    "latitude": -12.6,
+    "longitude": 142.1
+  },
+  {
+    "id": "94174",
+    "name": "Thursday Island",
+    "latitude": -10.6,
+    "longitude": 142.2
+  },
+  {
+    "id": "94182",
+    "name": "Coconut Island",
+    "latitude": -10.1,
+    "longitude": 143.1
+  },
+  {
+    "id": "94183",
+    "name": "Coen Airport",
+    "latitude": -13.8,
+    "longitude": 143.1
+  },
+  {
+    "id": "94186",
+    "name": "Lockhart River",
+    "latitude": -12.8,
+    "longitude": 143.3
+  },
+  {
+    "id": "94187",
+    "name": "Musgrave Station",
+    "latitude": -14.7833,
+    "longitude": 143.5
+  },
+  {
+    "id": "94188",
+    "name": "Cape Flattery",
+    "latitude": -15.0,
+    "longitude": 145.3
+  },
+  {
+    "id": "94200",
+    "name": "Mandora",
+    "latitude": -19.7,
+    "longitude": 120.8
+  },
+  {
+    "id": "94201",
+    "name": "Cygnet Bay",
+    "latitude": -16.5,
+    "longitude": 123.0
+  },
+  {
+    "id": "94202",
+    "name": "La Grange",
+    "latitude": -18.6833,
+    "longitude": 121.7667
+  },
+  {
+    "id": "94203",
+    "name": "Broome Port",
+    "latitude": -18.0,
+    "longitude": 122.2
+  },
+  {
+    "id": "94204",
+    "name": "Curtin",
+    "latitude": -17.6,
+    "longitude": 123.8
+  },
+  {
+    "id": "94205",
+    "name": "Derby",
+    "latitude": -17.3,
+    "longitude": 123.6167
+  },
+  {
+    "id": "94206",
+    "name": "Fitzroy Crossing",
+    "latitude": -18.2,
+    "longitude": 125.6
+  },
+  {
+    "id": "94208",
+    "name": "Kuri Bay",
+    "latitude": -15.4833,
+    "longitude": 124.5167
+  },
+  {
+    "id": "94211",
+    "name": "Mount Elizabeth",
+    "latitude": -16.4,
+    "longitude": 126.1
+  },
+  {
+    "id": "94212",
+    "name": "Halls Creek",
+    "latitude": -18.2,
+    "longitude": 127.7
+  },
+  {
+    "id": "94213",
+    "name": "Warmun",
+    "latitude": -17.0,
+    "longitude": 128.2
+  },
+  {
+    "id": "94214",
+    "name": "Wyndham",
+    "latitude": -15.4833,
+    "longitude": 128.1167
+  },
+  {
+    "id": "94215",
+    "name": "King Edward River",
+    "latitude": -15.3667,
+    "longitude": 126.3
+  },
+  {
+    "id": "94216",
+    "name": "Kununurra Airport",
+    "latitude": -15.8,
+    "longitude": 128.7
+  },
+  {
+    "id": "94217",
+    "name": "Argyle",
+    "latitude": -16.6,
+    "longitude": 128.5
+  },
+  {
+    "id": "94220",
+    "name": "Timber Creek",
+    "latitude": -15.65,
+    "longitude": 130.4667
+  },
+  {
+    "id": "94225",
+    "name": "Delamere",
+    "latitude": -15.7,
+    "longitude": 131.9
+  },
+  {
+    "id": "94229",
+    "name": "Wave Hill",
+    "latitude": -17.3833,
+    "longitude": 131.1167
+  },
+  {
+    "id": "94230",
+    "name": "Kidman Springs / Timber Creek",
+    "latitude": -16.1175,
+    "longitude": 130.9558
+  },
+  {
+    "id": "94231",
+    "name": "Lajamanu",
+    "latitude": -18.3,
+    "longitude": 130.6
+  },
+  {
+    "id": "94232",
+    "name": "Victoria River Downs",
+    "latitude": -16.4,
+    "longitude": 131.0
+  },
+  {
+    "id": "94234",
+    "name": "Daly Waters",
+    "latitude": -16.3,
+    "longitude": 133.4
+  },
+  {
+    "id": "94236",
+    "name": "Elliott",
+    "latitude": -17.6,
+    "longitude": 133.5
+  },
+  {
+    "id": "94237",
+    "name": "Larrimah",
+    "latitude": -15.5667,
+    "longitude": 133.2
+  },
+  {
+    "id": "94238",
+    "name": "Tennant Creek",
+    "latitude": -19.6,
+    "longitude": 134.2
+  },
+  {
+    "id": "94239",
+    "name": "McArthur River Mine",
+    "latitude": -16.4,
+    "longitude": 136.1
+  },
+  {
+    "id": "94242",
+    "name": "Brunette Downs",
+    "latitude": -18.65,
+    "longitude": 135.95
+  },
+  {
+    "id": "94248",
+    "name": "Centre Island",
+    "latitude": -15.7,
+    "longitude": 136.8
+  },
+  {
+    "id": "94255",
+    "name": "Camooweal",
+    "latitude": -19.9,
+    "longitude": 138.1
+  },
+  {
+    "id": "94256",
+    "name": "Mornington Island Airport",
+    "latitude": -16.7,
+    "longitude": 139.2
+  },
+  {
+    "id": "94257",
+    "name": "Sweers Island",
+    "latitude": -17.1,
+    "longitude": 139.6
+  },
+  {
+    "id": "94258",
+    "name": "Wollogorang",
+    "latitude": -17.2,
+    "longitude": 137.9333
+  },
+  {
+    "id": "94259",
+    "name": "Burketown",
+    "latitude": -17.7333,
+    "longitude": 139.5333
+  },
+  {
+    "id": "94260",
+    "name": "Burketown Airport",
+    "latitude": -17.7,
+    "longitude": 139.5
+  },
+  {
+    "id": "94261",
+    "name": "Century Mine",
+    "latitude": -18.8,
+    "longitude": 138.7
+  },
+  {
+    "id": "94266",
+    "name": "Normanton",
+    "latitude": -17.7,
+    "longitude": 141.1
+  },
+  {
+    "id": "94268",
+    "name": "Kowanyama",
+    "latitude": -15.5,
+    "longitude": 141.7
+  },
+  {
+    "id": "94269",
+    "name": "Croydon",
+    "latitude": -18.2,
+    "longitude": 142.2333
+  },
+  {
+    "id": "94274",
+    "name": "Georgetown Airport",
+    "latitude": -18.3,
+    "longitude": 143.5
+  },
+  {
+    "id": "94275",
+    "name": "Georgetown",
+    "latitude": -18.3,
+    "longitude": 143.55
+  },
+  {
+    "id": "94276",
+    "name": "Palmerville",
+    "latitude": -16.0,
+    "longitude": 144.1
+  },
+  {
+    "id": "94285",
+    "name": "Low Isles",
+    "latitude": -16.4,
+    "longitude": 145.6
+  },
+  {
+    "id": "94291",
+    "name": "Innisfail",
+    "latitude": -17.5167,
+    "longitude": 146.0167
+  },
+  {
+    "id": "94292",
+    "name": "Cardwell",
+    "latitude": -18.3,
+    "longitude": 146.0
+  },
+  {
+    "id": "94294",
+    "name": "Townsville",
+    "latitude": -19.2,
+    "longitude": 146.8
+  },
+  {
+    "id": "94295",
+    "name": "Lucinda",
+    "latitude": -18.5,
+    "longitude": 146.4
+  },
+  {
+    "id": "94299",
+    "name": "Willis Island",
+    "latitude": -16.3,
+    "longitude": 150.0
+  },
+  {
+    "id": "94300",
+    "name": "Carnarvon",
+    "latitude": -24.9,
+    "longitude": 113.7
+  },
+  {
+    "id": "94302",
+    "name": "Learmonth",
+    "latitude": -22.2,
+    "longitude": 114.1
+  },
+  {
+    "id": "94303",
+    "name": "Thevenard Island",
+    "latitude": -21.5,
+    "longitude": 115.0
+  },
+  {
+    "id": "94305",
+    "name": "Onslow",
+    "latitude": -21.6333,
+    "longitude": 115.1
+  },
+  {
+    "id": "94306",
+    "name": "Mardie",
+    "latitude": -21.2,
+    "longitude": 116.0
+  },
+  {
+    "id": "94308",
+    "name": "Roebourne Airport",
+    "latitude": -20.8,
+    "longitude": 117.2
+  },
+  {
+    "id": "94309",
+    "name": "Roebourne",
+    "latitude": -20.7833,
+    "longitude": 117.1167
+  },
+  {
+    "id": "94311",
+    "name": "Shay Gap",
+    "latitude": -20.5,
+    "longitude": 120.1667
+  },
+  {
+    "id": "94312",
+    "name": "Port Hedland",
+    "latitude": -20.4,
+    "longitude": 118.6
+  },
+  {
+    "id": "94313",
+    "name": "Wittenoom",
+    "latitude": -22.2333,
+    "longitude": 118.3333
+  },
+  {
+    "id": "94316",
+    "name": "Paraburdoo",
+    "latitude": -23.2,
+    "longitude": 117.7
+  },
+  {
+    "id": "94317",
+    "name": "Newman Airport",
+    "latitude": -23.4,
+    "longitude": 119.8
+  },
+  {
+    "id": "94318",
+    "name": "Emu Creek",
+    "latitude": -23.0,
+    "longitude": 115.0
+  },
+  {
+    "id": "94319",
+    "name": "Telfer",
+    "latitude": -21.7,
+    "longitude": 122.2
+  },
+  {
+    "id": "94320",
+    "name": "Balgo Hills",
+    "latitude": -20.1333,
+    "longitude": 127.8667
+  },
+  {
+    "id": "94321",
+    "name": "Walungurru (Kintore)",
+    "latitude": -23.3,
+    "longitude": 129.4
+  },
+  {
+    "id": "94322",
+    "name": "Rabbit Flat",
+    "latitude": -20.1833,
+    "longitude": 130.0
+  },
+  {
+    "id": "94323",
+    "name": "Watarrka",
+    "latitude": -24.3,
+    "longitude": 131.5
+  },
+  {
+    "id": "94324",
+    "name": "Yuendumu",
+    "latitude": -22.25,
+    "longitude": 131.7833
+  },
+  {
+    "id": "94325",
+    "name": "Ali Curung Tennant Creek",
+    "latitude": -21.0167,
+    "longitude": 134.4
+  },
+  {
+    "id": "94326",
+    "name": "Alice Springs Airport",
+    "latitude": -23.8,
+    "longitude": 133.9
+  },
+  {
+    "id": "94327",
+    "name": "Jervois",
+    "latitude": -22.9,
+    "longitude": 136.1
+  },
+  {
+    "id": "94328",
+    "name": "Territory Grape Farm",
+    "latitude": -22.5,
+    "longitude": 133.6
+  },
+  {
+    "id": "94329",
+    "name": "Urandangie",
+    "latitude": -21.6,
+    "longitude": 138.3
+  },
+  {
+    "id": "94332",
+    "name": "Mount Isa",
+    "latitude": -20.7,
+    "longitude": 139.5
+  },
+  {
+    "id": "94333",
+    "name": "Boulia",
+    "latitude": -22.9167,
+    "longitude": 139.9
+  },
+  {
+    "id": "94334",
+    "name": "Bedourie",
+    "latitude": -24.4,
+    "longitude": 139.5
+  },
+  {
+    "id": "94335",
+    "name": "Cloncurry",
+    "latitude": -20.7,
+    "longitude": 140.5
+  },
+  {
+    "id": "94336",
+    "name": "The Monument",
+    "latitude": -21.8,
+    "longitude": 139.9
+  },
+  {
+    "id": "94337",
+    "name": "Julia Creek",
+    "latitude": -20.7,
+    "longitude": 141.7
+  },
+  {
+    "id": "94338",
+    "name": "Trepell",
+    "latitude": -21.8,
+    "longitude": 140.9
+  },
+  {
+    "id": "94339",
+    "name": "Winton Post Office",
+    "latitude": -22.3833,
+    "longitude": 143.0333
+  },
+  {
+    "id": "94340",
+    "name": "Richmond",
+    "latitude": -20.7167,
+    "longitude": 143.1333
+  },
+  {
+    "id": "94341",
+    "name": "Richmond",
+    "latitude": -20.7,
+    "longitude": 143.1
+  },
+  {
+    "id": "94342",
+    "name": "Winton",
+    "latitude": -22.4,
+    "longitude": 143.1
+  },
+  {
+    "id": "94343",
+    "name": "Hughenden",
+    "latitude": -20.8,
+    "longitude": 144.2
+  },
+  {
+    "id": "94345",
+    "name": "Isisford",
+    "latitude": -24.3,
+    "longitude": 144.4
+  },
+  {
+    "id": "94346",
+    "name": "Longreach",
+    "latitude": -23.4,
+    "longitude": 144.3
+  },
+  {
+    "id": "94350",
+    "name": "Barcaldine",
+    "latitude": -23.6,
+    "longitude": 145.3
+  },
+  {
+    "id": "94355",
+    "name": "Tambo",
+    "latitude": -24.9,
+    "longitude": 146.3
+  },
+  {
+    "id": "94356",
+    "name": "Charters Towers",
+    "latitude": -20.0,
+    "longitude": 146.3
+  },
+  {
+    "id": "94358",
+    "name": "Moranbah",
+    "latitude": -22.9833,
+    "longitude": 148.0167
+  },
+  {
+    "id": "94360",
+    "name": "Collinsville",
+    "latitude": -20.6,
+    "longitude": 147.8
+  },
+  {
+    "id": "94362",
+    "name": "Blackwater Airport",
+    "latitude": -23.6,
+    "longitude": 148.8
+  },
+  {
+    "id": "94363",
+    "name": "Emerald",
+    "latitude": -23.6,
+    "longitude": 148.2
+  },
+  {
+    "id": "94364",
+    "name": "Rolleston",
+    "latitude": -24.45,
+    "longitude": 148.6167
+  },
+  {
+    "id": "94365",
+    "name": "Proserpine",
+    "latitude": -20.5,
+    "longitude": 148.6
+  },
+  {
+    "id": "94366",
+    "name": "Bowen Airport AWS",
+    "latitude": -20.0,
+    "longitude": 148.2
+  },
+  {
+    "id": "94367",
+    "name": "Mackay Racecourse",
+    "latitude": -21.2,
+    "longitude": 149.2
+  },
+  {
+    "id": "94368",
+    "name": "Hamilton Island",
+    "latitude": -20.4,
+    "longitude": 149.0
+  },
+  {
+    "id": "94369",
+    "name": "St Lawrence Post Office",
+    "latitude": -22.3333,
+    "longitude": 149.5333
+  },
+  {
+    "id": "94370",
+    "name": "Samuel Hill",
+    "latitude": -22.7,
+    "longitude": 150.7
+  },
+  {
+    "id": "94373",
+    "name": "Yeppoon",
+    "latitude": -23.1,
+    "longitude": 150.8
+  },
+  {
+    "id": "94374",
+    "name": "Rockhampton",
+    "latitude": -23.4,
+    "longitude": 150.5
+  },
+  {
+    "id": "94375",
+    "name": "Baralaba",
+    "latitude": -24.1833,
+    "longitude": 149.8
+  },
+  {
+    "id": "94376",
+    "name": "Biloela",
+    "latitude": -24.5,
+    "longitude": 150.6
+  },
+  {
+    "id": "94377",
+    "name": "Monto Township",
+    "latitude": -24.9,
+    "longitude": 151.1
+  },
+  {
+    "id": "94378",
+    "name": "Rundle Island",
+    "latitude": -23.5,
+    "longitude": 151.3
+  },
+  {
+    "id": "94380",
+    "name": "Gladstone",
+    "latitude": -23.9,
+    "longitude": 151.3
+  },
+  {
+    "id": "94381",
+    "name": "Gladstone Airport",
+    "latitude": -23.9,
+    "longitude": 151.2
+  },
+  {
+    "id": "94384",
+    "name": "Seventeen Seventy",
+    "latitude": -24.2,
+    "longitude": 151.9
+  },
+  {
+    "id": "94386",
+    "name": "Heron Island",
+    "latitude": -23.4,
+    "longitude": 151.9
+  },
+  {
+    "id": "94387",
+    "name": "Bundaberg",
+    "latitude": -24.9,
+    "longitude": 152.3
+  },
+  {
+    "id": "94388",
+    "name": "Lady Elliot Island",
+    "latitude": -24.1,
+    "longitude": 152.7
+  },
+  {
+    "id": "94390",
+    "name": "Sandy Cape",
+    "latitude": -24.7167,
+    "longitude": 153.2
+  },
+  {
+    "id": "94401",
+    "name": "Kalbarri",
+    "latitude": -27.7,
+    "longitude": 114.2
+  },
+  {
+    "id": "94402",
+    "name": "Denham",
+    "latitude": -25.9,
+    "longitude": 113.5
+  },
+  {
+    "id": "94403",
+    "name": "Geraldton Airport",
+    "latitude": -28.8,
+    "longitude": 114.7
+  },
+  {
+    "id": "94404",
+    "name": "Paynes Find",
+    "latitude": -29.3,
+    "longitude": 117.7
+  },
+  {
+    "id": "94405",
+    "name": "North Island",
+    "latitude": -28.3,
+    "longitude": 113.6
+  },
+  {
+    "id": "94410",
+    "name": "PORTABLE BTSA (DFES)",
+    "latitude": -25.1,
+    "longitude": 115.2
+  },
+  {
+    "id": "94411",
+    "name": "Mullewa",
+    "latitude": -28.5,
+    "longitude": 115.5
+  },
+  {
+    "id": "94414",
+    "name": "Eneabba",
+    "latitude": -29.8167,
+    "longitude": 115.2667
+  },
+  {
+    "id": "94415",
+    "name": "Carnamah",
+    "latitude": -29.6833,
+    "longitude": 115.8833
+  },
+  {
+    "id": "94417",
+    "name": "Morawa Airport",
+    "latitude": -29.2,
+    "longitude": 116.0
+  },
+  {
+    "id": "94422",
+    "name": "Murchison",
+    "latitude": -26.9,
+    "longitude": 116.0
+  },
+  {
+    "id": "94429",
+    "name": "Mount Magnet Airport",
+    "latitude": -28.1,
+    "longitude": 117.8
+  },
+  {
+    "id": "94430",
+    "name": "Meekatharra",
+    "latitude": -26.6,
+    "longitude": 118.5
+  },
+  {
+    "id": "94439",
+    "name": "Wiluna Airport",
+    "latitude": -26.6,
+    "longitude": 120.2
+  },
+  {
+    "id": "94440",
+    "name": "Yeelirrie",
+    "latitude": -27.2667,
+    "longitude": 120.0833
+  },
+  {
+    "id": "94444",
+    "name": "Bulga Downs",
+    "latitude": -28.5,
+    "longitude": 119.7
+  },
+  {
+    "id": "94448",
+    "name": "Leonora",
+    "latitude": -28.8833,
+    "longitude": 121.3167
+  },
+  {
+    "id": "94449",
+    "name": "Laverton",
+    "latitude": -28.6,
+    "longitude": 122.4
+  },
+  {
+    "id": "94450",
+    "name": "Leonora Airport",
+    "latitude": -28.9,
+    "longitude": 121.3
+  },
+  {
+    "id": "94451",
+    "name": "Carnegie",
+    "latitude": -25.8,
+    "longitude": 123.0
+  },
+  {
+    "id": "94457",
+    "name": "Warburton",
+    "latitude": -26.1,
+    "longitude": 126.6
+  },
+  {
+    "id": "94461",
+    "name": "Giles",
+    "latitude": -25.0,
+    "longitude": 128.3
+  },
+  {
+    "id": "94462",
+    "name": "Yulara",
+    "latitude": -25.2,
+    "longitude": 131.0
+  },
+  {
+    "id": "94463",
+    "name": "Curtin Springs",
+    "latitude": -25.3,
+    "longitude": 131.8
+  },
+  {
+    "id": "94466",
+    "name": "Kulgera",
+    "latitude": -25.8333,
+    "longitude": 133.2833
+  },
+  {
+    "id": "94474",
+    "name": "Ernabella/Pukatja",
+    "latitude": -26.3,
+    "longitude": 132.2
+  },
+  {
+    "id": "94476",
+    "name": "Oodnadatta",
+    "latitude": -27.6,
+    "longitude": 135.4
+  },
+  {
+    "id": "94477",
+    "name": "Marla",
+    "latitude": -27.3,
+    "longitude": 133.6167
+  },
+  {
+    "id": "94480",
+    "name": "Marree",
+    "latitude": -29.65,
+    "longitude": 138.05
+  },
+  {
+    "id": "94482",
+    "name": "Birdsville",
+    "latitude": -25.9,
+    "longitude": 139.35
+  },
+  {
+    "id": "94485",
+    "name": "Tibooburra",
+    "latitude": -29.4167,
+    "longitude": 142.0167
+  },
+  {
+    "id": "94488",
+    "name": "Windorah",
+    "latitude": -25.4,
+    "longitude": 142.7
+  },
+  {
+    "id": "94492",
+    "name": "Thargomindah",
+    "latitude": -28.0,
+    "longitude": 143.8
+  },
+  {
+    "id": "94494",
+    "name": "Quilpie",
+    "latitude": -26.6167,
+    "longitude": 144.2667
+  },
+  {
+    "id": "94497",
+    "name": "Wanaaring",
+    "latitude": -29.7,
+    "longitude": 144.1
+  },
+  {
+    "id": "94498",
+    "name": "Lightning Ridge",
+    "latitude": -29.4,
+    "longitude": 148.0
+  },
+  {
+    "id": "94500",
+    "name": "Cunnamulla",
+    "latitude": -28.0667,
+    "longitude": 145.7333
+  },
+  {
+    "id": "94510",
+    "name": "Charleville",
+    "latitude": -26.4,
+    "longitude": 146.3
+  },
+  {
+    "id": "94511",
+    "name": "Injune",
+    "latitude": -25.8,
+    "longitude": 148.6
+  },
+  {
+    "id": "94513",
+    "name": "Bollon",
+    "latitude": -28.0167,
+    "longitude": 147.4667
+  },
+  {
+    "id": "94514",
+    "name": "Mitchell",
+    "latitude": -26.5,
+    "longitude": 148.0
+  },
+  {
+    "id": "94515",
+    "name": "Roma",
+    "latitude": -26.5,
+    "longitude": 148.8
+  },
+  {
+    "id": "94517",
+    "name": "St George",
+    "latitude": -28.0,
+    "longitude": 148.6
+  },
+  {
+    "id": "94520",
+    "name": "Mungindi",
+    "latitude": -29.0,
+    "longitude": 149.0
+  },
+  {
+    "id": "94521",
+    "name": "Surat",
+    "latitude": -27.2,
+    "longitude": 149.1
+  },
+  {
+    "id": "94525",
+    "name": "Taroom",
+    "latitude": -25.6,
+    "longitude": 149.8
+  },
+  {
+    "id": "94527",
+    "name": "Moree Mo",
+    "latitude": -29.4667,
+    "longitude": 149.85
+  },
+  {
+    "id": "94530",
+    "name": "Goondiwindi",
+    "latitude": -28.5,
+    "longitude": 150.3
+  },
+  {
+    "id": "94541",
+    "name": "Inverell RS",
+    "latitude": -29.8,
+    "longitude": 151.1
+  },
+  {
+    "id": "94542",
+    "name": "Dalby",
+    "latitude": -27.2,
+    "longitude": 151.3
+  },
+  {
+    "id": "94544",
+    "name": "Pindari Dam / Rocky Creek",
+    "latitude": -29.39,
+    "longitude": 151.2447
+  },
+  {
+    "id": "94547",
+    "name": "Maleny Tamarind St",
+    "latitude": -26.7528,
+    "longitude": 152.8519
+  },
+  {
+    "id": "94549",
+    "name": "Kingaroy",
+    "latitude": -26.6,
+    "longitude": 151.8
+  },
+  {
+    "id": "94550",
+    "name": "Stanthorpe",
+    "latitude": -28.7,
+    "longitude": 151.9
+  },
+  {
+    "id": "94552",
+    "name": "Oakey",
+    "latitude": -27.4,
+    "longitude": 151.7
+  },
+  {
+    "id": "94553",
+    "name": "Applethorpe",
+    "latitude": -28.6,
+    "longitude": 152.0
+  },
+  {
+    "id": "94555",
+    "name": "Warwick",
+    "latitude": -28.2,
+    "longitude": 152.1
+  },
+  {
+    "id": "94556",
+    "name": "Tenterfield",
+    "latitude": -29.0,
+    "longitude": 152.0
+  },
+  {
+    "id": "94557",
+    "name": "Jimna Forestry",
+    "latitude": -26.6644,
+    "longitude": 152.4606
+  },
+  {
+    "id": "94558",
+    "name": "Toolara (Kelly) / Cooloola Cove",
+    "latitude": -25.9714,
+    "longitude": 152.8608
+  },
+  {
+    "id": "94562",
+    "name": "University Of Queensland Gatton / Lake Clarendon",
+    "latitude": -27.5436,
+    "longitude": 152.3375
+  },
+  {
+    "id": "94564",
+    "name": "Rainbow Beach",
+    "latitude": -25.9,
+    "longitude": 153.1
+  },
+  {
+    "id": "94566",
+    "name": "Gympie",
+    "latitude": -26.2,
+    "longitude": 152.6
+  },
+  {
+    "id": "94567",
+    "name": "Maryborough",
+    "latitude": -25.5,
+    "longitude": 152.7
+  },
+  {
+    "id": "94568",
+    "name": "Amberley",
+    "latitude": -27.6,
+    "longitude": 152.7
+  },
+  {
+    "id": "94569",
+    "name": "Sunshine Coast Airport",
+    "latitude": -26.6,
+    "longitude": 153.1
+  },
+  {
+    "id": "94570",
+    "name": "Tewantin",
+    "latitude": -26.4,
+    "longitude": 153.0
+  },
+  {
+    "id": "94571",
+    "name": "Grafton",
+    "latitude": -29.6833,
+    "longitude": 152.9167
+  },
+  {
+    "id": "94572",
+    "name": "Lismore Airport Aws / Gundurimba",
+    "latitude": -28.8306,
+    "longitude": 153.26
+  },
+  {
+    "id": "94573",
+    "name": "Casino",
+    "latitude": -28.9,
+    "longitude": 153.1
+  },
+  {
+    "id": "94574",
+    "name": "Casino Airport",
+    "latitude": -28.8833,
+    "longitude": 153.0333
+  },
+  {
+    "id": "94575",
+    "name": "Archerfield",
+    "latitude": -27.6,
+    "longitude": 153.0
+  },
+  {
+    "id": "94576",
+    "name": "Brisbane",
+    "latitude": -27.5,
+    "longitude": 153.0
+  },
+  {
+    "id": "94577",
+    "name": "Hinze Dam Nerang River",
+    "latitude": -28.05,
+    "longitude": 153.2833
+  },
+  {
+    "id": "94578",
+    "name": "Brisbane Airport",
+    "latitude": -27.4,
+    "longitude": 153.1
+  },
+  {
+    "id": "94580",
+    "name": "Gold Coast Seaway",
+    "latitude": -27.9,
+    "longitude": 153.4
+  },
+  {
+    "id": "94582",
+    "name": "Murwillumbah",
+    "latitude": -28.3,
+    "longitude": 153.4
+  },
+  {
+    "id": "94583",
+    "name": "Alstonwille Tropical Fruit Research Stn / Alstonville",
+    "latitude": -28.8522,
+    "longitude": 153.4556
+  },
+  {
+    "id": "94584",
+    "name": "Double Island Point",
+    "latitude": -25.9,
+    "longitude": 153.2
+  },
+  {
+    "id": "94585",
+    "name": "Caloundra",
+    "latitude": -26.8,
+    "longitude": 153.15
+  },
+  {
+    "id": "94586",
+    "name": "Lismore Centre Street",
+    "latitude": -28.8,
+    "longitude": 153.25
+  },
+  {
+    "id": "94587",
+    "name": "Tabulam",
+    "latitude": -28.8,
+    "longitude": 152.5
+  },
+  {
+    "id": "94588",
+    "name": "Glen Innes Airport",
+    "latitude": -29.7,
+    "longitude": 151.7
+  },
+  {
+    "id": "94589",
+    "name": "Yamba",
+    "latitude": -29.4,
+    "longitude": 153.4
+  },
+  {
+    "id": "94592",
+    "name": "Coolangatta",
+    "latitude": -28.2,
+    "longitude": 153.5
+  },
+  {
+    "id": "94593",
+    "name": "Point Lookout",
+    "latitude": -27.4,
+    "longitude": 153.5
+  },
+  {
+    "id": "94594",
+    "name": "Cape Moreton",
+    "latitude": -27.0,
+    "longitude": 153.5
+  },
+  {
+    "id": "94596",
+    "name": "Ballina",
+    "latitude": -28.8,
+    "longitude": 153.6
+  },
+  {
+    "id": "94597",
+    "name": "Redland (Alexandra Hills)",
+    "latitude": -27.5,
+    "longitude": 153.2
+  },
+  {
+    "id": "94598",
+    "name": "Evans Head",
+    "latitude": -29.2,
+    "longitude": 153.4
+  },
+  {
+    "id": "94599",
+    "name": "Cape Byron",
+    "latitude": -28.6,
+    "longitude": 153.6
+  },
+  {
+    "id": "94600",
+    "name": "Cape Naturaliste",
+    "latitude": -33.5,
+    "longitude": 115.0
+  },
+  {
+    "id": "94601",
+    "name": "Cape Leeuwin",
+    "latitude": -34.4,
+    "longitude": 115.1
+  },
+  {
+    "id": "94602",
+    "name": "Rottnest Island",
+    "latitude": -32.0,
+    "longitude": 115.5
+  },
+  {
+    "id": "94603",
+    "name": "Badgingarra",
+    "latitude": -30.3,
+    "longitude": 115.5
+  },
+  {
+    "id": "94604",
+    "name": "Bunbury",
+    "latitude": -33.4,
+    "longitude": 115.6
+  },
+  {
+    "id": "94605",
+    "name": "Mandurah",
+    "latitude": -32.5,
+    "longitude": 115.7
+  },
+  {
+    "id": "94608",
+    "name": "Perth",
+    "latitude": -31.9,
+    "longitude": 115.9
+  },
+  {
+    "id": "94609",
+    "name": "Jandakot",
+    "latitude": -32.1,
+    "longitude": 115.9
+  },
+  {
+    "id": "94610",
+    "name": "Perth Airport",
+    "latitude": -31.9,
+    "longitude": 116.0
+  },
+  {
+    "id": "94612",
+    "name": "Pearce",
+    "latitude": -31.7,
+    "longitude": 116.0
+  },
+  {
+    "id": "94614",
+    "name": "Swanbourne",
+    "latitude": -32.0,
+    "longitude": 115.8
+  },
+  {
+    "id": "94615",
+    "name": "Gooseberry Hill",
+    "latitude": -31.9,
+    "longitude": 116.1
+  },
+  {
+    "id": "94616",
+    "name": "Bridgetown",
+    "latitude": -33.95,
+    "longitude": 116.1333
+  },
+  {
+    "id": "94617",
+    "name": "Manjimup",
+    "latitude": -34.3,
+    "longitude": 116.1
+  },
+  {
+    "id": "94619",
+    "name": "Dalwallinu",
+    "latitude": -30.2667,
+    "longitude": 116.65
+  },
+  {
+    "id": "94620",
+    "name": "Dwellingup",
+    "latitude": -32.7,
+    "longitude": 116.1
+  },
+  {
+    "id": "94621",
+    "name": "Northam",
+    "latitude": -31.7,
+    "longitude": 116.7
+  },
+  {
+    "id": "94622",
+    "name": "Wongan Hills",
+    "latitude": -30.9,
+    "longitude": 116.7
+  },
+  {
+    "id": "94623",
+    "name": "York",
+    "latitude": -31.9,
+    "longitude": 116.8
+  },
+  {
+    "id": "94625",
+    "name": "Brookton",
+    "latitude": -32.4,
+    "longitude": 117.0
+  },
+  {
+    "id": "94626",
+    "name": "Cunderdin Post Office",
+    "latitude": -31.65,
+    "longitude": 117.2333
+  },
+  {
+    "id": "94627",
+    "name": "Narrogin",
+    "latitude": -32.9,
+    "longitude": 117.2
+  },
+  {
+    "id": "94628",
+    "name": "Newdegate",
+    "latitude": -33.1,
+    "longitude": 118.8
+  },
+  {
+    "id": "94629",
+    "name": "Katanning",
+    "latitude": -33.6833,
+    "longitude": 117.55
+  },
+  {
+    "id": "94630",
+    "name": "Mount Barker",
+    "latitude": -34.6167,
+    "longitude": 117.65
+  },
+  {
+    "id": "94631",
+    "name": "Rocky Gully South",
+    "latitude": -34.6,
+    "longitude": 117.0
+  },
+  {
+    "id": "94632",
+    "name": "Bencubbin",
+    "latitude": -30.8,
+    "longitude": 117.9
+  },
+  {
+    "id": "94633",
+    "name": "Corrigin",
+    "latitude": -32.3167,
+    "longitude": 117.8667
+  },
+  {
+    "id": "94635",
+    "name": "Lake Grace",
+    "latitude": -33.1167,
+    "longitude": 118.4667
+  },
+  {
+    "id": "94636",
+    "name": "Ravensthorpe",
+    "latitude": -33.6,
+    "longitude": 120.0
+  },
+  {
+    "id": "94637",
+    "name": "Kalgoorlie-Boulder",
+    "latitude": -30.8,
+    "longitude": 121.5
+  },
+  {
+    "id": "94638",
+    "name": "Esperance Harbour",
+    "latitude": -33.9,
+    "longitude": 121.9
+  },
+  {
+    "id": "94639",
+    "name": "Norseman",
+    "latitude": -32.2,
+    "longitude": 121.7833
+  },
+  {
+    "id": "94640",
+    "name": "Windy Harbour",
+    "latitude": -34.8,
+    "longitude": 116.0
+  },
+  {
+    "id": "94641",
+    "name": "Katanning RS",
+    "latitude": -33.7,
+    "longitude": 117.6
+  },
+  {
+    "id": "94642",
+    "name": "Balladonia",
+    "latitude": -32.45,
+    "longitude": 123.8667
+  },
+  {
+    "id": "94643",
+    "name": "Balgair",
+    "latitude": -31.0833,
+    "longitude": 125.65
+  },
+  {
+    "id": "94644",
+    "name": "Red Rocks Point",
+    "latitude": -32.2,
+    "longitude": 127.5
+  },
+  {
+    "id": "94645",
+    "name": "Eyre",
+    "latitude": -32.2,
+    "longitude": 126.3
+  },
+  {
+    "id": "94646",
+    "name": "Forrest Airport",
+    "latitude": -30.8333,
+    "longitude": 128.1
+  },
+  {
+    "id": "94647",
+    "name": "Eucla Amo",
+    "latitude": -31.6833,
+    "longitude": 128.9
+  },
+  {
+    "id": "94651",
+    "name": "Nullarbor",
+    "latitude": -31.4,
+    "longitude": 130.9
+  },
+  {
+    "id": "94653",
+    "name": "Thevenard",
+    "latitude": -32.1,
+    "longitude": 133.6
+  },
+  {
+    "id": "94654",
+    "name": "Streaky Bay",
+    "latitude": -32.8,
+    "longitude": 134.2
+  },
+  {
+    "id": "94655",
+    "name": "Tarcoola",
+    "latitude": -30.7,
+    "longitude": 134.6
+  },
+  {
+    "id": "94656",
+    "name": "Elliston Post Office",
+    "latitude": -33.65,
+    "longitude": 134.8833
+  },
+  {
+    "id": "94657",
+    "name": "Kyancutta",
+    "latitude": -33.1,
+    "longitude": 135.6
+  },
+  {
+    "id": "94658",
+    "name": "Coles Point Aws",
+    "latitude": -34.3833,
+    "longitude": 135.3667
+  },
+  {
+    "id": "94659",
+    "name": "Woomera",
+    "latitude": -31.2,
+    "longitude": 136.8
+  },
+  {
+    "id": "94661",
+    "name": "Cleve",
+    "latitude": -33.7,
+    "longitude": 136.5
+  },
+  {
+    "id": "94662",
+    "name": "Cleve Airport",
+    "latitude": -33.7,
+    "longitude": 136.5
+  },
+  {
+    "id": "94663",
+    "name": "Warooka",
+    "latitude": -35.0,
+    "longitude": 137.4
+  },
+  {
+    "id": "94665",
+    "name": "Maitland",
+    "latitude": -34.3667,
+    "longitude": 137.6667
+  },
+  {
+    "id": "94668",
+    "name": "Kimba",
+    "latitude": -33.1,
+    "longitude": 136.4
+  },
+  {
+    "id": "94669",
+    "name": "Port Pirie Airport AWS",
+    "latitude": -33.2,
+    "longitude": 138.0
+  },
+  {
+    "id": "94670",
+    "name": "Snowtown",
+    "latitude": -33.7833,
+    "longitude": 138.2167
+  },
+  {
+    "id": "94672",
+    "name": "Adelaide Airport",
+    "latitude": -35.0,
+    "longitude": 138.5
+  },
+  {
+    "id": "94673",
+    "name": "Hawker",
+    "latitude": -31.8667,
+    "longitude": 138.4
+  },
+  {
+    "id": "94674",
+    "name": "Leigh Creek",
+    "latitude": -30.6,
+    "longitude": 138.4
+  },
+  {
+    "id": "94675",
+    "name": "Adelaide (West Terrace /  ngayirdapira)",
+    "latitude": -34.9,
+    "longitude": 138.6
+  },
+  {
+    "id": "94676",
+    "name": "Arkaroola",
+    "latitude": -30.3,
+    "longitude": 139.3
+  },
+  {
+    "id": "94677",
+    "name": "Hindmarsh Island",
+    "latitude": -35.5,
+    "longitude": 138.8
+  },
+  {
+    "id": "94678",
+    "name": "Mount Crawford",
+    "latitude": -34.7,
+    "longitude": 138.9
+  },
+  {
+    "id": "94679",
+    "name": "Yongala",
+    "latitude": -33.0,
+    "longitude": 138.8
+  },
+  {
+    "id": "94680",
+    "name": "Eudunda",
+    "latitude": -34.2,
+    "longitude": 139.1
+  },
+  {
+    "id": "94681",
+    "name": "Nuriootpa",
+    "latitude": -34.5,
+    "longitude": 139.0
+  },
+  {
+    "id": "94682",
+    "name": "Loxton",
+    "latitude": -34.4,
+    "longitude": 140.6
+  },
+  {
+    "id": "94683",
+    "name": "Kuitpo",
+    "latitude": -35.2,
+    "longitude": 138.7
+  },
+  {
+    "id": "94684",
+    "name": "Yunta",
+    "latitude": -32.6,
+    "longitude": 139.6
+  },
+  {
+    "id": "94685",
+    "name": "Kadina",
+    "latitude": -34.0,
+    "longitude": 137.7
+  },
+  {
+    "id": "94686",
+    "name": "Fowlers Gap",
+    "latitude": -31.1,
+    "longitude": 141.7
+  },
+  {
+    "id": "94688",
+    "name": "Lameroo",
+    "latitude": -35.3333,
+    "longitude": 140.5167
+  },
+  {
+    "id": "94689",
+    "name": "Broken Hill Patton Street",
+    "latitude": -31.9667,
+    "longitude": 141.4667
+  },
+  {
+    "id": "94690",
+    "name": "Lameroo AWS",
+    "latitude": -35.4,
+    "longitude": 140.5
+  },
+  {
+    "id": "94691",
+    "name": "Broken Hill Airport",
+    "latitude": -32.0,
+    "longitude": 141.5
+  },
+  {
+    "id": "94692",
+    "name": "Lake Victoria",
+    "latitude": -34.0,
+    "longitude": 141.3
+  },
+  {
+    "id": "94693",
+    "name": "Mildura",
+    "latitude": -34.2,
+    "longitude": 142.1
+  },
+  {
+    "id": "94694",
+    "name": "Menindee",
+    "latitude": -32.4,
+    "longitude": 142.4
+  },
+  {
+    "id": "94695",
+    "name": "Wilcannia Airport",
+    "latitude": -31.5,
+    "longitude": 143.4
+  },
+  {
+    "id": "94696",
+    "name": "Balranald",
+    "latitude": -34.6,
+    "longitude": 143.6
+  },
+  {
+    "id": "94697",
+    "name": "Ivanhoe Post Office",
+    "latitude": -32.9,
+    "longitude": 144.2833
+  },
+  {
+    "id": "94699",
+    "name": "White Cliffs",
+    "latitude": -30.85,
+    "longitude": 143.0833
+  },
+  {
+    "id": "94700",
+    "name": "Hillston",
+    "latitude": -33.5,
+    "longitude": 145.5
+  },
+  {
+    "id": "94703",
+    "name": "Bourke",
+    "latitude": -30.0,
+    "longitude": 146.0
+  },
+  {
+    "id": "94704",
+    "name": "Quandialla Post Office",
+    "latitude": -34.0111,
+    "longitude": 147.7936
+  },
+  {
+    "id": "94706",
+    "name": "Narrandera",
+    "latitude": -34.7333,
+    "longitude": 146.55
+  },
+  {
+    "id": "94707",
+    "name": "Condoblin",
+    "latitude": -33.0833,
+    "longitude": 147.15
+  },
+  {
+    "id": "94708",
+    "name": "Nyngan",
+    "latitude": -31.55,
+    "longitude": 147.1833
+  },
+  {
+    "id": "94709",
+    "name": "Wyalong",
+    "latitude": -33.9167,
+    "longitude": 147.2333
+  },
+  {
+    "id": "94710",
+    "name": "Cobar Airport",
+    "latitude": -31.5,
+    "longitude": 145.8
+  },
+  {
+    "id": "94711",
+    "name": "Cobar",
+    "latitude": -31.5,
+    "longitude": 145.8
+  },
+  {
+    "id": "94712",
+    "name": "Young",
+    "latitude": -34.2,
+    "longitude": 148.2
+  },
+  {
+    "id": "94714",
+    "name": "Cootamundra",
+    "latitude": -34.6,
+    "longitude": 148.0
+  },
+  {
+    "id": "94715",
+    "name": "Forbes",
+    "latitude": -33.4,
+    "longitude": 147.9
+  },
+  {
+    "id": "94716",
+    "name": "Goulburn",
+    "latitude": -34.7,
+    "longitude": 149.7
+  },
+  {
+    "id": "94717",
+    "name": "Parkes Macarthur Street",
+    "latitude": -33.1333,
+    "longitude": 148.15
+  },
+  {
+    "id": "94718",
+    "name": "Coonamble",
+    "latitude": -30.95,
+    "longitude": 148.3833
+  },
+  {
+    "id": "94719",
+    "name": "Dubbo",
+    "latitude": -32.2,
+    "longitude": 148.5667
+  },
+  {
+    "id": "94720",
+    "name": "Cowra Airport",
+    "latitude": -33.8333,
+    "longitude": 148.6333
+  },
+  {
+    "id": "94721",
+    "name": "Peak Hill",
+    "latitude": -32.7167,
+    "longitude": 148.1833
+  },
+  {
+    "id": "94723",
+    "name": "Wellington",
+    "latitude": -32.6,
+    "longitude": 149.0
+  },
+  {
+    "id": "94725",
+    "name": "Grenfell",
+    "latitude": -33.9,
+    "longitude": 148.2
+  },
+  {
+    "id": "94726",
+    "name": "Orange Airport",
+    "latitude": -33.3833,
+    "longitude": 149.1167
+  },
+  {
+    "id": "94727",
+    "name": "Mudgee",
+    "latitude": -32.6,
+    "longitude": 149.6
+  },
+  {
+    "id": "94728",
+    "name": "Coonabarabran",
+    "latitude": -31.3,
+    "longitude": 149.3
+  },
+  {
+    "id": "94729",
+    "name": "Bathurst Airport",
+    "latitude": -33.4,
+    "longitude": 149.7
+  },
+  {
+    "id": "94730",
+    "name": "Bathurst",
+    "latitude": -33.4,
+    "longitude": 149.6
+  },
+  {
+    "id": "94732",
+    "name": "Frogmore",
+    "latitude": -34.2667,
+    "longitude": 148.8333
+  },
+  {
+    "id": "94733",
+    "name": "Singleton Water Board",
+    "latitude": -32.5667,
+    "longitude": 151.15
+  },
+  {
+    "id": "94735",
+    "name": "Taralga",
+    "latitude": -34.4,
+    "longitude": 149.8
+  },
+  {
+    "id": "94736",
+    "name": "Prospect Dam / Girraween",
+    "latitude": -33.8192,
+    "longitude": 150.9128
+  },
+  {
+    "id": "94738",
+    "name": "Scones Scs / Brushy Hill",
+    "latitude": -32.0633,
+    "longitude": 150.9272
+  },
+  {
+    "id": "94739",
+    "name": "Jerrys Plains",
+    "latitude": -32.4833,
+    "longitude": 150.9
+  },
+  {
+    "id": "94740",
+    "name": "Gunnedah Scs / Meermaul",
+    "latitude": -31.0261,
+    "longitude": 150.2686
+  },
+  {
+    "id": "94741",
+    "name": "Marrangaroo (Defence)",
+    "latitude": -33.4,
+    "longitude": 150.1
+  },
+  {
+    "id": "94742",
+    "name": "Gunnedah",
+    "latitude": -30.9833,
+    "longitude": 150.25
+  },
+  {
+    "id": "94743",
+    "name": "Mount Boyce",
+    "latitude": -33.6,
+    "longitude": 150.3
+  },
+  {
+    "id": "94744",
+    "name": "Katoomba",
+    "latitude": -33.7,
+    "longitude": 150.3
+  },
+  {
+    "id": "94746",
+    "name": "Moss Vale",
+    "latitude": -34.5,
+    "longitude": 150.4
+  },
+  {
+    "id": "94747",
+    "name": "Bowral",
+    "latitude": -34.4833,
+    "longitude": 150.4
+  },
+  {
+    "id": "94749",
+    "name": "Bellambi",
+    "latitude": -34.4,
+    "longitude": 150.9
+  },
+  {
+    "id": "94750",
+    "name": "Nowra",
+    "latitude": -34.9,
+    "longitude": 150.5
+  },
+  {
+    "id": "94752",
+    "name": "Badgerys Creek",
+    "latitude": -33.9,
+    "longitude": 150.7
+  },
+  {
+    "id": "94753",
+    "name": "Richmond Aus-Afb",
+    "latitude": -33.6,
+    "longitude": 150.7833
+  },
+  {
+    "id": "94754",
+    "name": "Nullo Mountain",
+    "latitude": -32.7,
+    "longitude": 150.2
+  },
+  {
+    "id": "94755",
+    "name": "Camden",
+    "latitude": -34.0,
+    "longitude": 150.7
+  },
+  {
+    "id": "94756",
+    "name": "Murrurundi",
+    "latitude": -31.7667,
+    "longitude": 150.8333
+  },
+  {
+    "id": "94757",
+    "name": "Campbelltown",
+    "latitude": -34.1,
+    "longitude": 150.8
+  },
+  {
+    "id": "94759",
+    "name": "Terrey Hills",
+    "latitude": -33.7,
+    "longitude": 151.2
+  },
+  {
+    "id": "94760",
+    "name": "Horsley Park",
+    "latitude": -33.9,
+    "longitude": 150.9
+  },
+  {
+    "id": "94761",
+    "name": "Barraba",
+    "latitude": -30.3667,
+    "longitude": 150.6
+  },
+  {
+    "id": "94762",
+    "name": "Tamworth Airport",
+    "latitude": -31.0833,
+    "longitude": 150.8333
+  },
+  {
+    "id": "94763",
+    "name": "Penrith",
+    "latitude": -33.7,
+    "longitude": 150.7
+  },
+  {
+    "id": "94764",
+    "name": "Parramatta",
+    "latitude": -33.8,
+    "longitude": 151.0
+  },
+  {
+    "id": "94765",
+    "name": "Bankstown",
+    "latitude": -33.9,
+    "longitude": 151.0
+  },
+  {
+    "id": "94766",
+    "name": "Canterbury",
+    "latitude": -33.9,
+    "longitude": 151.1
+  },
+  {
+    "id": "94767",
+    "name": "Sydney Airport",
+    "latitude": -33.9,
+    "longitude": 151.2
+  },
+  {
+    "id": "94768",
+    "name": "Sydney - Observatory Hill",
+    "latitude": -33.9,
+    "longitude": 151.2
+  },
+  {
+    "id": "94771",
+    "name": "Cessnock",
+    "latitude": -32.8,
+    "longitude": 151.3333
+  },
+  {
+    "id": "94772",
+    "name": "Guyra",
+    "latitude": -30.2,
+    "longitude": 151.7
+  },
+  {
+    "id": "94773",
+    "name": "Armidale",
+    "latitude": -30.5,
+    "longitude": 151.7
+  },
+  {
+    "id": "94774",
+    "name": "Newcastle Nobbys",
+    "latitude": -32.9,
+    "longitude": 151.8
+  },
+  {
+    "id": "94775",
+    "name": "Tocal",
+    "latitude": -32.6,
+    "longitude": 151.6
+  },
+  {
+    "id": "94776",
+    "name": "Williamtown",
+    "latitude": -32.8,
+    "longitude": 151.8
+  },
+  {
+    "id": "94778",
+    "name": "Glen Innes",
+    "latitude": -29.7333,
+    "longitude": 151.7333
+  },
+  {
+    "id": "94779",
+    "name": "Peats Ridge Waratah Road",
+    "latitude": -33.3103,
+    "longitude": 151.2442
+  },
+  {
+    "id": "94780",
+    "name": "Little Bay",
+    "latitude": -34.0,
+    "longitude": 151.3
+  },
+  {
+    "id": "94781",
+    "name": "Newcastle University / Sandgate",
+    "latitude": -32.8906,
+    "longitude": 151.7069
+  },
+  {
+    "id": "94783",
+    "name": "Mount Seaview",
+    "latitude": -31.4,
+    "longitude": 152.2
+  },
+  {
+    "id": "94784",
+    "name": "Taree",
+    "latitude": -31.9,
+    "longitude": 152.4833
+  },
+  {
+    "id": "94785",
+    "name": "Kempsey Airport",
+    "latitude": -31.1,
+    "longitude": 152.8
+  },
+  {
+    "id": "94786",
+    "name": "Port Macquarie Airport",
+    "latitude": -31.4333,
+    "longitude": 152.85
+  },
+  {
+    "id": "94787",
+    "name": "Port Macquarie Airport",
+    "latitude": -31.4,
+    "longitude": 152.9
+  },
+  {
+    "id": "94788",
+    "name": "Kempsey",
+    "latitude": -31.05,
+    "longitude": 152.8167
+  },
+  {
+    "id": "94789",
+    "name": "Dorrigo",
+    "latitude": -30.3,
+    "longitude": 152.7
+  },
+  {
+    "id": "94790",
+    "name": "Smoky Cape",
+    "latitude": -30.9,
+    "longitude": 153.1
+  },
+  {
+    "id": "94791",
+    "name": "Coffs Harbour Airport",
+    "latitude": -30.3,
+    "longitude": 153.1
+  },
+  {
+    "id": "94801",
+    "name": "Albany",
+    "latitude": -35.0,
+    "longitude": 117.9
+  },
+  {
+    "id": "94802",
+    "name": "Albany Airport",
+    "latitude": -34.9,
+    "longitude": 117.8
+  },
+  {
+    "id": "94804",
+    "name": "Neptune Island",
+    "latitude": -35.3,
+    "longitude": 136.1
+  },
+  {
+    "id": "94805",
+    "name": "Cape Borda",
+    "latitude": -35.75,
+    "longitude": 136.5833
+  },
+  {
+    "id": "94806",
+    "name": "Mount Barker",
+    "latitude": -35.1,
+    "longitude": 138.8
+  },
+  {
+    "id": "94808",
+    "name": "Noarlunga",
+    "latitude": -35.2,
+    "longitude": 138.5
+  },
+  {
+    "id": "94809",
+    "name": "Edithburgh",
+    "latitude": -35.1,
+    "longitude": 137.7
+  },
+  {
+    "id": "94811",
+    "name": "Parawa West",
+    "latitude": -35.6,
+    "longitude": 138.3
+  },
+  {
+    "id": "94812",
+    "name": "Robe Post Office",
+    "latitude": -37.1667,
+    "longitude": 139.75
+  },
+  {
+    "id": "94813",
+    "name": "Cape Jaffa",
+    "latitude": -37.0,
+    "longitude": 139.7
+  },
+  {
+    "id": "94814",
+    "name": "Strathalbyn",
+    "latitude": -35.3,
+    "longitude": 138.9
+  },
+  {
+    "id": "94816",
+    "name": "Keith",
+    "latitude": -36.1,
+    "longitude": 140.4
+  },
+  {
+    "id": "94817",
+    "name": "Coonawarra",
+    "latitude": -37.3,
+    "longitude": 140.8
+  },
+  {
+    "id": "94820",
+    "name": "Naracoorte",
+    "latitude": -37.0,
+    "longitude": 140.7
+  },
+  {
+    "id": "94821",
+    "name": "Mount Gambier",
+    "latitude": -37.7,
+    "longitude": 140.8
+  },
+  {
+    "id": "94822",
+    "name": "Cape Willoughby",
+    "latitude": -35.8,
+    "longitude": 138.1
+  },
+  {
+    "id": "94825",
+    "name": "Casterton",
+    "latitude": -37.6,
+    "longitude": 141.4167
+  },
+  {
+    "id": "94826",
+    "name": "Cape Nelson",
+    "latitude": -38.4,
+    "longitude": 141.5
+  },
+  {
+    "id": "94827",
+    "name": "Nhill Aerodrome",
+    "latitude": -36.3,
+    "longitude": 141.6
+  },
+  {
+    "id": "94828",
+    "name": "Portland Airport",
+    "latitude": -38.3,
+    "longitude": 141.5
+  },
+  {
+    "id": "94829",
+    "name": "Hamilton",
+    "latitude": -37.6,
+    "longitude": 142.1
+  },
+  {
+    "id": "94830",
+    "name": "Port Fairy",
+    "latitude": -38.4,
+    "longitude": 142.2
+  },
+  {
+    "id": "94831",
+    "name": "Ouyen",
+    "latitude": -35.0667,
+    "longitude": 142.3167
+  },
+  {
+    "id": "94833",
+    "name": "Mount William",
+    "latitude": -37.3,
+    "longitude": 142.6
+  },
+  {
+    "id": "94834",
+    "name": "Ararat",
+    "latitude": -37.3,
+    "longitude": 143.0
+  },
+  {
+    "id": "94836",
+    "name": "Stawell",
+    "latitude": -37.1,
+    "longitude": 142.7
+  },
+  {
+    "id": "94837",
+    "name": "Warrnambool",
+    "latitude": -38.3,
+    "longitude": 142.5
+  },
+  {
+    "id": "94839",
+    "name": "Charlton",
+    "latitude": -36.3,
+    "longitude": 143.3
+  },
+  {
+    "id": "94840",
+    "name": "Mortlake",
+    "latitude": -38.1,
+    "longitude": 142.8
+  },
+  {
+    "id": "94841",
+    "name": "Warracknabeal Airport",
+    "latitude": -36.3,
+    "longitude": 142.4
+  },
+  {
+    "id": "94842",
+    "name": "Cape Otway",
+    "latitude": -38.9,
+    "longitude": 143.5
+  },
+  {
+    "id": "94843",
+    "name": "Swan Hill",
+    "latitude": -35.4,
+    "longitude": 143.5
+  },
+  {
+    "id": "94844",
+    "name": "Kerang",
+    "latitude": -35.7,
+    "longitude": 143.9
+  },
+  {
+    "id": "94846",
+    "name": "Aireys Inlet",
+    "latitude": -38.5,
+    "longitude": 144.1
+  },
+  {
+    "id": "94847",
+    "name": "Point Wilson Aws",
+    "latitude": -38.1,
+    "longitude": 144.5333
+  },
+  {
+    "id": "94849",
+    "name": "Maryborough",
+    "latitude": -37.1,
+    "longitude": 143.7
+  },
+  {
+    "id": "94850",
+    "name": "King Island Airport",
+    "latitude": -39.9,
+    "longitude": 143.9
+  },
+  {
+    "id": "94852",
+    "name": "Ballarat",
+    "latitude": -37.5,
+    "longitude": 143.8
+  },
+  {
+    "id": "94853",
+    "name": "South Channel Island",
+    "latitude": -38.3,
+    "longitude": 144.8
+  },
+  {
+    "id": "94854",
+    "name": "Avalon",
+    "latitude": -38.0,
+    "longitude": 144.5
+  },
+  {
+    "id": "94855",
+    "name": "Bendigo",
+    "latitude": -36.7,
+    "longitude": 144.3
+  },
+  {
+    "id": "94857",
+    "name": "Geelong Racecourse",
+    "latitude": -38.2,
+    "longitude": 144.4
+  },
+  {
+    "id": "94859",
+    "name": "Redesdale",
+    "latitude": -37.0,
+    "longitude": 144.5
+  },
+  {
+    "id": "94860",
+    "name": "Kilmore Gap",
+    "latitude": -37.4,
+    "longitude": 145.0
+  },
+  {
+    "id": "94861",
+    "name": "Echuca",
+    "latitude": -36.2,
+    "longitude": 144.8
+  },
+  {
+    "id": "94862",
+    "name": "Yarrawonga",
+    "latitude": -36.0,
+    "longitude": 146.0
+  },
+  {
+    "id": "94863",
+    "name": "Sheoaks",
+    "latitude": -37.9,
+    "longitude": 144.1
+  },
+  {
+    "id": "94864",
+    "name": "Coldstream",
+    "latitude": -37.7,
+    "longitude": 145.4
+  },
+  {
+    "id": "94865",
+    "name": "Point Cook",
+    "latitude": -37.9,
+    "longitude": 144.8
+  },
+  {
+    "id": "94866",
+    "name": "Melbourne Airport",
+    "latitude": -37.7,
+    "longitude": 144.8
+  },
+  {
+    "id": "94869",
+    "name": "Deniliquin",
+    "latitude": -35.55,
+    "longitude": 144.9333
+  },
+  {
+    "id": "94870",
+    "name": "Moorabbin Airport",
+    "latitude": -38.0,
+    "longitude": 145.1
+  },
+  {
+    "id": "94871",
+    "name": "Frankston Beach",
+    "latitude": -38.1,
+    "longitude": 145.1
+  },
+  {
+    "id": "94872",
+    "name": "Ferny Creek",
+    "latitude": -37.9,
+    "longitude": 145.3
+  },
+  {
+    "id": "94874",
+    "name": "Puckapunyal-Lyon Hill (Defence)",
+    "latitude": -36.9,
+    "longitude": 145.1
+  },
+  {
+    "id": "94875",
+    "name": "Shepparton",
+    "latitude": -36.4,
+    "longitude": 145.4
+  },
+  {
+    "id": "94877",
+    "name": "Tocumwal",
+    "latitude": -35.8,
+    "longitude": 145.6
+  },
+  {
+    "id": "94878",
+    "name": "Hunters Hill",
+    "latitude": -36.2,
+    "longitude": 147.5
+  },
+  {
+    "id": "94879",
+    "name": "Frankston (Ballam Park)",
+    "latitude": -38.2,
+    "longitude": 145.2
+  },
+  {
+    "id": "94880",
+    "name": "Noojee Slivar",
+    "latitude": -37.9,
+    "longitude": 145.9667
+  },
+  {
+    "id": "94881",
+    "name": "Eildon Fire Tower",
+    "latitude": -37.2,
+    "longitude": 145.8
+  },
+  {
+    "id": "94882",
+    "name": "Lake Eildon",
+    "latitude": -37.2,
+    "longitude": 145.9
+  },
+  {
+    "id": "94883",
+    "name": "Phillip Island Penguin Reserve / Ventnor",
+    "latitude": -38.5058,
+    "longitude": 145.1503
+  },
+  {
+    "id": "94884",
+    "name": "Benalla",
+    "latitude": -36.6,
+    "longitude": 146.0
+  },
+  {
+    "id": "94886",
+    "name": "Pound Creek",
+    "latitude": -38.6,
+    "longitude": 145.8
+  },
+  {
+    "id": "94888",
+    "name": "Lake Dartmouth",
+    "latitude": -36.5,
+    "longitude": 147.5
+  },
+  {
+    "id": "94889",
+    "name": "Wangaratta",
+    "latitude": -36.4,
+    "longitude": 146.3
+  },
+  {
+    "id": "94890",
+    "name": "Gundagai",
+    "latitude": -35.1,
+    "longitude": 148.1
+  },
+  {
+    "id": "94891",
+    "name": "Latrobe Valley",
+    "latitude": -38.2,
+    "longitude": 146.5
+  },
+  {
+    "id": "94892",
+    "name": "Rhyll",
+    "latitude": -38.5,
+    "longitude": 145.3
+  },
+  {
+    "id": "94893",
+    "name": "Wilsons Promontory",
+    "latitude": -39.1,
+    "longitude": 146.4
+  },
+  {
+    "id": "94894",
+    "name": "Mount Buller",
+    "latitude": -37.1,
+    "longitude": 146.4
+  },
+  {
+    "id": "94895",
+    "name": "Beechworth",
+    "latitude": -36.3167,
+    "longitude": 146.6667
+  },
+  {
+    "id": "94896",
+    "name": "Albury Airport",
+    "latitude": -36.0667,
+    "longitude": 146.95
+  },
+  {
+    "id": "94898",
+    "name": "Cerberus",
+    "latitude": -38.4,
+    "longitude": 145.2
+  },
+  {
+    "id": "94899",
+    "name": "Corryong",
+    "latitude": -36.2,
+    "longitude": 147.8833
+  },
+  {
+    "id": "94900",
+    "name": "Blue Rock Reservoir / Willow Grove",
+    "latitude": -38.0808,
+    "longitude": 146.2139
+  },
+  {
+    "id": "94901",
+    "name": "Hume Reservoir",
+    "latitude": -36.1,
+    "longitude": 147.0
+  },
+  {
+    "id": "94903",
+    "name": "Falls Creek",
+    "latitude": -36.9,
+    "longitude": 147.3
+  },
+  {
+    "id": "94905",
+    "name": "Mount Hotham Airport",
+    "latitude": -37.0,
+    "longitude": 147.3
+  },
+  {
+    "id": "94906",
+    "name": "Mount Hotham",
+    "latitude": -37.0,
+    "longitude": 147.1
+  },
+  {
+    "id": "94908",
+    "name": "Omeo",
+    "latitude": -37.1,
+    "longitude": 147.6
+  },
+  {
+    "id": "94909",
+    "name": "Burrinjuck Dam",
+    "latitude": -35.0,
+    "longitude": 148.6
+  },
+  {
+    "id": "94910",
+    "name": "Wagga Wagga",
+    "latitude": -35.2,
+    "longitude": 147.5
+  },
+  {
+    "id": "94912",
+    "name": "Bairnsdale",
+    "latitude": -37.9,
+    "longitude": 147.6
+  },
+  {
+    "id": "94913",
+    "name": "Gelantipy",
+    "latitude": -37.2,
+    "longitude": 148.3
+  },
+  {
+    "id": "94914",
+    "name": "Combienbar",
+    "latitude": -37.3,
+    "longitude": 149.0
+  },
+  {
+    "id": "94915",
+    "name": "Perisher Valley",
+    "latitude": -36.4,
+    "longitude": 148.4
+  },
+  {
+    "id": "94917",
+    "name": "Orbost",
+    "latitude": -37.6833,
+    "longitude": 148.45
+  },
+  {
+    "id": "94918",
+    "name": "Tumbarumba",
+    "latitude": -35.7667,
+    "longitude": 148.0
+  },
+  {
+    "id": "94919",
+    "name": "Khancoban",
+    "latitude": -36.2,
+    "longitude": 148.1
+  },
+  {
+    "id": "94921",
+    "name": "Cooma Airport",
+    "latitude": -36.3,
+    "longitude": 149.0
+  },
+  {
+    "id": "94922",
+    "name": "ACT PCS2",
+    "latitude": -35.4,
+    "longitude": 149.0
+  },
+  {
+    "id": "94923",
+    "name": "Cooma",
+    "latitude": -36.2,
+    "longitude": 149.1
+  },
+  {
+    "id": "94925",
+    "name": "Tuggeranong",
+    "latitude": -35.4,
+    "longitude": 149.1
+  },
+  {
+    "id": "94926",
+    "name": "Canberra",
+    "latitude": -35.3,
+    "longitude": 149.2
+  },
+  {
+    "id": "94927",
+    "name": "Braidwood",
+    "latitude": -35.4,
+    "longitude": 149.8
+  },
+  {
+    "id": "94928",
+    "name": "Bombala",
+    "latitude": -36.9,
+    "longitude": 149.2
+  },
+  {
+    "id": "94929",
+    "name": "Bombala AWS",
+    "latitude": -37.0,
+    "longitude": 149.2
+  },
+  {
+    "id": "94930",
+    "name": "Mount Nowa Nowa",
+    "latitude": -37.7,
+    "longitude": 148.1
+  },
+  {
+    "id": "94932",
+    "name": "Point Hicks",
+    "latitude": -37.8,
+    "longitude": 149.2667
+  },
+  {
+    "id": "94933",
+    "name": "Gabo Island",
+    "latitude": -37.6,
+    "longitude": 149.9
+  },
+  {
+    "id": "94934",
+    "name": "Green Cape",
+    "latitude": -37.3,
+    "longitude": 150.1
+  },
+  {
+    "id": "94935",
+    "name": "Mallacoota",
+    "latitude": -37.6,
+    "longitude": 149.7
+  },
+  {
+    "id": "94937",
+    "name": "Moruya Heads",
+    "latitude": -35.9,
+    "longitude": 150.2
+  },
+  {
+    "id": "94938",
+    "name": "Ulladulla",
+    "latitude": -35.4,
+    "longitude": 150.5
+  },
+  {
+    "id": "94939",
+    "name": "Montague Island",
+    "latitude": -36.3,
+    "longitude": 150.2
+  },
+  {
+    "id": "94940",
+    "name": "Jervis Bay",
+    "latitude": -35.0833,
+    "longitude": 150.8
+  },
+  {
+    "id": "94941",
+    "name": "Batemans Bay",
+    "latitude": -35.7,
+    "longitude": 150.2
+  },
+  {
+    "id": "94942",
+    "name": "Nerriga",
+    "latitude": -35.1,
+    "longitude": 150.1
+  },
+  {
+    "id": "94950",
+    "name": "Marrawah",
+    "latitude": -40.9,
+    "longitude": 144.7
+  },
+  {
+    "id": "94953",
+    "name": "Smithton",
+    "latitude": -40.8,
+    "longitude": 145.1
+  },
+  {
+    "id": "94955",
+    "name": "Sheffield",
+    "latitude": -41.4,
+    "longitude": 146.3
+  },
+  {
+    "id": "94956",
+    "name": "Strahan",
+    "latitude": -42.2,
+    "longitude": 145.3
+  },
+  {
+    "id": "94957",
+    "name": "Ouse",
+    "latitude": -42.5,
+    "longitude": 146.7
+  },
+  {
+    "id": "94958",
+    "name": "Burnie Port",
+    "latitude": -41.0,
+    "longitude": 145.9
+  },
+  {
+    "id": "94959",
+    "name": "Butlers Gorge",
+    "latitude": -42.3,
+    "longitude": 146.3
+  },
+  {
+    "id": "94960",
+    "name": "Tunnack",
+    "latitude": -42.5,
+    "longitude": 147.5
+  },
+  {
+    "id": "94961",
+    "name": "Dover",
+    "latitude": -43.3,
+    "longitude": 147.0
+  },
+  {
+    "id": "94962",
+    "name": "Maatsuyker Island",
+    "latitude": -43.7,
+    "longitude": 146.3
+  },
+  {
+    "id": "94963",
+    "name": "Maydena Post Office",
+    "latitude": -42.75,
+    "longitude": 146.6167
+  },
+  {
+    "id": "94964",
+    "name": "Bushy Park",
+    "latitude": -42.7,
+    "longitude": 146.9
+  },
+  {
+    "id": "94966",
+    "name": "Geeveston Forestry",
+    "latitude": -43.1667,
+    "longitude": 146.9167
+  },
+  {
+    "id": "94967",
+    "name": "Cape Bruny",
+    "latitude": -43.5,
+    "longitude": 147.15
+  },
+  {
+    "id": "94968",
+    "name": "Launceston Airport",
+    "latitude": -41.5333,
+    "longitude": 147.2
+  },
+  {
+    "id": "94969",
+    "name": "Launceston",
+    "latitude": -41.4,
+    "longitude": 147.1
+  },
+  {
+    "id": "94970",
+    "name": "Hobart",
+    "latitude": -42.9,
+    "longitude": 147.3
+  },
+  {
+    "id": "94971",
+    "name": "Melton Mowbray Lovely Banks",
+    "latitude": -42.4333,
+    "longitude": 147.2167
+  },
+  {
+    "id": "94972",
+    "name": "Scottsdale",
+    "latitude": -41.2,
+    "longitude": 147.5
+  },
+  {
+    "id": "94974",
+    "name": "Cape Sorell",
+    "latitude": -42.2,
+    "longitude": 145.2
+  },
+  {
+    "id": "94975",
+    "name": "Hobart Airport",
+    "latitude": -42.8,
+    "longitude": 147.5
+  },
+  {
+    "id": "94976",
+    "name": "Lake St Clair",
+    "latitude": -42.1,
+    "longitude": 146.2
+  },
+  {
+    "id": "94977",
+    "name": "Hartz Mountains",
+    "latitude": -43.2,
+    "longitude": 146.8
+  },
+  {
+    "id": "94979",
+    "name": "Lake Leake",
+    "latitude": -42.0,
+    "longitude": 147.8
+  },
+  {
+    "id": "94980",
+    "name": "Flinders Island Airport",
+    "latitude": -40.1,
+    "longitude": 148.0
+  },
+  {
+    "id": "94981",
+    "name": "Swansea",
+    "latitude": -42.1167,
+    "longitude": 148.0667
+  },
+  {
+    "id": "94983",
+    "name": "Larapuna (Eddystone Point)",
+    "latitude": -41.0,
+    "longitude": 148.3
+  },
+  {
+    "id": "94985",
+    "name": "Ross",
+    "latitude": -42.0,
+    "longitude": 147.5
+  },
+  {
+    "id": "94987",
+    "name": "Friendly Beaches",
+    "latitude": -42.0,
+    "longitude": 148.3
+  },
+  {
+    "id": "94995",
+    "name": "Lord Howe Island",
+    "latitude": -31.5,
+    "longitude": 159.1
+  },
+  {
+    "id": "94996",
+    "name": "Norfolk Island",
+    "latitude": -29.0,
+    "longitude": 167.9
+  },
+  {
+    "id": "94997",
+    "name": "Heard Island The Spit",
+    "latitude": -53.1,
+    "longitude": 73.7167
+  },
+  {
+    "id": "94998",
+    "name": "Macquarie Island*",
+    "latitude": -54.5,
+    "longitude": 158.9
+  },
+  {
+    "id": "95101",
+    "name": "Truscott",
+    "latitude": -14.1,
+    "longitude": 126.4
+  },
+  {
+    "id": "95111",
+    "name": "Wadeye (Port Keats)",
+    "latitude": -14.2,
+    "longitude": 129.5
+  },
+  {
+    "id": "95142",
+    "name": "Maningrida Airport",
+    "latitude": -12.1,
+    "longitude": 134.2
+  },
+  {
+    "id": "95146",
+    "name": "Ngayawili (Elcho Island)",
+    "latitude": -12.0,
+    "longitude": 135.6
+  },
+  {
+    "id": "95204",
+    "name": "West Roebuck / Broome",
+    "latitude": -17.8964,
+    "longitude": 122.3122
+  },
+  {
+    "id": "95205",
+    "name": "Derby",
+    "latitude": -17.4,
+    "longitude": 123.7
+  },
+  {
+    "id": "95214",
+    "name": "Wyndham Aero",
+    "latitude": -15.51,
+    "longitude": 128.1503
+  },
+  {
+    "id": "95215",
+    "name": "Kimberley Res. Station / Kununurra",
+    "latitude": -15.65,
+    "longitude": 128.7167
+  },
+  {
+    "id": "95283",
+    "name": "Cooktown",
+    "latitude": -15.4,
+    "longitude": 145.2
+  },
+  {
+    "id": "95284",
+    "name": "Walkamin Dpi / Carbeen",
+    "latitude": -17.1347,
+    "longitude": 145.4281
+  },
+  {
+    "id": "95286",
+    "name": "Mareeba",
+    "latitude": -17.1,
+    "longitude": 145.4
+  },
+  {
+    "id": "95289",
+    "name": "Green Island Aws",
+    "latitude": -16.7667,
+    "longitude": 145.9667
+  },
+  {
+    "id": "95291",
+    "name": "Ingham",
+    "latitude": -18.6,
+    "longitude": 146.2
+  },
+  {
+    "id": "95292",
+    "name": "South Johnstone",
+    "latitude": -17.6,
+    "longitude": 146.0
+  },
+  {
+    "id": "95293",
+    "name": "Woolshed",
+    "latitude": -19.4,
+    "longitude": 146.5
+  },
+  {
+    "id": "95295",
+    "name": "Ayr",
+    "latitude": -19.6,
+    "longitude": 147.4
+  },
+  {
+    "id": "95296",
+    "name": "Alva Beach",
+    "latitude": -19.5,
+    "longitude": 147.5
+  },
+  {
+    "id": "95305",
+    "name": "Onslow Airport",
+    "latitude": -21.7,
+    "longitude": 115.1
+  },
+  {
+    "id": "95307",
+    "name": "Karratha",
+    "latitude": -20.7,
+    "longitude": 116.8
+  },
+  {
+    "id": "95316",
+    "name": "Tom Price",
+    "latitude": -22.6967,
+    "longitude": 117.7703
+  },
+  {
+    "id": "95317",
+    "name": "Marble Bar",
+    "latitude": -21.2,
+    "longitude": 119.7
+  },
+  {
+    "id": "95322",
+    "name": "Rabbit Flat",
+    "latitude": -20.2,
+    "longitude": 130.0
+  },
+  {
+    "id": "95351",
+    "name": "Blackall",
+    "latitude": -24.4,
+    "longitude": 145.4
+  },
+  {
+    "id": "95362",
+    "name": "Springsure Post Office",
+    "latitude": -24.1167,
+    "longitude": 148.0833
+  },
+  {
+    "id": "95366",
+    "name": "Te Kowai Exp Stn",
+    "latitude": -21.1642,
+    "longitude": 149.1192
+  },
+  {
+    "id": "95369",
+    "name": "St Lawrence",
+    "latitude": -22.3,
+    "longitude": 149.5
+  },
+  {
+    "id": "95370",
+    "name": "Williamson",
+    "latitude": -22.5,
+    "longitude": 150.2
+  },
+  {
+    "id": "95376",
+    "name": "Brigalow Research Stn / Nipan",
+    "latitude": -24.8353,
+    "longitude": 149.8003
+  },
+  {
+    "id": "95402",
+    "name": "Shark Bay Airport",
+    "latitude": -25.9,
+    "longitude": 113.6
+  },
+  {
+    "id": "95448",
+    "name": "Leinster",
+    "latitude": -27.8,
+    "longitude": 120.7
+  },
+  {
+    "id": "95458",
+    "name": "Coober Pedy Airport",
+    "latitude": -29.0,
+    "longitude": 134.7
+  },
+  {
+    "id": "95480",
+    "name": "Marree Aero",
+    "latitude": -29.6586,
+    "longitude": 138.0683
+  },
+  {
+    "id": "95481",
+    "name": "Moomba Airport",
+    "latitude": -28.1,
+    "longitude": 140.2
+  },
+  {
+    "id": "95482",
+    "name": "Birdsville",
+    "latitude": -25.9,
+    "longitude": 139.3
+  },
+  {
+    "id": "95485",
+    "name": "Tibooburra Airport",
+    "latitude": -29.4,
+    "longitude": 142.1
+  },
+  {
+    "id": "95487",
+    "name": "Ballera",
+    "latitude": -27.4,
+    "longitude": 141.8
+  },
+  {
+    "id": "95512",
+    "name": "Brewarrina",
+    "latitude": -30.0,
+    "longitude": 146.9
+  },
+  {
+    "id": "95520",
+    "name": "Collarenbri",
+    "latitude": -29.5333,
+    "longitude": 148.5667
+  },
+  {
+    "id": "95527",
+    "name": "Moree",
+    "latitude": -29.5,
+    "longitude": 149.8
+  },
+  {
+    "id": "95529",
+    "name": "Miles",
+    "latitude": -26.7,
+    "longitude": 150.2
+  },
+  {
+    "id": "95533",
+    "name": "Texas",
+    "latitude": -28.9,
+    "longitude": 151.2
+  },
+  {
+    "id": "95541",
+    "name": "Inverell",
+    "latitude": -29.8,
+    "longitude": 151.1
+  },
+  {
+    "id": "95543",
+    "name": "Gayndah",
+    "latitude": -25.6,
+    "longitude": 151.6
+  },
+  {
+    "id": "95551",
+    "name": "Toowoomba",
+    "latitude": -27.5,
+    "longitude": 151.9
+  },
+  {
+    "id": "95565",
+    "name": "Hervey Bay",
+    "latitude": -25.3,
+    "longitude": 152.9
+  },
+  {
+    "id": "95566",
+    "name": "Beerburrum",
+    "latitude": -27.0,
+    "longitude": 153.0
+  },
+  {
+    "id": "95570",
+    "name": "Grafton Airport",
+    "latitude": -29.8,
+    "longitude": 153.0
+  },
+  {
+    "id": "95571",
+    "name": "Grafton AgRS",
+    "latitude": -29.6,
+    "longitude": 153.0
+  },
+  {
+    "id": "95573",
+    "name": "PORTABLE QFRI (Inglewood)",
+    "latitude": -28.4,
+    "longitude": 151.1
+  },
+  {
+    "id": "95581",
+    "name": "Logan City",
+    "latitude": -27.7,
+    "longitude": 153.2
+  },
+  {
+    "id": "95591",
+    "name": "Redcliffe",
+    "latitude": -27.2,
+    "longitude": 153.1
+  },
+  {
+    "id": "95600",
+    "name": "PORTABLE BCAB (DBCA)",
+    "latitude": -30.3,
+    "longitude": 115.1
+  },
+  {
+    "id": "95601",
+    "name": "Wongan Hills Res. Station / Elphin",
+    "latitude": -30.8408,
+    "longitude": 116.7267
+  },
+  {
+    "id": "95603",
+    "name": "Kellerberrin",
+    "latitude": -31.6183,
+    "longitude": 117.7217
+  },
+  {
+    "id": "95604",
+    "name": "Gosnells",
+    "latitude": -32.0,
+    "longitude": 116.0
+  },
+  {
+    "id": "95606",
+    "name": "Lancelin",
+    "latitude": -31.0167,
+    "longitude": 115.3167
+  },
+  {
+    "id": "95607",
+    "name": "Garden Island",
+    "latitude": -32.2,
+    "longitude": 115.7
+  },
+  {
+    "id": "95608",
+    "name": "Kwinana Medina Research Centre",
+    "latitude": -33.6833,
+    "longitude": 115.8
+  },
+  {
+    "id": "95610",
+    "name": "Bickley",
+    "latitude": -32.0,
+    "longitude": 116.1
+  },
+  {
+    "id": "95611",
+    "name": "Busselton Airport",
+    "latitude": -33.7,
+    "longitude": 115.4
+  },
+  {
+    "id": "95612",
+    "name": "Gingin Airport",
+    "latitude": -31.5,
+    "longitude": 115.9
+  },
+  {
+    "id": "95613",
+    "name": "Pemberton",
+    "latitude": -34.45,
+    "longitude": 116.0333
+  },
+  {
+    "id": "95614",
+    "name": "Karnet",
+    "latitude": -32.4,
+    "longitude": 116.1
+  },
+  {
+    "id": "95615",
+    "name": "Beverley",
+    "latitude": -32.1,
+    "longitude": 116.9
+  },
+  {
+    "id": "95616",
+    "name": "Pingelly",
+    "latitude": -32.5,
+    "longitude": 117.1
+  },
+  {
+    "id": "95617",
+    "name": "Shannon",
+    "latitude": -34.6,
+    "longitude": 116.3
+  },
+  {
+    "id": "95618",
+    "name": "Wagin",
+    "latitude": -33.3,
+    "longitude": 117.3167
+  },
+  {
+    "id": "95621",
+    "name": "Collie East",
+    "latitude": -33.4,
+    "longitude": 116.2
+  },
+  {
+    "id": "95622",
+    "name": "Donnybrook",
+    "latitude": -33.6,
+    "longitude": 115.8
+  },
+  {
+    "id": "95623",
+    "name": "Jarrahwood",
+    "latitude": -33.8,
+    "longitude": 115.7
+  },
+  {
+    "id": "95624",
+    "name": "Merredin",
+    "latitude": -31.5,
+    "longitude": 118.3
+  },
+  {
+    "id": "95625",
+    "name": "Cunderdin Airport",
+    "latitude": -31.6,
+    "longitude": 117.2
+  },
+  {
+    "id": "95626",
+    "name": "Narembeen",
+    "latitude": -32.1,
+    "longitude": 118.4
+  },
+  {
+    "id": "95627",
+    "name": "Hyden",
+    "latitude": -32.4,
+    "longitude": 118.9
+  },
+  {
+    "id": "95628",
+    "name": "Ongerup",
+    "latitude": -33.95,
+    "longitude": 118.4833
+  },
+  {
+    "id": "95629",
+    "name": "Dalwallinu",
+    "latitude": -30.3,
+    "longitude": 116.7
+  },
+  {
+    "id": "95631",
+    "name": "Goomalling",
+    "latitude": -31.2994,
+    "longitude": 116.8269
+  },
+  {
+    "id": "95632",
+    "name": "Bridgetown",
+    "latitude": -33.9,
+    "longitude": 116.1
+  },
+  {
+    "id": "95634",
+    "name": "Southern Cross Airport",
+    "latitude": -31.2,
+    "longitude": 119.4
+  },
+  {
+    "id": "95635",
+    "name": "Hopetoun North",
+    "latitude": -33.9,
+    "longitude": 120.1
+  },
+  {
+    "id": "95636",
+    "name": "Jacup",
+    "latitude": -33.9,
+    "longitude": 119.1
+  },
+  {
+    "id": "95637",
+    "name": "Lake Grace",
+    "latitude": -33.1,
+    "longitude": 118.5
+  },
+  {
+    "id": "95638",
+    "name": "Esperance Airport",
+    "latitude": -33.7,
+    "longitude": 121.8
+  },
+  {
+    "id": "95639",
+    "name": "Salmon Gums RS",
+    "latitude": -33.0,
+    "longitude": 121.6
+  },
+  {
+    "id": "95640",
+    "name": "Wandering",
+    "latitude": -32.7,
+    "longitude": 116.7
+  },
+  {
+    "id": "95641",
+    "name": "Witchcliffe",
+    "latitude": -34.0281,
+    "longitude": 115.1042
+  },
+  {
+    "id": "95642",
+    "name": "Norseman Airport",
+    "latitude": -32.2,
+    "longitude": 121.8
+  },
+  {
+    "id": "95643",
+    "name": "Harvey",
+    "latitude": -33.0789,
+    "longitude": 115.8806
+  },
+  {
+    "id": "95644",
+    "name": "Munglinup West",
+    "latitude": -33.6,
+    "longitude": 120.7
+  },
+  {
+    "id": "95646",
+    "name": "Forrest",
+    "latitude": -30.8,
+    "longitude": 128.1
+  },
+  {
+    "id": "95647",
+    "name": "Walpole North",
+    "latitude": -34.9,
+    "longitude": 116.7
+  },
+  {
+    "id": "95654",
+    "name": "Wudinna Airport",
+    "latitude": -33.0,
+    "longitude": 135.5
+  },
+  {
+    "id": "95655",
+    "name": "Nonning",
+    "latitude": -32.5167,
+    "longitude": 136.4833
+  },
+  {
+    "id": "95657",
+    "name": "Port Pirie Aerodrome / Solomontown",
+    "latitude": -33.2342,
+    "longitude": 138.0011
+  },
+  {
+    "id": "95658",
+    "name": "Roxby Downs",
+    "latitude": -30.5,
+    "longitude": 136.9
+  },
+  {
+    "id": "95659",
+    "name": "Minlaton Airport",
+    "latitude": -34.7,
+    "longitude": 137.5
+  },
+  {
+    "id": "95660",
+    "name": "Andamooka",
+    "latitude": -30.4,
+    "longitude": 137.2
+  },
+  {
+    "id": "95661",
+    "name": "Port Lincoln Airport",
+    "latitude": -34.6,
+    "longitude": 135.9
+  },
+  {
+    "id": "95662",
+    "name": "Minnipa RS",
+    "latitude": -32.8,
+    "longitude": 135.2
+  },
+  {
+    "id": "95664",
+    "name": "Whyalla",
+    "latitude": -33.1,
+    "longitude": 137.5
+  },
+  {
+    "id": "95666",
+    "name": "Port Augusta",
+    "latitude": -32.5,
+    "longitude": 137.7
+  },
+  {
+    "id": "95667",
+    "name": "Clare",
+    "latitude": -33.8,
+    "longitude": 138.6
+  },
+  {
+    "id": "95669",
+    "name": "Cheetham Salt Works / Price",
+    "latitude": -34.2972,
+    "longitude": 138.0014
+  },
+  {
+    "id": "95670",
+    "name": "Snowtown",
+    "latitude": -33.8,
+    "longitude": 138.2
+  },
+  {
+    "id": "95671",
+    "name": "Roseworthy",
+    "latitude": -34.5,
+    "longitude": 138.7
+  },
+  {
+    "id": "95674",
+    "name": "Turretfield Researc / Rosedale",
+    "latitude": -34.5519,
+    "longitude": 138.8342
+  },
+  {
+    "id": "95676",
+    "name": "Edinburgh",
+    "latitude": -34.7,
+    "longitude": 138.6
+  },
+  {
+    "id": "95677",
+    "name": "Parafield",
+    "latitude": -34.8,
+    "longitude": 138.6
+  },
+  {
+    "id": "95678",
+    "name": "Mount Lofty",
+    "latitude": -35.0,
+    "longitude": 138.7
+  },
+  {
+    "id": "95687",
+    "name": "Renmark Airport",
+    "latitude": -34.2,
+    "longitude": 140.7
+  },
+  {
+    "id": "95692",
+    "name": "Pooncarie",
+    "latitude": -33.4,
+    "longitude": 142.6
+  },
+  {
+    "id": "95697",
+    "name": "Ivanhoe Airport",
+    "latitude": -32.9,
+    "longitude": 144.3
+  },
+  {
+    "id": "95699",
+    "name": "White Cliffs AWS",
+    "latitude": -30.9,
+    "longitude": 143.1
+  },
+  {
+    "id": "95704",
+    "name": "Griffith",
+    "latitude": -34.2,
+    "longitude": 146.1
+  },
+  {
+    "id": "95705",
+    "name": "Yanco",
+    "latitude": -34.6,
+    "longitude": 146.4
+  },
+  {
+    "id": "95706",
+    "name": "Narrandera Airport",
+    "latitude": -34.7,
+    "longitude": 146.5
+  },
+  {
+    "id": "95707",
+    "name": "Lake Cargelligo Airport",
+    "latitude": -33.2833,
+    "longitude": 146.3667
+  },
+  {
+    "id": "95708",
+    "name": "Condobolin Airport",
+    "latitude": -33.1,
+    "longitude": 147.2
+  },
+  {
+    "id": "95709",
+    "name": "West Wyalong",
+    "latitude": -33.9,
+    "longitude": 147.2
+  },
+  {
+    "id": "95710",
+    "name": "Trangie",
+    "latitude": -32.0,
+    "longitude": 147.9
+  },
+  {
+    "id": "95713",
+    "name": "Baradine Forestry",
+    "latitude": -30.9469,
+    "longitude": 149.0653
+  },
+  {
+    "id": "95715",
+    "name": "Walgett",
+    "latitude": -30.0,
+    "longitude": 148.1
+  },
+  {
+    "id": "95716",
+    "name": "Goulburn Airport",
+    "latitude": -34.8,
+    "longitude": 149.7
+  },
+  {
+    "id": "95717",
+    "name": "Parkes Airport",
+    "latitude": -33.1,
+    "longitude": 148.2
+  },
+  {
+    "id": "95718",
+    "name": "Coonamble",
+    "latitude": -31.0,
+    "longitude": 148.4
+  },
+  {
+    "id": "95719",
+    "name": "Dubbo",
+    "latitude": -32.2,
+    "longitude": 148.6
+  },
+  {
+    "id": "95720",
+    "name": "Cowra",
+    "latitude": -33.8,
+    "longitude": 148.7
+  },
+  {
+    "id": "95722",
+    "name": "Temora",
+    "latitude": -34.4,
+    "longitude": 147.5
+  },
+  {
+    "id": "95723",
+    "name": "Yass",
+    "latitude": -34.85,
+    "longitude": 148.9
+  },
+  {
+    "id": "95725",
+    "name": "Orange Agricultural Institute / Bloomfield",
+    "latitude": -33.3211,
+    "longitude": 149.0828
+  },
+  {
+    "id": "95726",
+    "name": "Orange Airport",
+    "latitude": -33.4,
+    "longitude": 149.1
+  },
+  {
+    "id": "95727",
+    "name": "Dunedoo",
+    "latitude": -32.0167,
+    "longitude": 149.3833
+  },
+  {
+    "id": "95728",
+    "name": "Coonabarabran Airport",
+    "latitude": -31.3,
+    "longitude": 149.3
+  },
+  {
+    "id": "95734",
+    "name": "Narrabri",
+    "latitude": -30.3,
+    "longitude": 149.8
+  },
+  {
+    "id": "95735",
+    "name": "Oberon",
+    "latitude": -33.7333,
+    "longitude": 149.8667
+  },
+  {
+    "id": "95740",
+    "name": "Gunnedah Airport",
+    "latitude": -31.0,
+    "longitude": 150.2
+  },
+  {
+    "id": "95744",
+    "name": "Springwood Bowling Club / Valley Heights",
+    "latitude": -33.7064,
+    "longitude": 150.5847
+  },
+  {
+    "id": "95746",
+    "name": "Quirindi",
+    "latitude": -31.5,
+    "longitude": 150.7
+  },
+  {
+    "id": "95747",
+    "name": "Murrurundi Gap",
+    "latitude": -31.7,
+    "longitude": 150.8
+  },
+  {
+    "id": "95748",
+    "name": "Albion Park",
+    "latitude": -34.6,
+    "longitude": 150.8
+  },
+  {
+    "id": "95749",
+    "name": "Kiama",
+    "latitude": -34.7,
+    "longitude": 150.9
+  },
+  {
+    "id": "95753",
+    "name": "Richmond",
+    "latitude": -33.6,
+    "longitude": 150.8
+  },
+  {
+    "id": "95754",
+    "name": "Merriwa",
+    "latitude": -32.2,
+    "longitude": 150.2
+  },
+  {
+    "id": "95757",
+    "name": "Lucas Heights (ANSTO)",
+    "latitude": -34.1,
+    "longitude": 151.0
+  },
+  {
+    "id": "95758",
+    "name": "Scone Airport",
+    "latitude": -32.0,
+    "longitude": 150.8
+  },
+  {
+    "id": "95762",
+    "name": "Tamworth Airport",
+    "latitude": -31.1,
+    "longitude": 150.8
+  },
+  {
+    "id": "95764",
+    "name": "Riverview Observatory",
+    "latitude": -33.8333,
+    "longitude": 151.15
+  },
+  {
+    "id": "95765",
+    "name": "Sydney Olympic Park",
+    "latitude": -33.8,
+    "longitude": 151.1
+  },
+  {
+    "id": "95766",
+    "name": "Sydney Harbour",
+    "latitude": -33.8,
+    "longitude": 151.3
+  },
+  {
+    "id": "95770",
+    "name": "Norah Head",
+    "latitude": -33.3,
+    "longitude": 151.6
+  },
+  {
+    "id": "95771",
+    "name": "Cessnock Airport",
+    "latitude": -32.8,
+    "longitude": 151.3
+  },
+  {
+    "id": "95772",
+    "name": "Lostock Dam Site",
+    "latitude": -32.3322,
+    "longitude": 151.4594
+  },
+  {
+    "id": "95773",
+    "name": "Armidale Airport",
+    "latitude": -30.5,
+    "longitude": 151.6
+  },
+  {
+    "id": "95774",
+    "name": "Mangrove Mountain",
+    "latitude": -33.3,
+    "longitude": 151.2
+  },
+  {
+    "id": "95775",
+    "name": "Maitland Airport",
+    "latitude": -32.7,
+    "longitude": 151.5
+  },
+  {
+    "id": "95778",
+    "name": "Forster Beach Caravan Park / Tuncurry",
+    "latitude": -32.1756,
+    "longitude": 152.5089
+  },
+  {
+    "id": "95779",
+    "name": "Nelson Bay",
+    "latitude": -32.7,
+    "longitude": 152.2
+  },
+  {
+    "id": "95784",
+    "name": "Taree Airport",
+    "latitude": -31.9,
+    "longitude": 152.5
+  },
+  {
+    "id": "95806",
+    "name": "Stenhouse Bay",
+    "latitude": -35.3,
+    "longitude": 136.9
+  },
+  {
+    "id": "95807",
+    "name": "Kingscote",
+    "latitude": -35.7,
+    "longitude": 137.5
+  },
+  {
+    "id": "95811",
+    "name": "Victor Harbor",
+    "latitude": -35.6,
+    "longitude": 138.6
+  },
+  {
+    "id": "95812",
+    "name": "Murray Bridge",
+    "latitude": -35.1,
+    "longitude": 139.3
+  },
+  {
+    "id": "95813",
+    "name": "Karoonda",
+    "latitude": -35.1,
+    "longitude": 139.9
+  },
+  {
+    "id": "95814",
+    "name": "Meningie",
+    "latitude": -35.7,
+    "longitude": 139.3
+  },
+  {
+    "id": "95815",
+    "name": "Keith West",
+    "latitude": -36.1,
+    "longitude": 140.3
+  },
+  {
+    "id": "95816",
+    "name": "Robe Airport",
+    "latitude": -37.2,
+    "longitude": 139.8
+  },
+  {
+    "id": "95823",
+    "name": "Padthaway",
+    "latitude": -36.7,
+    "longitude": 140.5
+  },
+  {
+    "id": "95825",
+    "name": "Casterton",
+    "latitude": -37.6,
+    "longitude": 141.3
+  },
+  {
+    "id": "95827",
+    "name": "Kanagulk",
+    "latitude": -37.1,
+    "longitude": 141.8
+  },
+  {
+    "id": "95831",
+    "name": "Walpeup",
+    "latitude": -35.1,
+    "longitude": 142.0
+  },
+  {
+    "id": "95832",
+    "name": "Edenhope",
+    "latitude": -37.0,
+    "longitude": 141.3
+  },
+  {
+    "id": "95834",
+    "name": "Horsham Composite",
+    "latitude": -36.65,
+    "longitude": 142.1
+  },
+  {
+    "id": "95835",
+    "name": "Longerenong",
+    "latitude": -36.7,
+    "longitude": 142.3
+  },
+  {
+    "id": "95836",
+    "name": "Tatura",
+    "latitude": -36.4,
+    "longitude": 145.3
+  },
+  {
+    "id": "95837",
+    "name": "Rutherglen",
+    "latitude": -36.1,
+    "longitude": 146.5
+  },
+  {
+    "id": "95838",
+    "name": "Edi Upper Vineyard",
+    "latitude": -36.7397,
+    "longitude": 146.4672
+  },
+  {
+    "id": "95839",
+    "name": "Horsham",
+    "latitude": -36.7,
+    "longitude": 142.2
+  },
+  {
+    "id": "95840",
+    "name": "Westmere",
+    "latitude": -37.7,
+    "longitude": 142.9
+  },
+  {
+    "id": "95843",
+    "name": "Strathbogie",
+    "latitude": -36.8,
+    "longitude": 145.7
+  },
+  {
+    "id": "95845",
+    "name": "Mount Gellibrand",
+    "latitude": -38.2,
+    "longitude": 143.8
+  },
+  {
+    "id": "95853",
+    "name": "Castlemaine",
+    "latitude": -37.0667,
+    "longitude": 144.2333
+  },
+  {
+    "id": "95855",
+    "name": "Weeaproinah",
+    "latitude": -38.6333,
+    "longitude": 143.5167
+  },
+  {
+    "id": "95866",
+    "name": "Essendon Airport",
+    "latitude": -37.7,
+    "longitude": 144.9
+  },
+  {
+    "id": "95867",
+    "name": "Scoresby",
+    "latitude": -37.9,
+    "longitude": 145.3
+  },
+  {
+    "id": "95869",
+    "name": "Deniliquin",
+    "latitude": -35.6,
+    "longitude": 144.9
+  },
+  {
+    "id": "95873",
+    "name": "Latrobe University / Kingsbury",
+    "latitude": -37.7164,
+    "longitude": 145.0453
+  },
+  {
+    "id": "95874",
+    "name": "Viewbank",
+    "latitude": -37.7,
+    "longitude": 145.1
+  },
+  {
+    "id": "95881",
+    "name": "Wonthaggi Composite",
+    "latitude": -38.6,
+    "longitude": 145.5833
+  },
+  {
+    "id": "95895",
+    "name": "Corowa",
+    "latitude": -36.0,
+    "longitude": 146.4
+  },
+  {
+    "id": "95896",
+    "name": "Albury",
+    "latitude": -36.1,
+    "longitude": 147.0
+  },
+  {
+    "id": "95901",
+    "name": "Mount Baw Baw",
+    "latitude": -37.8,
+    "longitude": 146.3
+  },
+  {
+    "id": "95904",
+    "name": "Lakes Entrance",
+    "latitude": -37.9,
+    "longitude": 148.0
+  },
+  {
+    "id": "95908",
+    "name": "Thredbo Village",
+    "latitude": -36.5,
+    "longitude": 148.3
+  },
+  {
+    "id": "95909",
+    "name": "Thredbo Top Station",
+    "latitude": -36.5,
+    "longitude": 148.3
+  },
+  {
+    "id": "95912",
+    "name": "Charlotte Pass Kosciusko Chalet",
+    "latitude": -36.4333,
+    "longitude": 148.3333
+  },
+  {
+    "id": "95913",
+    "name": "Mount Moornapa",
+    "latitude": -37.7,
+    "longitude": 147.1
+  },
+  {
+    "id": "95916",
+    "name": "Cabramurra",
+    "latitude": -35.9,
+    "longitude": 148.4
+  },
+  {
+    "id": "95918",
+    "name": "Orbost",
+    "latitude": -37.7,
+    "longitude": 148.5
+  },
+  {
+    "id": "95925",
+    "name": "Mount Ginini",
+    "latitude": -35.5,
+    "longitude": 148.8
+  },
+  {
+    "id": "95929",
+    "name": "Merimbula",
+    "latitude": -36.9,
+    "longitude": 149.9
+  },
+  {
+    "id": "95931",
+    "name": "Bega",
+    "latitude": -36.7,
+    "longitude": 149.8
+  },
+  {
+    "id": "95935",
+    "name": "Narooma",
+    "latitude": -36.2,
+    "longitude": 150.1
+  },
+  {
+    "id": "95937",
+    "name": "Moruya Airport",
+    "latitude": -35.9,
+    "longitude": 150.1
+  },
+  {
+    "id": "95952",
+    "name": "Mount Read",
+    "latitude": -41.8,
+    "longitude": 145.5
+  },
+  {
+    "id": "95953",
+    "name": "Strathgordon",
+    "latitude": -42.7667,
+    "longitude": 146.05
+  },
+  {
+    "id": "95956",
+    "name": "Luncheon Hill",
+    "latitude": -41.1,
+    "longitude": 145.2
+  },
+  {
+    "id": "95957",
+    "name": "Wynyard",
+    "latitude": -41.0,
+    "longitude": 145.7
+  },
+  {
+    "id": "95958",
+    "name": "Scotts Peak",
+    "latitude": -43.0,
+    "longitude": 146.3
+  },
+  {
+    "id": "95959",
+    "name": "Liawenee",
+    "latitude": -41.9,
+    "longitude": 146.7
+  },
+  {
+    "id": "95960",
+    "name": "Devonport Airport",
+    "latitude": -41.2,
+    "longitude": 146.4
+  },
+  {
+    "id": "95961",
+    "name": "Low Rocky Point",
+    "latitude": -43.0,
+    "longitude": 145.5
+  },
+  {
+    "id": "95962",
+    "name": "Warra / Judbury",
+    "latitude": -43.0608,
+    "longitude": 146.7039
+  },
+  {
+    "id": "95964",
+    "name": "Low Head",
+    "latitude": -41.1,
+    "longitude": 146.8
+  },
+  {
+    "id": "95966",
+    "name": "Launceston Airport",
+    "latitude": -41.5,
+    "longitude": 147.2
+  },
+  {
+    "id": "95967",
+    "name": "Cape Bruny AWS",
+    "latitude": -43.5,
+    "longitude": 147.1
+  },
+  {
+    "id": "95970",
+    "name": "Tarraleah",
+    "latitude": -42.3,
+    "longitude": 146.4333
+  },
+  {
+    "id": "95971",
+    "name": "Grove Research Station / Lucaston",
+    "latitude": -42.9833,
+    "longitude": 147.0667
+  },
+  {
+    "id": "95972",
+    "name": "Campania",
+    "latitude": -42.7,
+    "longitude": 147.4
+  },
+  {
+    "id": "95973",
+    "name": "Bridport Emma St",
+    "latitude": -41.0167,
+    "longitude": 147.4
+  },
+  {
+    "id": "95974",
+    "name": "Fingal",
+    "latitude": -41.6333,
+    "longitude": 147.9667
+  },
+  {
+    "id": "95975",
+    "name": "Dennes Point",
+    "latitude": -43.1,
+    "longitude": 147.4
+  },
+  {
+    "id": "95977",
+    "name": "Grove",
+    "latitude": -43.0,
+    "longitude": 147.1
+  },
+  {
+    "id": "95979",
+    "name": "kunanyi / Mount Wellington",
+    "latitude": -42.9,
+    "longitude": 147.2
+  },
+  {
+    "id": "95981",
+    "name": "St Helens",
+    "latitude": -41.3,
+    "longitude": 148.3
+  },
+  {
+    "id": "95983",
+    "name": "Scamander",
+    "latitude": -41.4639,
+    "longitude": 148.2644
+  },
+  {
+    "id": "95984",
+    "name": "Spring Bay",
+    "latitude": -42.5,
+    "longitude": 147.9
+  },
+  {
+    "id": "95986",
+    "name": "Tasman Island",
+    "latitude": -43.2,
+    "longitude": 148.0
+  },
+  {
+    "id": "95988",
+    "name": "Maria Island",
+    "latitude": -42.7,
+    "longitude": 148.0
+  },
+  {
+    "id": "95989",
+    "name": "Bicheno",
+    "latitude": -41.9,
+    "longitude": 148.3
+  },
+  {
+    "id": "95995",
+    "name": "Lord Howe Island Windy Point",
+    "latitude": -31.5,
+    "longitude": 159.1
+  },
+  {
+    "id": "96995",
+    "name": "Christmas Island",
+    "latitude": -10.5,
+    "longitude": 105.7
+  },
+  {
+    "id": "96996",
+    "name": "Cocos Island",
+    "latitude": -12.2,
+    "longitude": 96.8
+  },
+  {
+    "id": "99999",
+    "name": "PORTABLE NPWS NSW02",
+    "latitude": -33.1,
+    "longitude": 150.1
+  },
+  {
+    "id": "YAYE0",
+    "name": "Ayers Rock Connellan / Yulara",
+    "latitude": -25.1861,
+    "longitude": 130.976
+  },
+  {
+    "id": "YBHI0",
+    "name": "Broken Hill",
+    "latitude": -32.0014,
+    "longitude": 141.472
+  },
+  {
+    "id": "YBHM0",
+    "name": "Hamilton Island",
+    "latitude": -20.35,
+    "longitude": 148.95
+  },
+  {
+    "id": "YBLN0",
+    "name": "Busselton / Reinscourt",
+    "latitude": -33.6884,
+    "longitude": 115.4016
+  },
+  {
+    "id": "YCBA0",
+    "name": "Cobar / Wrightville",
+    "latitude": -31.5383,
+    "longitude": 145.794
+  },
+  {
+    "id": "YCBB0",
+    "name": "Coonabarabran",
+    "latitude": -31.3325,
+    "longitude": 149.267
+  },
+  {
+    "id": "YCBP0",
+    "name": "Coober Pedy",
+    "latitude": -29.04,
+    "longitude": 134.721
+  },
+  {
+    "id": "YCCY0",
+    "name": "Cloncurry",
+    "latitude": -20.6686,
+    "longitude": 140.504
+  },
+  {
+    "id": "YCMM0",
+    "name": "Cummins Airport",
+    "latitude": -34.3,
+    "longitude": 135.7
+  },
+  {
+    "id": "YCNM0",
+    "name": "Coonamble",
+    "latitude": -30.9833,
+    "longitude": 148.376
+  },
+  {
+    "id": "YCOM0",
+    "name": "Cooma Snowy Mountains / Coolringdon",
+    "latitude": -36.3006,
+    "longitude": 148.974
+  },
+  {
+    "id": "YDBY0",
+    "name": "Derby",
+    "latitude": -17.37,
+    "longitude": 123.661
+  },
+  {
+    "id": "YEML0",
+    "name": "Emerald",
+    "latitude": -23.5675,
+    "longitude": 148.179
+  },
+  {
+    "id": "YESP0",
+    "name": "Esperance / Gibson",
+    "latitude": -33.6844,
+    "longitude": 121.823
+  },
+  {
+    "id": "YGEL0",
+    "name": "Geraldton / Moonyoonooka",
+    "latitude": -28.7961,
+    "longitude": 114.707
+  },
+  {
+    "id": "YGFN0",
+    "name": "Grafton / Glen Ugie",
+    "latitude": -29.7594,
+    "longitude": 153.03
+  },
+  {
+    "id": "YGTH0",
+    "name": "Griffith / Beelbangera",
+    "latitude": -34.2508,
+    "longitude": 146.067
+  },
+  {
+    "id": "YHID0",
+    "name": "Horn Island / Wasaga",
+    "latitude": -10.5864,
+    "longitude": 142.29
+  },
+  {
+    "id": "YHUG0",
+    "name": "Hughenden",
+    "latitude": -20.815,
+    "longitude": 144.225
+  },
+  {
+    "id": "YKRY0",
+    "name": "Kingaroy / Taabinga",
+    "latitude": -26.5808,
+    "longitude": 151.841
+  },
+  {
+    "id": "YLEC0",
+    "name": "Leigh Creek",
+    "latitude": -30.5983,
+    "longitude": 138.426
+  },
+  {
+    "id": "YLIS0",
+    "name": "Lismore / Gundurimba",
+    "latitude": -28.8303,
+    "longitude": 153.26
+  },
+  {
+    "id": "YLRE0",
+    "name": "Longreach",
+    "latitude": -23.4342,
+    "longitude": 144.28
+  },
+  {
+    "id": "YMDG0",
+    "name": "Mudgee / Buckaroo",
+    "latitude": -32.5625,
+    "longitude": 149.611
+  },
+  {
+    "id": "YMEK0",
+    "name": "Meekatharra",
+    "latitude": -26.6117,
+    "longitude": 118.548
+  },
+  {
+    "id": "YMER0",
+    "name": "Merimbula",
+    "latitude": -36.9086,
+    "longitude": 149.901
+  },
+  {
+    "id": "YMIA0",
+    "name": "Mildura / Cabarita",
+    "latitude": -34.2292,
+    "longitude": 142.086
+  },
+  {
+    "id": "YMOR0",
+    "name": "Moree",
+    "latitude": -29.4989,
+    "longitude": 149.845
+  },
+  {
+    "id": "YMRB0",
+    "name": "Moranbah Airport",
+    "latitude": -22.1,
+    "longitude": 148.1
+  },
+  {
+    "id": "YMTG0",
+    "name": "Mount Gambier / Mil Lel",
+    "latitude": -37.7456,
+    "longitude": 140.785
+  },
+  {
+    "id": "YNAR0",
+    "name": "Narrandera",
+    "latitude": -34.7022,
+    "longitude": 146.512
+  },
+  {
+    "id": "YNBR0",
+    "name": "Narrabri",
+    "latitude": -30.3192,
+    "longitude": 149.827
+  },
+  {
+    "id": "YNTN0",
+    "name": "Normanton",
+    "latitude": -17.6836,
+    "longitude": 141.07
+  },
+  {
+    "id": "YNWN0",
+    "name": "Newman",
+    "latitude": -23.4178,
+    "longitude": 119.803
+  },
+  {
+    "id": "YOLD0",
+    "name": "Olympic Dam / Roxby Downs",
+    "latitude": -30.485,
+    "longitude": 136.877
+  },
+  {
+    "id": "YPBO0",
+    "name": "Paraburdoo",
+    "latitude": -23.1711,
+    "longitude": 117.745
+  },
+  {
+    "id": "YPJT0",
+    "name": "Perth / Canning Vale",
+    "latitude": -32.0975,
+    "longitude": 115.881
+  },
+  {
+    "id": "YPMQ0",
+    "name": "Port Macquarie / Hibbard",
+    "latitude": -31.4358,
+    "longitude": 152.863
+  },
+  {
+    "id": "YRLL0",
+    "name": "Rolleston Airport",
+    "latitude": -24.5,
+    "longitude": 148.6
+  },
+  {
+    "id": "YSWL0",
+    "name": "Stawell / Illawarra",
+    "latitude": -37.0717,
+    "longitude": 142.741
+  }
+]

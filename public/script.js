@@ -189,12 +189,12 @@ function loadSuburbsForState(stateName) {
                             // Click event to display suburb name
                             layer.on("click", async function (e) {
                                 const latlng = e.latlng;
-
                                 const selectedDate = document.getElementById("date").value;
-                                // Fetch weather data from the nearest available station
                             
+                                // Fetch weather data from the nearest available station
                                 const data = await fetchWeatherData(latlng.lat, latlng.lng, selectedDate);
-                                });
+                            });
+                            
                         }
                     }).addTo(suburbLayerGroup);
                 })
@@ -209,16 +209,45 @@ function loadSuburbsForState(stateName) {
 // Initial load of all states
 loadAllStateBorders();
 
-async function fetchWeatherData(latitude, longitude, date) {
+let stations = [];
+
+fetch('all-stations.json')
+  .then(res => res.json())
+  .then(data => {
+    stations = data;
+    console.log("✅ All stations loaded");
+  });
+
+
+  async function fetchWeatherData(latitude, longitude, date) {
     try {
       const response = await fetch(`/api/meteostat?lat=${latitude}&lon=${longitude}&date=${date}`);
       const data = await response.json();
   
       if (data && data.stationId) {
-        console.log(`✅ Found weather data at ${data.stationName.en || data.stationName} (${data.stationId}):`, data);
+        console.log(`✅ Found weather data at ${data.stationName.en || data.stationName} (${data.stationId})`, data);
         return data;
       } else {
-        console.log("❌ No weather data found for any nearby stations.");
+        console.log("No weather data API.");
+  
+        // Fallback to local nearest stations
+        const nearest = findNearestStations(latitude, longitude, stations, 5);
+        console.log(nearest)
+        for (const station of nearest) {
+            const fallbackRes = await fetch(`/weather?station=${encodeURIComponent(station.name)}&date=${date}`);
+            const fallbackData = await fallbackRes.json();
+          
+            // If it's an array, check first item
+            const record = Array.isArray(fallbackData) ? fallbackData[0] : fallbackData;
+          
+            console.log(station.name, record);
+          
+            if (record && record.tavg != null) {
+              console.log(`🪂 Fallback: Found data from ${station.name}`);
+              return record;
+            }
+        }
+        console.log("❌ No fallback weather data found either.");
         return null;
       }
     } catch (err) {
@@ -226,6 +255,7 @@ async function fetchWeatherData(latitude, longitude, date) {
       return null;
     }
   }
+  
 
 async function getCoordinatesFromPlaceName(placeName) {
     const url = `/api/geocode?place=${encodeURIComponent(placeName)}`;
@@ -234,7 +264,7 @@ async function getCoordinatesFromPlaceName(placeName) {
       const res = await fetch(url);
       const data = await res.json();
       console.log(placeName)
-    console.log(data)
+      console.log(data)
       if (data.results.length > 0) {
         const result = data.results.find(r =>
             (r.components.suburb && r.components.suburb.toLowerCase() === placeName.toLowerCase()) ||
@@ -274,7 +304,7 @@ async function getCoordinatesFromPlaceName(placeName) {
 
   let locations = [];
 
-fetch('all-suburbs.json')
+fetch('all-suburbs-with-coords.json')
   .then(res => res.json())
   .then(data => {
     locations = data;
@@ -348,3 +378,126 @@ function getStateFromSuburb(suburbName) {
   );
   return match ? match.state : null;
 }
+
+const polygonFiles = [
+    'polygon1.json',
+    'polygon2.json',
+    'polygon3.json',
+    'polygon4.json',
+    'polygon5.json',
+    'polygon6.json'
+  ];
+  
+
+  async function loadChoropleth() {
+    const selectedDate = document.getElementById("date").value;
+    const response = await fetch(`/api/choropleth?date=${selectedDate}`);
+    const tempData = await response.json();
+    if (!Array.isArray(tempData)) {
+      console.error("❌ Invalid data received:", tempData);
+      alert("Failed to load choropleth data.");
+      return;
+    }
+  
+    renderChoropleth(tempData);
+  }
+  
+  
+  let choroplethLayer;
+
+async function renderChoropleth(tempData) {
+  if (choroplethLayer) map.removeLayer(choroplethLayer);
+  const polygonMap = new Map(tempData.map(p => [String(p.code), p.tavg]));
+
+  const geojsons = await Promise.all(
+    polygonFiles.map(file =>
+      fetch(`/heatmap-polygon/${file}`).then(res => res.json())
+    )
+  );
+
+  // Merge all geojson features
+  const combinedGeoJSON = {
+    type: "FeatureCollection",
+    features: geojsons.flatMap(g => g.features)
+  };
+  
+  // Assign tavg directly on each feature
+  combinedGeoJSON.features.forEach(feature => {
+    const props = feature.properties;
+  
+    const name = props.ILO_NAME21 || props.SA2_NAME21 || props.SA3_NAME21 || props.SA4_NAME21 || "Unnamed";
+    
+    // ✅ Check for valid geometry
+    if (!feature.geometry) return;
+  
+    const bounds = L.geoJSON(feature).getBounds();
+    const centroid = bounds.getCenter();
+    const lat = centroid.lat;
+    const lng = centroid.lng;
+  
+    const nearestStation = findNearestStations(lat, lng, tempData, 1);
+    const tavg = nearestStation?.[0]?.tavg ?? null;
+  
+    feature.properties.tavg = tavg;
+  });
+
+  choroplethLayer = L.geoJSON(combinedGeoJSON, {
+    style: function (feature) {
+        console.log(feature.properties)
+        const tavg = feature.properties.tavg;
+        return {
+          fillColor: getColor(tavg),
+          color: "transparent", // removes the border color
+          weight: 0,             // removes the border width
+          fillOpacity: 0.7
+        };
+      },      
+    onEachFeature: function (feature, layer) {
+      const props = feature.properties;
+      const name = props.ILO_NAME21 || props.SA2_NAME21 || props.SA3_NAME21 || props.SA4_NAME21 || "Unnamed";
+      const tavg = props.tavg;
+  
+      layer.bindPopup(`${name}<br>🌡️ Temp: ${tavg ?? "No data"}`);
+    }
+  }).addTo(map);
+  
+}
+
+  
+  function getDistanceInKm(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth's radius in KM
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) *
+      Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+  
+  // Find nearest N stations
+  function findNearestStations(lat, lon, stations, N = 5) {
+    return stations
+      .map(station => ({
+        ...station,
+        distance: getDistanceInKm(lat, lon, station.latitude, station.longitude)
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, N);
+  }
+  
+  function getColor(t) {
+    return t >= 40 ? '#800026' :
+           t >= 35 ? '#BD0026' :
+           t >= 30 ? '#E31A1C' :
+           t >= 25 ? '#FC4E2A' :
+           t >= 20 ? '#FD8D3C' :
+           t >= 15 ? '#FEB24C' :
+           t >= 10 ? '#FED976' :
+           t >= 5  ? '#FFEDA0' :
+           t != null ? '#ffffcc' :
+           '#cccccc'; // default for no data
+  }

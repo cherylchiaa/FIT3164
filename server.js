@@ -20,6 +20,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'server.html'));
 });
 
+let stations = [];
+
+try {
+  stations = require(path.join(__dirname, 'public', 'all-stations.json'));
+  console.log("✅ All stations loaded");
+} catch (err) {
+  console.error("❌ Failed to load stations file:", err.message);
+}
+
 app.get('/api/meteostat', async (req, res) => {
   const { lat, lon, date } = req.query;
 
@@ -65,6 +74,30 @@ app.get('/api/meteostat', async (req, res) => {
   } catch (error) {
     console.error('❌ Meteostat API error:', error.message);
     res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+app.get('/api/choropleth', async (req, res) => {
+  const { date } = req.query;
+
+  // Validate date input
+  const parsedDate = new Date(date);
+  if (!date || isNaN(parsedDate)) {
+    return res.status(400).json({ message: "Invalid date format" });
+  }
+
+  const start = new Date(parsedDate.setHours(0, 0, 0, 0)).getTime();
+  const end = new Date(parsedDate.setHours(23, 59, 59, 999)).getTime();
+
+  try {
+    const results = await Weather.find({
+      time: { $gte: start, $lte: end }
+    });
+
+    res.json(results);
+  } catch (err) {
+    console.error("❌ Choropleth error:", err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
@@ -191,43 +224,7 @@ app.get('/weather', async (req, res) => {
   }
 });
   
-app.get('/api/heatmap', async (req, res) => {
-  const { date } = req.query;
 
-  if (!date) {
-    return res.status(400).json({ message: "Missing date" });
-  }
-
-  try {
-    const weatherData = await Weather.find({
-      time: {
-        $gte: new Date(date + 'T00:00:00Z'),
-        $lte: new Date(date + 'T23:59:59Z')
-      }
-    });
-
-    const results = [];
-
-    for (const record of weatherData) {
-      if (
-        record.tavg == null ||
-        record.latitude == null ||
-        record.longitude == null
-      ) continue;
-
-      results.push({
-        latitude: record.latitude,
-        longitude: record.longitude,
-        tavg: record.tavg
-      });
-    }
-
-    res.json(results);
-  } catch (error) {
-    console.error("🔥 Heatmap API error:", error.message);
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
 
 // Start the server
 app.listen(PORT, () => {

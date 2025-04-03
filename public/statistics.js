@@ -1,6 +1,6 @@
 let locations = [];
 
-fetch('all-suburbs.json')
+fetch('all-suburbs-with-coords.json')
   .then(res => res.json())
   .then(data => {
     locations = data;
