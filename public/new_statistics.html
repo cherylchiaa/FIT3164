@@ -15,7 +15,7 @@
         <!-- Left Section for Weather Info -->
         <div class="left-section">
             <h1>Hello, John</h1>
-            <p>Clayton, Victoria</p>
+            <p id="location-display">Clayton, Victoria</p>
             <p>Partly Cloudy</p>
 
             <div class="search-container">
@@ -43,17 +43,24 @@
         <!-- Chart Section -->
         <div class="chart-section">
             <h3>Min and Max Temperatures in December</h3>
+            <canvas id="temperatureChart" width="800" height="200"></canvas>
         </div>
 
         <div class="white-box-container">
             <!-- First White Box (e.g., Hourly Forecast) -->
             <div class="white-box">
                 <h3>Average Rainfall</h3>
+                <div class="chart-wrapper move-up-chart">
+                    <canvas id="rainfallChart"></canvas>
+                </div>
             </div>
 
             <!-- Second White Box (e.g., Monthly Rainfall) -->
             <div class="white-box">
                 <h3>Average Windspeed</h3>
+                <div class="chart-wrapper move-up-chart">
+                    <canvas id="windChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
@@ -77,7 +84,7 @@
                 <span>Season</span> <span>|</span> <span id="season">--</span>
             </div>
             <div class="weather-info">
-                <span>Rainfall      </span> <span>|</span> <span id="prcp">--</span>
+                <span>Rainfall</span> <span>|</span> <span id="prcp">--</span>
             </div>
             <div class="weather-info">
                 <span>Wind Speed</span> <span>|</span> <span id="windSpeed">--</span>
@@ -94,6 +101,9 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="statistics.js"></script>
 
 </body>
 </html>

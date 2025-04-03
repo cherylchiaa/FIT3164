@@ -49,6 +49,7 @@ async function fetchWeatherForSelectedPlace(place,date) {
     }
 
     document.getElementById("location-label").textContent = place;
+    document.getElementById("location-display").textContent = place;
   
     // Step 1: Get coordinates for the place
     const coords = await getCoordinatesFromPlaceName(place);
@@ -159,8 +160,9 @@ async function fetchWeatherForSelectedPlace(place,date) {
   });
 
   function getSelectedDataWindow() {
-    return document.querySelector('input[name="statistics-options"]:checked')?.value;
-  }
+    const select = document.getElementById("statistics-options");
+    return select?.value || "current-month"; 
+  }  
 
   document.getElementById("date").addEventListener("change", () => {
     const selectedPlace = document.getElementById("search-bar").value;
@@ -171,16 +173,15 @@ async function fetchWeatherForSelectedPlace(place,date) {
     }
   });
 
-  document.querySelectorAll('input[name="statistics-options"]').forEach(radio => {
-    radio.addEventListener("change", () => {
-      const selectedPlace = document.getElementById("search-bar").value;
-      const selectedDate = document.getElementById("date").value;
+  document.getElementById("statistics-options").addEventListener("change", () => {
+    const selectedPlace = document.getElementById("search-bar").value;
+    const selectedDate = document.getElementById("date").value;
   
-      if (selectedPlace && selectedDate) {
-        fetchWeatherForSelectedPlace(selectedPlace, selectedDate);
-      }
-    });
+    if (selectedPlace && selectedDate) {
+      fetchWeatherForSelectedPlace(selectedPlace, selectedDate);
+    }
   });
+  
   
 
 function updateWeatherInfo(weather) {

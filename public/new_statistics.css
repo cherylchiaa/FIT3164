@@ -87,7 +87,8 @@ body {
     padding: 15px;
     width: 10%; /* Set width for the container */
     margin-left: 45%;
-    margin-top: -8%;
+    margin-top: -9%;
+    gap: 8px;
 }
 
 label {
@@ -162,10 +163,13 @@ select:focus {
 }
 
 .chart-section h3 {
-    font-size: 18px;
     color: #333;
     margin-top: 0%;
 }
+
+.move-up-chart {
+    margin-top: -10px; /* Adjust the negative value to your liking */
+} 
 
 
 /* Container for the two white boxes */
