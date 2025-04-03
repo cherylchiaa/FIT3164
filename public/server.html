@@ -61,8 +61,77 @@
             cursor: pointer;
         }
         *{
-            outline: nong !important;
+            outline: none !important;
         }
+
+        .info-popup {
+            position: absolute;
+            top: 60px;
+            right: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            text-align: center;
+            font-family: Helvetica;
+            border-radius: 16px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            width: 230px;
+            height: 550px;
+            z-index: 999;
+            font-size: 16px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .info-popup h2 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 70px;
+        }
+
+        .popup-section {
+            margin-bottom: 80px;
+        }
+
+        .popup-section h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .popup-value {
+            font-size: 32px;
+            margin-top: 5px;
+        }
+
+        .popup-unit {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .toggle-popup-btn {
+            position: absolute;
+            top: 78px;
+            right: 70px;
+            z-index: 999;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* background-color: transparent; */
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);  */
+        }
+
+        .toggle-popup-btn img {
+            width: 20px;  /* Adjust as needed */
+            height: 20px;
+        }
+
+
 
     </style>
 </head>
@@ -96,6 +165,35 @@
         <!-- Link to Statistics Page (Redirect to another HTML file) -->
         <button onclick="window.location.href = 'statistics.html'">📊 Statistics</button>
     </div>
+
+    <!-- Info Popup -->
+    <div id="info-popup" class="info-popup hidden">
+    <!-- <div id="info-popup" class="info-popup"> -->
+        <h2 id="popup-location">Victoria</h2>
+          
+        <div class="popup-section">
+            <h3>Temperature</h3>
+            <div class="popup-value" id="popup-temp">20</div>
+            <span class="popup-unit">degree celsius</span>
+        </div>
+          
+        <div class="popup-section">
+            <h3>Wind Speed</h3>
+            <div class="popup-value" id="popup-wind">22.5</div>
+            <span class="popup-unit">kph</span>
+        </div>
+          
+        <div class="popup-section">
+            <h3>Rainfall</h3>
+            <div class="popup-value" id="popup-rain">1.5</div>
+            <span class="popup-unit">mm</span>
+        </div>
+    
+    </div>
+    
+    <button id="toggle-popup-btn" class="toggle-popup-btn hidden">
+        <img id="toggle-icon" src="icons/minimize.png"/>
+    </button>  
 
 
 

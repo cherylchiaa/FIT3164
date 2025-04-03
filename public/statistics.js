@@ -146,6 +146,18 @@ async function fetchWeatherForSelectedPlace(place,date) {
     }
   });
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const defaultLocation = "Melbourne Airport";
+    const defaultDate = "2023-12-31";
+  
+    // Set defaults in the input fields
+    document.getElementById("search-bar").value = defaultLocation;
+    document.getElementById("date").value = defaultDate;
+  
+    // Fetch weather and charts
+    fetchWeatherForSelectedPlace(defaultLocation, defaultDate);
+  });
+
   function getSelectedDataWindow() {
     return document.querySelector('input[name="statistics-options"]:checked')?.value;
   }
@@ -212,9 +224,11 @@ function getStartEndFromDate(selectedDate, dataWindow) {
   }
 
   if (dataWindow === "long-term") {
+    const startYear = Math.max(year - 4, 2015);
+    const endYear = Math.min(year, 2025);
     return {
-      start: `2015-01-01`,
-      end: `2025-01-01`
+      start: `${startYear}-01-01`, 
+      end: `${endYear}-12-31`
     };
   }
 
@@ -234,12 +248,13 @@ async function fetchTemperatureChart(lat, lon, selectedDate, dataWindow) {
   const maxTemps = [];
 
   json.data.forEach(day => {
+    if (!day || (!day.tmin && !day.tmax)) return; // Skip if no valid data
     const dateStr = day.date || day.time;
     const date = new Date(dateStr);
     const label = date.toLocaleDateString("en-AU", { day: 'numeric', month: 'short', year: 'numeric' });
     labels.push(label);
-    minTemps.push(day.tmin);
-    maxTemps.push(day.tmax);
+    minTemps.push(day.tmin ?? null);
+    maxTemps.push(day.tmax ?? null);
   });
  
   renderTempChart(labels, minTemps, maxTemps);
@@ -257,6 +272,7 @@ async function fetchRainfallChart(lat, lon, selectedDate, dataWindow) {
   const rainfallValues = [];
 
   json.data.forEach(day => {
+    if (!day || (!day.tmin && !day.tmax)) return; // Skip if no valid data
     const dateStr = day.date || day.time;
     const date = new Date(dateStr);
     const label = date.toLocaleDateString("en-AU", { day: 'numeric', month: 'short', year: 'numeric' });
@@ -279,6 +295,7 @@ async function fetchWindChart(lat, lon, selectedDate, dataWindow) {
   const windSpeeds = [];
 
   json.data.forEach(day => {
+    if (!day || (!day.tmin && !day.tmax)) return; // Skip if no valid data
     const dateStr = day.date || day.time;
     const date = new Date(dateStr);
     const label = date.toLocaleDateString("en-AU", { day: 'numeric', month: 'short', year: 'numeric' });
@@ -409,8 +426,10 @@ function updateChartTitles(selectedDate, dataWindow) {
     periodLabel = `${year}`;
     periodDesc = `throughout the year ${year}`;
   } else if (dataWindow === "long-term") {
-    periodLabel = "2015–2025";
-    periodDesc = "from 2015 to 2025";
+    const startYear = Math.max(year - 4, 2015);
+    const endYear = Math.min(year, 2025);
+    periodLabel = `${startYear}–${endYear}`;
+    periodDesc = `from ${startYear} to ${endYear}`;
   }
 
   // Titles

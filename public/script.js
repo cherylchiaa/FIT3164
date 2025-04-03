@@ -193,6 +193,13 @@ function loadSuburbsForState(stateName) {
                             
                                 // Fetch weather data from the nearest available station
                                 const data = await fetchWeatherData(latlng.lat, latlng.lng, selectedDate);
+
+                                showPopup(
+                                  feature.properties.SAL_NAME21 || "Unknown Suburb",
+                                  data.tavg,
+                                  data.prcp,
+                                  data.wspd
+                                );
                             });
                             
                         }
@@ -378,6 +385,40 @@ function getStateFromSuburb(suburbName) {
   );
   return match ? match.state : null;
 }
+
+function showPopup(locationName, temp, rain, wind) {
+  document.getElementById("popup-location").textContent = locationName;
+  document.getElementById("popup-temp").textContent = temp !== undefined ? `${temp}°C` : "N/A";
+  document.getElementById("popup-rain").textContent = rain !== undefined ? `${rain} mm` : "N/A";
+  document.getElementById("popup-wind").textContent = wind !== undefined ? `${wind} kph` : "N/A";
+
+  const popup = document.getElementById("info-popup");
+  const toggleBtn = document.getElementById("toggle-popup-btn");
+  const toggleIcon = document.getElementById("toggle-icon");
+
+  popup.classList.remove("hidden");
+  toggleBtn.classList.remove("hidden");
+  popup.style.display = "block";
+  toggleIcon.src = "icons/minimize.png";
+}
+
+function closePopup() {
+  document.getElementById("info-popup").classList.add("hidden");
+  document.getElementById("toggle-popup-btn").classList.add("hidden");
+}
+
+const toggleBtn = document.getElementById("toggle-popup-btn");
+const infoPopup = document.getElementById("info-popup");
+const toggleIcon = document.getElementById("toggle-icon");
+toggleBtn.addEventListener("click", () => {
+  if (infoPopup.style.display === "none") {
+    infoPopup.style.display = "block";
+    toggleIcon.src = "icons/minimize.png";
+  } else {
+    infoPopup.style.display = "none";
+    toggleIcon.src = "icons/maximize.png";
+  }
+});
 
 const polygonFiles = [
     'polygon1.json',
