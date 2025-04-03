@@ -467,12 +467,8 @@ const polygonFiles = [
         if (choroplethLayer) map.removeLayer(choroplethLayer);
         allStatesLayer.clearLayers();
         suburbLayerGroup.clearLayers();
-        if (type === "Base") {
-          loadAllStateBorders(); // Optional: if you want to reset to state view
-          return; // ✅ exit early so no choropleth gets rendered
-        }
+        currentState = null;
         const selectedDate = document.getElementById("date").value;
-        console.log(selectedDate)
         const response = await fetch(`/api/choropleth?date=${selectedDate}`);
         const tempData = await response.json();
         if (!Array.isArray(tempData)) {
@@ -482,7 +478,7 @@ const polygonFiles = [
         }
       
         await renderChoropleth(tempData,type)
-        await loadAllStateBorders()
+        loadAllStateBorders()
     }
         catch (err) {
             console.error("⚠️ Choropleth loading error:", err);
