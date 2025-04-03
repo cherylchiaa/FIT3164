@@ -481,7 +481,9 @@ const polygonFiles = [
           return;
         }
       
-        await renderChoropleth(tempData,type);}
+        await renderChoropleth(tempData,type)
+        await loadAllStateBorders()
+    }
         catch (err) {
             console.error("⚠️ Choropleth loading error:", err);
           } finally {
@@ -528,7 +530,8 @@ async function renderChoropleth(tempData,type) {
     const centroid = bounds.getCenter();
     const lat = centroid.lat;
     const lng = centroid.lng;
-  
+    feature.properties.lat = lat
+    feature.properties.lng = lng
     const nearestStation = findNearestStations(lat, lng, tempData, 1);
 
     const tavg = nearestStation?.[0]?.tavg ?? null;
@@ -542,7 +545,7 @@ async function renderChoropleth(tempData,type) {
 
   choroplethLayer = L.geoJSON(combinedGeoJSON, {
     style: function (feature) {
-        console.log(feature.properties)
+        
         if (type == "Temperature") {
             const data = feature.properties.tavg;
             return {
@@ -573,16 +576,38 @@ async function renderChoropleth(tempData,type) {
               };
             
         }
-       
-      },      
-    onEachFeature: function (feature, layer) {
-      const props = feature.properties;
-  
-      const name = props.LGA_NAME24 || props.SA2_NAME21 || "Unnamed";
-      const tavg = props.tavg;
-  
-      layer.bindPopup(`${name}<br>🌡️ Temp: ${tavg ?? "No data"}`);
     }
+    //   },      
+    //   onEachFeature: function (feature, layer) {
+    //     const props = feature.properties;
+    //     const lat = props.lat;
+    //     const lng = props.lng;
+    //     const tavg = props.tavg;
+      
+    //     let hasFetchedName = false;
+      
+    //     layer.bindPopup("Loading...");
+      
+    //     layer.on("click", async function () {
+    //       if (!hasFetchedName) {
+    //         try {
+    //           const res = await fetch(`/api/reverse-geocode?lat=${lat}&lon=${lng}`);
+    //           const data = await res.json();
+    //           const components = data.results[0]?.components;
+    //           console.log(components)
+    //           const name = components?.suburb || components?.town || components?.city_district || components?.city || components?.state || "Unnamed";
+    //           props.name = name;
+    //           hasFetchedName = true;
+      
+    //           layer.setPopupContent(`${name}<br>🌡️ Temp: ${tavg ?? "No data"}`);
+    //         } catch (err) {
+    //           console.warn("⚠️ Reverse geocoding failed:", err);
+    //           layer.setPopupContent(`Unnamed<br>🌡️ Temp: ${tavg ?? "No data"}`);
+    //         }
+    //       }
+        // });
+    //   }
+      
   }).addTo(map);
   
 }
