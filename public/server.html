@@ -26,7 +26,7 @@
             border-radius: 16px;
             gap: 15px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            width: 230px;
+            width: 200px;
             z-index: 999;
             font-size: 16px;
         }
@@ -155,6 +155,77 @@
             font-size: 16px;
             cursor: pointer;
         }
+        *{
+            outline: none !important;
+        }
+
+        .info-popup {
+            position: absolute;
+            top: 60px;
+            right: 50px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            text-align: center;
+            font-family: Helvetica;
+            border-radius: 16px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            width: 230px;
+            height: 550px;
+            z-index: 999;
+            font-size: 16px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .info-popup h2 {
+            margin: 0;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 70px;
+        }
+
+        .popup-section {
+            margin-bottom: 80px;
+        }
+
+        .popup-section h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .popup-value {
+            font-size: 32px;
+            margin-top: 5px;
+        }
+
+        .popup-unit {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .toggle-popup-btn {
+            position: absolute;
+            top: 78px;
+            right: 70px;
+            z-index: 999;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.8);
+            /* background-color: transparent; */
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);  */
+        }
+
+        .toggle-popup-btn img {
+            width: 20px;  /* Adjust as needed */
+            height: 20px;
+        }
+
 
     </style>
 </head>
@@ -166,49 +237,32 @@
     <!-- Control Panel -->
     <div class="control-panel">
         <span class="search-icon">🔍</span>
-        <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
+        <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()" onfocus="showSuggestions()">
         <ul id="suggestion-list" class="suggestions"></ul>
-        <br><br>
-        <label for="date">Date:</label>
-        <input type="date" id="date" value="2023-12-31">
-        <br><br>
-    
-        <!-- Category buttons with data-category attributes for easier JS handling -->
-        <button data-category="temperature" onclick="fetchCategoryData('temperature')">Temperature</button>
-        <button data-category="rainfall" onclick="fetchCategoryData('rainfall')">Rainfall</button>
-        <button data-category="wind" onclick="fetchCategoryData('wind')">Wind</button>
-        <!-- arrow-button-control -->
-        <button class="arrow-button-control" onclick="toggleControlPanel()">&gt;</button>
-    </div>
-
-    <!-- Right Sidebar for Analysis Results -->
-    <div class="sidebar">
-        <!-- location name -->
-        <div class="location-name" id="sidebar-location">Victoria</div>
-
-        <!-- Temperature -->
-        <div class="weather-item">
-            <div class="label">Temperature</div>
-            <div class="value" id="temp-value">20</div>
-            <div class="unit">degree celsius</div>
-        </div>
-
-        <!-- Wind Speed -->
-        <div class="weather-item">
-            <div class="label">Wind Speed</div>
-            <div class="value" id="wind-value">22.5</div>
-            <div class="unit">kph</div>
-        </div>
-
-          <!-- Rainfall -->
-        <div class="weather-item">
-            <div class="label">Rainfall</div>
-            <div class="value" id="rainfall-value">1.5</div>
-            <div class="unit">inches</div>
-        </div>
-
-        <!-- arrow-button -->
-        <button class="arrow-button" onclick="toggleSidebar()">&lt;</button>
+        <br>
+        <br>
+        <div id="layerToggle">
+            <label>
+                <input type="radio" name="layer" value="Base" onchange="loadChoropleth('Base')" checked>
+                Base Map
+              </label>
+              <br><br>
+            <label>
+              <input type="radio" name="layer" value="Temperature" onchange="loadChoropleth('Temperature')">
+              Temperature
+            </label>
+            <br><br>
+            <label>
+              <input type="radio" name="layer" value="Wind" onchange="loadChoropleth('Wind')">
+              Wind Speed
+            </label>
+            <br><br>
+            <label>
+              <input type="radio" name="layer" value="Rain" onchange="loadChoropleth('Rain')">
+              Rainfall
+            </label>
+          </div>
+          
     </div>
 
     <!-- Bottom Navigation -->
@@ -217,10 +271,78 @@
         <button onclick="window.location.href = 'server.html'">🏠 Home</button>
         
         <!-- Link to Statistics Page (Redirect to another HTML file) -->
-        <button onclick="window.location.href = 'statistics.html'">📊 Statistics</button>
+        <button onclick="window.location.href = 'new_statistics.html'">📊 Statistics</button>
     </div>
 
+    <!-- Info Popup -->
+    <div id="info-popup" class="info-popup hidden">
+        <!-- <div id="info-popup" class="info-popup"> -->
+            <h2 id="popup-location">Victoria</h2>
+              
+            <div class="popup-section">
+                <h3>Temperature</h3>
+                <div class="popup-value" id="popup-temp">20</div>
+                <span class="popup-unit">degree celsius</span>
+            </div>
+              
+            <div class="popup-section">
+                <h3>Wind Speed</h3>
+                <div class="popup-value" id="popup-wind">22.5</div>
+                <span class="popup-unit">kph</span>
+            </div>
+              
+            <div class="popup-section">
+                <h3>Rainfall</h3>
+                <div class="popup-value" id="popup-rain">1.5</div>
+                <span class="popup-unit">mm</span>
+            </div>
+        
+        </div>
+        
+        <button id="toggle-popup-btn" class="toggle-popup-btn hidden">
+            <img id="toggle-icon" src="icons/minimize.png"/>
+        </button>  
+    
 
+    <div id="loading-overlay" style="
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  text-align: center;
+">
+
+  <div style="
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: inline-block;
+  ">
+    <img src="load.gif" id="spinner-image" style="
+      width: 120px;
+      height: 90px;
+      animation: spin 1s linear infinite;
+      display: block;
+      margin: 0 auto;
+    " alt="Loading...">
+
+    <div style="
+      margin-top: 4px;
+      font-size: 1em;
+      font-weight: 500;
+      color: #333;
+    ">
+      Loading...
+    </div>
+  </div>
+</div>
+
+
+  
+  
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -283,4 +405,3 @@
   </script>
 </body>
 </html>
-
