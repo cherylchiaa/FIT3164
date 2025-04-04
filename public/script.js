@@ -685,22 +685,4 @@ async function renderChoropleth(tempData,type) {
   function hideLoading() {
     document.getElementById("loading-overlay").style.display = "none";
   }
-
-  // hide & show the side bar
-  function toggleSidebar() {
-    const sidebar = document.querySelector('.sidebar');
-    if (sidebar.style.display === 'none') {
-      sidebar.style.display = 'block';
-    } else {
-      sidebar.style.display = 'none';
-    }
-  }
-
-  //update the data in the sidebar
-  function updateSidebar(locationName, temperature, windSpeed, rainfall) {
-    document.getElementById('sidebar-location').textContent = locationName;
-    document.getElementById('temp-value').textContent = temperature;
-    document.getElementById('wind-value').textContent = windSpeed;
-    document.getElementById('rainfall-value').textContent = rainfall;
-  }
   
