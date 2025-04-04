@@ -21,7 +21,7 @@
             position: absolute;
             top: 20px;
             left: 50px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgb(204,206,211);
             padding: 40px;
             border-radius: 16px;
             gap: 15px;
@@ -38,6 +38,101 @@
             width: 80%;
             box-sizing: border-box;
         }
+        .control-panel ul.suggestions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background: #fff;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: auto;
+            display: none;
+            position: absolute;
+            width: 80%;
+            z-index: 1000;
+            }
+            .control-panel ul.suggestions li {
+            padding: 8px;
+            cursor: pointer;
+            }
+            .control-panel ul.suggestions li:hover {
+            background-color: #f2f2f2;
+            }
+
+        .control-panel,
+        .sidebar {
+            font-family: "Arial", sans-serif;
+            font-size: 16px;
+            }
+
+        /* Floating Sidebar */
+        .sidebar {
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            width: 220px;
+            background-color: rgb(204,206,211);
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 16px;
+            z-index: 999;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            }
+
+        .location-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            }
+
+        .weather-item {
+            margin: 15px 0;
+            }
+
+        .weather-item .label {
+            font-weight: bold;
+            font-size: 18px;
+            }
+
+        .weather-item .value {
+            font-size: 22px;
+            margin: 5px 0;
+            }
+
+        .weather-item .unit {
+            font-size: 14px;
+            color: #555;
+            }
+
+        .arrow-button-control {
+            position: absolute;
+            right: -33px;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 0; 
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+            }
+
+        .arrow-button {
+            position: absolute;
+            left: -34px;        
+            bottom: 0; 
+            background: rgba(255,255,255,0.8);
+            border: 1px solid #ccc;
+            border-radius: 0;
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+            }
 
         /* Bottom Navigation */
         .bottom-nav {
@@ -74,14 +169,46 @@
         <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()">
         <ul id="suggestion-list" class="suggestions"></ul>
         <br><br>
-        <span>Date:</span>
-            <input type="date" id="date" value="2023-12-31">
-            <br><br>
-        <input type="range" min="1" max="31">
+        <label for="date">Date:</label>
+        <input type="date" id="date" value="2023-12-31">
         <br><br>
-        <button>Temperature</button>
-        <button>Rainfall</button>
-        <button>Wind</button>
+    
+        <!-- Category buttons with data-category attributes for easier JS handling -->
+        <button data-category="temperature" onclick="fetchCategoryData('temperature')">Temperature</button>
+        <button data-category="rainfall" onclick="fetchCategoryData('rainfall')">Rainfall</button>
+        <button data-category="wind" onclick="fetchCategoryData('wind')">Wind</button>
+        <!-- arrow-button-control -->
+        <button class="arrow-button-control" onclick="toggleControlPanel()">&gt;</button>
+    </div>
+
+    <!-- Right Sidebar for Analysis Results -->
+    <div class="sidebar">
+        <!-- location name -->
+        <div class="location-name" id="sidebar-location">Victoria</div>
+
+        <!-- Temperature -->
+        <div class="weather-item">
+            <div class="label">Temperature</div>
+            <div class="value" id="temp-value">20</div>
+            <div class="unit">degree celsius</div>
+        </div>
+
+        <!-- Wind Speed -->
+        <div class="weather-item">
+            <div class="label">Wind Speed</div>
+            <div class="value" id="wind-value">22.5</div>
+            <div class="unit">kph</div>
+        </div>
+
+          <!-- Rainfall -->
+        <div class="weather-item">
+            <div class="label">Rainfall</div>
+            <div class="value" id="rainfall-value">1.5</div>
+            <div class="unit">inches</div>
+        </div>
+
+        <!-- arrow-button -->
+        <button class="arrow-button" onclick="toggleSidebar()">&lt;</button>
     </div>
 
     <!-- Bottom Navigation -->
@@ -99,7 +226,61 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <!-- Your script -->
 <script src="script.js"></script>
+<script>
+    // Show Search Suggestions
+    function showSuggestions() {
+      const input = document.getElementById("search-bar").value.toLowerCase();
+      const suggestionList = document.getElementById("suggestion-list");
+      if (!input) {
+        suggestionList.innerHTML = '';
+        suggestionList.style.display = 'none';
+        return;
+      }
+      // Suggested Data
+      const suggestions = ["Sydney", "Melbourne", "Brisbane", "Perth"];
+      suggestionList.innerHTML = '';
+      suggestions.filter(s => s.toLowerCase().startsWith(input))
+        .forEach(s => {
+          const li = document.createElement("li");
+          li.textContent = s;
+          li.onclick = () => {
+            document.getElementById("search-bar").value = s;
+            suggestionList.innerHTML = '';
+            suggestionList.style.display = 'none';
+          };
+          suggestionList.appendChild(li);
+        });
+      suggestionList.style.display = 'block';
+    }
 
+    // Getting data and updating the right sidebar
+    function fetchCategoryData(category) {
+      const date = document.getElementById("date").value;
+      const location = document.getElementById("search-bar").value;
+      // Constructs the request URL, and the backend needs to return the appropriate data based on these parameters
+      fetch(`/fetch-data?date=${date}&location=${location}&category=${category}`)
+        .then(response => response.json())
+        .then(data => {
+          displayAnalysisResults(data);
+        })
+        .catch(err => console.error("Error fetching data:", err));
+    }
+
+    // Update sidebar display data
+    function displayAnalysisResults(data) {
+      const analysisDiv = document.getElementById("analysis-results");
+      if (data) {
+        analysisDiv.innerHTML = `
+          <h3>${data.location}</h3>
+          <p>Temperature: ${data.temperature} °C</p>
+          <p>Wind Speed: ${data.wind} kph</p>
+          <p>Rainfall: ${data.rainfall} mm</p>
+        `;
+      } else {
+        analysisDiv.innerHTML = "<p>No data available</p>";
+      }
+    }
+  </script>
 </body>
 </html>
 

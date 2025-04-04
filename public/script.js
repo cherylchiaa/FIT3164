@@ -348,3 +348,36 @@ function getStateFromSuburb(suburbName) {
   );
   return match ? match.state : null;
 }
+
+// fetch data from selected date, location and weather categories in control panel
+function fetchCategoryData(category) {
+    const date = document.getElementById('date').value;
+    const searchBar = document.getElementById('search-bar').value;
+
+
+    fetch(`/fetch-data?date=${date}&location=${location}&category=${category}`)
+        .then(response => response.json())
+        .then(data => {
+            displayAnalysisResults(data); // Log data or update the UI with this data
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+// Sidebar analysis for the weather data
+function displayAnalysisResults(data) {
+    const resultsDiv = document.getElementById('analysis-results');
+    let html = '<ul>';
+
+    // Assuming the returned data has an array of monthlyPatterns, each element containing month and value
+    if (data && Array.isArray(data.monthlyPattern)) {
+        data.monthlyPattern.forEach(item => {
+            html += `<li>月份: ${item.month} - 值: ${item.value}</li>`;
+        });
+    } else {
+        html += '<li>暂无数据</li>';
+    }
+    html += '</ul>';
+
+    resultsDiv.innerHTML = html;
+}
+
