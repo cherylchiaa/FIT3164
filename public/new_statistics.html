@@ -42,7 +42,7 @@
 
         <!-- Chart Section -->
         <div class="chart-section">
-            <h3>Min and Max Temperatures in December</h3>
+            <h3>Min and Max Temperatures</h3>
             <canvas id="temperatureChart" width="800" height="200"></canvas>
         </div>
 
@@ -67,16 +67,6 @@
 
     <!-- Column Two: Weather Details -->
     <div class="column-two">
-        <!-- <div class="right-section">
-            <h2>Weather Details</h2>
-            <span>Season: <span id="season">Summer</span></span><br>
-            <span>Rain: <span id="prcp">--</span></span><br>
-            <span>Wind Speed: <span id="windSpeed">--</span></span><br>
-           
-            <span>Average Temperature: <span id="avg-temperature">--</span></span><br>
-            <span>Minimum Temperature: <span id="min-temperature">--</span></span><br>
-            <span>Maximum Temperature: <span id="max-temperature">--</span></span><br>
-        </div> -->
 
         <div class="right-section">
             <label id="location-label">Australia</label><br>
@@ -98,9 +88,60 @@
             <div class="weather-info">
                 <span>Max Temp</span> <span>|</span> <span id="max-temperature">--</span>
             </div>
+
+
+            <div class="trends-container">
+                <h4>Trends You May Be Interested: </h4>
+                <div class="trend-card">
+                    <h4>Max Temperature</h4>
+                    <p>This month</p>
+                    <div class="trend-value">21°C</div>
+                </div>
+                <div class="trend-card">
+                    <h4>Total Rainfall</h4>
+                    <p>Last 30 days</p>
+                    <div class="trend-value">120 mm</div>
+                </div>
+                <div class="trend-card">
+                    <h4>Wind Speed</h4>
+                    <p>Highest this week</p>
+                    <div class="trend-value">35 km/h</div>
+                </div>
+                <div class="trend-card">
+                    <h4>Avg Temperature</h4>
+                    <p>Compare previous years</p>
+                    <div class="trend-value">+1°C</div>
+                </div>
+                <div class="trend-card">
+                    <h4>Rainfall</h4>
+                    <p>Compare last month</p>
+                    <div class="trend-value">-10 mm</div>
+                </div>
+                <div class="trend-card">
+                    <h4>Min Temperature</h4>
+                    <p>Lowest this week</p>
+                    <div class="trend-value">11.9°C</div>
+                </div>
+            </div>
         </div>
+
+
+        
+        
     </div>
+
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+    <!-- Link to Home Page -->
+    <button onclick="window.location.href = 'server.html'">🏠 Home</button>
+    
+    <!-- Link to Statistics Page (Redirect to another HTML file) -->
+    <button onclick="window.location.href = 'new_statistics.html'">📊 Statistics</button>
 </div>
+    
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="statistics.js"></script>
