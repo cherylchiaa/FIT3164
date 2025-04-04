@@ -57,19 +57,20 @@ body {
     /* right: 50px; */
     display: flex;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 5px;
     background-color: rgba(255, 255, 255, 1);
     padding: 0px 15px ;
-    width: 10.5%;
+    width: 14%;
+    height: 4%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-left: 46%;
+    margin-left: 43%;
 }
 
 /* Search input field */
 #search-bar {
-    border: none;
-    outline: none;
-    font-size: 12px;
+    border: transparent;
+    outline: transparent;
+    font-size: 14px;
     width: 100%;
     padding: 0px;
     background-color: transparent;
@@ -82,6 +83,52 @@ body {
     font-size: 12px;
 }
 
+
+.suggestions {
+    list-style-type: none;
+    /* margin-top: 80px; */
+    padding: 3%;
+    background-color: rgba(255, 255, 255, 0.95); 
+    /* background-color: rgba(169, 169, 169, 0.90); */
+    color: #333;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    /* max-height: 150px; */
+    overflow-y: auto;
+    display: none;
+    position: absolute;
+    height: 300%;
+    width: 94%;
+    z-index: 1000;
+    /* font-family: Arial, sans-serif; */
+    font-size: 14px;
+    top: 40%; 
+    right: 0%; 
+    text-align: center;
+    line-height: 1.4;
+}
+
+.suggestions li {
+    padding: 1px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    /* color: blue; 
+    background-color: rgba(169, 169, 169, 0.7);  */
+    background-color: rgb(36, 80, 152); /* Change background color to light blue on hover */
+    color: white; /* Change text color to white on hover */
+}
+
+.move-up-chart {
+    margin-top: -10px; /* Adjust the negative value to your liking */
+}  
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
 .selection-container {
     position: absolute;
     padding: 15px;
@@ -150,16 +197,14 @@ select:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue shadow */
 }
 
-
-
 /* Chart Section */
 .chart-section {
-    width: 98%;
+    width: 100%;
     background-color: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     margin-bottom: 20px; 
-    height: 30%;
+    height: 35%;
 }
 
 .chart-section h3 {
@@ -178,7 +223,7 @@ select:focus {
     justify-content: space-between; /* Space out the boxes */
     gap: 20px; /* Adds space between the boxes */
     width: 105%;
-    height: 32%;
+    height: 35%;
     
 }
 
@@ -207,19 +252,6 @@ select:focus {
 }
 
 /* Right Section for Vertical Blue Box */
-/* .right-section {
-    background-color: #2f3c63; 
-    color: white;
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100%; 
-    margin-right: 0%;
-    text-align: center;
-} */
-
-
 .right-section {
     background-color: #2f3c63; /* Dark blue background */
     background-image: url('images/plain_ocean.png'); /* Add your image here */
@@ -232,7 +264,7 @@ select:focus {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100%; /* Ensure it stretches to the bottom */
+    height: 107%; /* Ensure it stretches to the bottom */
     margin-right: 0%;
     /* margin-bottom: 20%; */
     text-align: center; /* Align text to the left */
@@ -240,7 +272,7 @@ select:focus {
 
 
 #location-label {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     color: white; /* Dark grey color */
     padding: 10px 15px; /* Add some padding */
@@ -251,25 +283,91 @@ select:focus {
 
 .weather-info {
     display: flex;
-    justify-content: center; /* Align the elements to the left */
+    justify-content: center; /* Distribute space evenly between the title, separator, and value */
     align-items: center; /* Align the text vertically */
     margin-bottom: 20px; /* Add space between rows */
     width: 100%; /* Ensure the weather-info is stretched across the container */
-    margin-right: 15%;
     font-size: 15px;
+    margin-left: 40%;
 }
 
 .weather-info span:first-child {
-    width: 150px; /* Set a fixed width for the title */
-    text-align: center; /* Align the title to the left */
+    width: 120px; /* Set a fixed width for the title */
+    text-align: left; /* Align the title to the left */
 }
 
 .weather-info span:nth-child(2) {
-    margin-left: 10px; /* Add space after the first span (the title) */
-    text-align: center;
+    width: 30px; /* Fixed width for separator */
+    text-align: center; /* Center the separator */
 }
 
 .weather-info span:last-child {
-    margin-left: 40px; /* Add space before the value */
+    flex-grow: 2; /* Allow the value to take up the remaining space */
+    text-align: left; /* Align the value to the left */
+    margin-left: 30px; /* Optional: Add some space before the value */
+}
+
+.trends-container {
+    display: flex;
+    justify-content: center; /* Space between the cards */
+    margin-top: 2%;
+    margin-bottom: 30px;
+    flex-wrap: wrap; 
+    align-items: center; 
     text-align: center;
+}
+
+.trend-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 38%; /* Adjust width so that two cards fit per row */
+    text-align: center;
+    margin-bottom: 10px; /* Adds space between rows of cards */
+    height: 20%;
+    margin-right: 2%;
+}
+
+.trend-card h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    margin-top: 3%;
+}
+
+.trend-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.trend-card .trend-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2f3c63;
+    
+}
+
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: absolute;
+    bottom: -95px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+    /* margin-bottom: 3%; */
+}
+
+.bottom-nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
 }
