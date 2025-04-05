@@ -21,7 +21,7 @@
             position: absolute;
             top: 10px;
             left: 45px;
-            background: rgb(204,206,211);
+            background: rgba(204,206,211, 0.9);
             padding: 25px;
             border-radius: 16px;
             gap: 13px;
@@ -29,27 +29,56 @@
             width: 210px;
             z-index: 999;
             font-size: 13px;
+            border: 1px solid black;
         }
 
-        .control-panel input[type="text"],
-        .control-panel input[type="date"],
-        .control-panel select {
-            font-size: 13px;
-            padding: 4px;
-            width: 85%;
+        .search-container {
+            position: relative; 
+            width: 250px;       
+        }
+
+        .search-container input[type="text"] {
+            height: 30px;
+            width: 80%;
+            padding: 0px 40px 0px 40px;  
             box-sizing: border-box;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-container .search-icon {
+            position: absolute;
+            left: 10px;            
+            top: 50%;             
+            transform: translateY(-50%);
+            font-size: 16px;     
+            pointer-events: none; 
         }
 
         /* Adjusting year & month column */
         #yearSelect,
         #monthSelect {
-        width: 60px; 
-        display: inline-block; 
+            font-size: 13px;
+            padding: 4px;
+            width: 60px;
+            box-sizing: border-box;
+            border: 1px solid #ccc; 
+            border-radius: 8px;
+            margin-top: -5px;
+            display: inline-block; 
+            vertical-align: top;
         }
         
+        label[for="yearSelect"] {
+            display: inline-block;
+            margin-top: -20px;
+        }
+
         .control-panel ul.suggestions {
             list-style: none;
-            padding: 0;
+            padding: 10px;
             margin: 0;
             background: #fff;
             border: 1px solid #ccc;
@@ -59,28 +88,6 @@
             position: absolute;
             width: 80%;
             z-index: 1000;
-            }
-
-        .date-controls {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .date-controls .row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .day-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .day-row label {
-            font-size: 14px;
-            font-weight: bold;
         }
 
         .control-panel,
@@ -260,8 +267,10 @@
 
     <!-- Control Panel -->
     <div class="control-panel">
+      <div class="search-container">
         <span class="search-icon">🔍</span>
         <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()" onfocus="showSuggestions()">
+      </div>
         <ul id="suggestion-list" class="suggestions"></ul>
         <br>
         <br>
