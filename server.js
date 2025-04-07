@@ -101,6 +101,7 @@ app.get('/api/choropleth', async (req, res) => {
   }
 });
 
+
 app.get('/api/chart', async (req, res) => {
   const { lat, lon, start, end } = req.query;
 
@@ -109,9 +110,9 @@ app.get('/api/chart', async (req, res) => {
   }
 
   try {
-    // Get nearest weather station
+    // 1️. Get up to 5 nearby stations
     const stationRes = await axios.get(
-      `https://meteostat.p.rapidapi.com/stations/nearby?lat=${lat}&lon=${lon}&limit=1`,
+      `https://meteostat.p.rapidapi.com/stations/nearby?lat=${lat}&lon=${lon}&limit=5`,
       {
         headers: {
           'X-RapidAPI-Key': process.env.METEOSTAT_API_KEY,
@@ -120,32 +121,48 @@ app.get('/api/chart', async (req, res) => {
       }
     );
 
-    const station = stationRes.data.data[0];
-    if (!station) {
-      return res.status(404).json({ message: 'No nearby station found' });
+    const stations = stationRes.data.data;
+
+    if (!stations || stations.length === 0) {
+      return res.status(404).json({ message: 'No nearby stations found' });
     }
 
-    // Fetch daily weather data
-    const weatherRes = await axios.get(
-      `https://meteostat.p.rapidapi.com/stations/daily?station=${station.id}&start=${start}&end=${end}&units=metric`,
-      {
-        headers: {
-          'X-RapidAPI-Key': process.env.METEOSTAT_API_KEY,
-          'X-RapidAPI-Host': 'meteostat.p.rapidapi.com'
+    // 2️. Loop through stations until we find one with data
+    for (const station of stations) {
+      const weatherRes = await axios.get(
+        `https://meteostat.p.rapidapi.com/stations/daily?station=${station.id}&start=${start}&end=${end}&units=metric`,
+        {
+          headers: {
+            'X-RapidAPI-Key': process.env.METEOSTAT_API_KEY,
+            'X-RapidAPI-Host': 'meteostat.p.rapidapi.com'
+          }
         }
-      }
-    );
+      );
 
-    res.json({
-      stationId: station.id,
-      stationName: station.name,
-      data: weatherRes.data.data
-    });
+      const weatherData = weatherRes.data.data;
+
+      if (weatherData && weatherData.length > 0) {
+        // ✅ Return first station with data
+        return res.json({
+          stationId: station.id,
+          stationName: station.name,
+          data: weatherData
+        });
+      }
+
+      // ⏭ Continue to next station if no data
+      console.log(`⏭ No data at ${station.name} (${station.id})`);
+    }
+
+    // ❌ If no stations have data
+    res.status(404).json({ message: 'No weather data available from nearby stations' });
+
   } catch (error) {
     console.error("❌ Chart API error:", error.message);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 async function connectDB() {
   try {

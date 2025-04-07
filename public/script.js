@@ -272,42 +272,73 @@ fetch('all-stations.json')
   }
   
 
-async function getCoordinatesFromPlaceName(placeName) {
-    const url = `/api/geocode?place=${encodeURIComponent(placeName)}`;
+  async function getCoordinatesFromPlaceName(placeName) {
+    // Mapping of state abbreviations to full names
+    const stateMap = {
+      'NSW': 'New South Wales',
+      'VIC': 'Victoria',
+      'QLD': 'Queensland',
+      'SA': 'South Australia',
+      'WA': 'Western Australia',
+      'TAS': 'Tasmania',
+      'NT': 'Northern Territory',
+      'ACT': 'Australian Capital Territory'
+    };
+  
+    // Extract suburb and state abbreviation from format: "Llanarth (Qld)"
+    const match = placeName.match(/^(.+?)\s*\((.+?)\)$/i);
+    let suburb, stateFull = "";
+  
+    if (match) {
+      suburb = match[1].trim();
+      const stateAbbr = match[2].trim().toUpperCase();
+      stateFull = stateMap[stateAbbr] || "";
+    } else {
+      suburb = placeName.trim();
+    }
+    console.log(suburb,stateFull)
+    // Construct the full place string to query
+    const query = `${suburb}${stateFull ? ", " + stateFull : ""}, Australia`;
+    const url = `/api/geocode?place=${encodeURIComponent(query)}`;
   
     try {
       const res = await fetch(url);
       const data = await res.json();
-      console.log(placeName)
-      console.log(data)
+  
       if (data.results.length > 0) {
         const result = data.results.find(r =>
-            (r.components.suburb && r.components.suburb.toLowerCase() === placeName.toLowerCase()) ||
-            (r.components.city && r.components.city.toLowerCase() === placeName.toLowerCase()) ||
-            (r.components.town && r.components.town.toLowerCase() === placeName.toLowerCase()) ||
-            (r.components.municipality && r.components.municipality.toLowerCase() === placeName.toLowerCase())
-          );
-
-        if (!result) return null;
+          r.components.country_code === 'au' &&
+          (
+            (r.components.suburb && r.components.suburb.toLowerCase() === suburb.toLowerCase()) ||
+            (r.components.city && r.components.city.toLowerCase() === suburb.toLowerCase()) ||
+            (r.components.town && r.components.town.toLowerCase() === suburb.toLowerCase())
+          )
+        );
+  
+        if (!result) {
+          console.warn("⚠️ No exact suburb match found within Australia.");
+          return null;
+        }
   
         const { lat, lng } = result.geometry;
-        console.log(lat,lng)
+        console.log(`✅ Found: ${suburb}, ${stateFull} ➝`, lat, lng);
         return { lat, lng };
       } else {
-        console.warn("No coordinates found for", placeName);
+        console.warn("❌ No geocoding results.");
         return null;
       }
     } catch (err) {
-      console.error("Geocoding error:", err);
+      console.error("❌ Geocoding error:", err);
       return null;
     }
   }
   
+  
   async function handleStateSearchSelection(stateName) {
+    currentState = stateName
+    allStatesLayer.clearLayers();
     suburbLayerGroup.clearLayers();
-    const selectedType = document.querySelector('input[name="layer"]:checked')?.value;
-      if (selectedType == "Base"){
-    loadAllStateBorders(stateName); }
+    loadAllStateBorders(stateName); 
     currentState = stateName;
   
     const response = await fetch(stateGeoJSONUrls[stateName]);
@@ -315,8 +346,7 @@ async function getCoordinatesFromPlaceName(placeName) {
   
     const layer = L.geoJSON(data);
     map.fitBounds(layer.getBounds());
-    if (selectedType == "Base"){
-    loadSuburbsForState(stateName);}
+    loadSuburbsForState(stateName);
   }
 
   let locations = [];
@@ -352,7 +382,6 @@ function showSuggestions() {
       suggestionList.style.display = 'none';
       const selectedDate = document.getElementById("date").value;
       console.log(`✅ User selected: ${name}`);
-      
       await handleStateSearchSelection(loc.state);
       
     
@@ -380,16 +409,31 @@ document.getElementById("date").addEventListener("change", async () => {
     const selectedPlace = document.getElementById("search-bar").value;
     const selectedDate = document.getElementById("date").value;
   
-    // 🔁 Re-fetch choropleth data with current type
     const selectedType = document.querySelector('input[name="layer"]:checked')?.value;
+    const previousLocation = document.getElementById("popup-location").textContent;
+    console.log(previousLocation)
+    if (previousLocation){
 
+      const coords = await getCoordinatesFromPlaceName(previousLocation);
+      if (!coords) {
+        console.warn("⚠️ Could not retrieve coordinates.");
+        return;
+      }
+      const data = await fetchWeatherData(coords.lat, coords.lng, selectedDate);
+      showPopup(
+        previousLocation || "Unknown Suburb",
+        data.tavg,
+        data.prcp,
+        data.wspd
+      );
+    }
+    currentState = null
     console.log(selectedDate,selectedType)
     if (selectedType) {
       await loadChoropleth(selectedType);
       return;
     }
   
-    // 🧭 Continue with place-based query if applicable
     if (selectedPlace && selectedDate) {
       const state = getStateFromSuburb(selectedPlace);
       if (state) {
@@ -459,34 +503,37 @@ const polygonFiles = [
   
 
   async function loadChoropleth(type) {
-    showLoading()
-    try {// map.removeLayer(baseLayer);
-        map.removeLayer(temperatureLayer);
-        map.removeLayer(windspeedLayer);
-        map.removeLayer(precipitationLayer);
-        if (choroplethLayer) map.removeLayer(choroplethLayer);
-        allStatesLayer.clearLayers();
-        suburbLayerGroup.clearLayers();
-        currentState = null;
-        const selectedDate = document.getElementById("date").value;
-        const response = await fetch(`/api/choropleth?date=${selectedDate}`);
-        const tempData = await response.json();
-        if (!Array.isArray(tempData)) {
-          console.error("❌ Invalid data received:", tempData);
-          alert("Failed to load choropleth data.");
-          return;
-        }
-      
-        await renderChoropleth(tempData,type)
-        loadAllStateBorders()
+      map.removeLayer(temperatureLayer);
+      map.removeLayer(windspeedLayer);
+      map.removeLayer(precipitationLayer);
+      if (choroplethLayer) map.removeLayer(choroplethLayer);
+      allStatesLayer.clearLayers();
+      suburbLayerGroup.clearLayers();
+      currentState = null;
+    if (type == "Base"){
+      loadAllStateBorders()
     }
-        catch (err) {
-            console.error("⚠️ Choropleth loading error:", err);
-          } finally {
-            hideLoading(); // ✅ Always hide after done (or if error)
+    else{
+      showLoading()
+      try {
+          const selectedDate = document.getElementById("date").value;
+          const response = await fetch(`/api/choropleth?date=${selectedDate}`);
+          const tempData = await response.json();
+          if (!Array.isArray(tempData)) {
+            console.error("❌ Invalid data received:", tempData);
+            alert("Failed to load choropleth data.");
+            return;
           }
         
-    
+          await renderChoropleth(tempData,type)
+          loadAllStateBorders()
+      }
+          catch (err) {
+              console.error("⚠️ Choropleth loading error:", err);
+            } finally {
+              hideLoading(); // ✅ Always hide after done (or if error)
+            }  
+    }
   }
   
   
@@ -572,38 +619,7 @@ async function renderChoropleth(tempData,type) {
               };
             
         }
-    }
-    //   },      
-    //   onEachFeature: function (feature, layer) {
-    //     const props = feature.properties;
-    //     const lat = props.lat;
-    //     const lng = props.lng;
-    //     const tavg = props.tavg;
-      
-    //     let hasFetchedName = false;
-      
-    //     layer.bindPopup("Loading...");
-      
-    //     layer.on("click", async function () {
-    //       if (!hasFetchedName) {
-    //         try {
-    //           const res = await fetch(`/api/reverse-geocode?lat=${lat}&lon=${lng}`);
-    //           const data = await res.json();
-    //           const components = data.results[0]?.components;
-    //           console.log(components)
-    //           const name = components?.suburb || components?.town || components?.city_district || components?.city || components?.state || "Unnamed";
-    //           props.name = name;
-    //           hasFetchedName = true;
-      
-    //           layer.setPopupContent(`${name}<br>🌡️ Temp: ${tavg ?? "No data"}`);
-    //         } catch (err) {
-    //           console.warn("⚠️ Reverse geocoding failed:", err);
-    //           layer.setPopupContent(`Unnamed<br>🌡️ Temp: ${tavg ?? "No data"}`);
-    //         }
-    //       }
-        // });
-    //   }
-      
+    } 
   }).addTo(map);
   
 }
@@ -685,4 +701,3 @@ async function renderChoropleth(tempData,type) {
   function hideLoading() {
     document.getElementById("loading-overlay").style.display = "none";
   }
-  
