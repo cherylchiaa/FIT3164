@@ -78,7 +78,6 @@ async function fetchWeatherForSelectedPlace(place,date) {
         await fetchTemperatureChart(coords.lat, coords.lng, date, getSelectedDataWindow());
         await fetchRainfallChart(coords.lat, coords.lng, date, getSelectedDataWindow());
         await fetchWindChart(coords.lat, coords.lng, date, getSelectedDataWindow());
-        updateChartTitles(date, getSelectedDataWindow());
     })
     .catch(err => console.error("❌ Fetch error:", err));
    
@@ -148,7 +147,7 @@ async function fetchWeatherForSelectedPlace(place,date) {
   });
 
   document.addEventListener("DOMContentLoaded", () => {
-    const defaultLocation = "Melbourne Airport";
+    const defaultLocation = "Melbourne";
     const defaultDate = "2023-12-31";
   
     // Set defaults in the input fields
@@ -411,37 +410,6 @@ function renderWindChart(labels, windSpeeds) {
       }
     }
   });
-}
-
-function updateChartTitles(selectedDate, dataWindow) {
-  const date = new Date(selectedDate);
-  const monthName = date.toLocaleString("en-AU", { month: "long" });
-  const year = date.getFullYear();
-
-  let periodLabel = "";
-
-  if (dataWindow === "current-month") {
-    periodLabel = `${monthName} ${year}`;
-    periodDesc = `for ${monthName} ${year}`;
-  } else if (dataWindow === "current-year") {
-    periodLabel = `${year}`;
-    periodDesc = `throughout the year ${year}`;
-  } else if (dataWindow === "long-term") {
-    const startYear = Math.max(year - 4, 2015);
-    const endYear = Math.min(year, 2025);
-    periodLabel = `${startYear}–${endYear}`;
-    periodDesc = `from ${startYear} to ${endYear}`;
-  }
-
-  // Titles
-  document.getElementById("temp-title").textContent = `Min and Max Temperatures in ${periodLabel}`;
-  document.getElementById("rain-title").textContent = `Rainfall in ${periodLabel}`;
-  document.getElementById("wind-title").textContent = `Average Wind Speed in ${periodLabel}`;
-
-  // Descriptions
-  document.getElementById("temp-desc").textContent = `Shows the daily minimum and maximum temperatures ${periodDesc}.`;
-  document.getElementById("rain-desc").textContent = `Shows the rainfall distribution ${periodDesc}.`;
-  document.getElementById("wind-desc").textContent = `Displays the average wind speed ${periodDesc}.`;
 }
 
 function getSeasonFromMonth(month) {
