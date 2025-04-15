@@ -701,3 +701,5 @@ async function renderChoropleth(tempData,type) {
   function hideLoading() {
     document.getElementById("loading-overlay").style.display = "none";
   }
+
+  
