@@ -201,7 +201,40 @@
     </div>
 
 
-
+    <div id="loading-overlay" style="
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    text-align: center;
+  ">
+  
+    <div style="
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: inline-block;
+    ">
+      <img src="load.gif" id="spinner-image" style="
+        width: 120px;
+        height: 90px;
+        display: block;
+        margin: 0 auto;
+      " alt="Loading...">
+  
+      <div style="
+        margin-top: 4px;
+        font-size: 1em;
+        font-weight: 500;
+        color: #333;
+      ">
+        Loading...
+      </div>
+    </div>
+  </div>
     
 </div>
 </main>
