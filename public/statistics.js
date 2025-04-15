@@ -75,9 +75,7 @@ async function fetchWeatherForSelectedPlace(place,date) {
         console.log(`✅ Weather for station ${station.name} on ${date}:`, weather);
         updateWeatherInfo(weather)
         updateSeasonDisplay(date);
-        await fetchTemperatureChart(coords.lat, coords.lng, date, getSelectedDataWindow());
-        await fetchRainfallChart(coords.lat, coords.lng, date, getSelectedDataWindow());
-        await fetchWindChart(coords.lat, coords.lng, date, getSelectedDataWindow());
+        await fetchAllCharts(coords.lat, coords.lng, date, getSelectedDataWindow());
     })
     .catch(err => console.error("❌ Fetch error:", err));
    
@@ -232,79 +230,137 @@ function getStartEndFromDate(selectedDate, dataWindow) {
     };
   }
 
+  if (dataWindow === "this-week") {
+    const dayOfWeek = date.getDay(); // 0 = Sunday
+    const diffToMonday = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+    const monday = new Date(date);
+    monday.setDate(date.getDate() + diffToMonday);
+
+    const sunday = new Date(monday);
+    sunday.setDate(monday.getDate() + 6);
+
+    return {
+      start: monday.toLocaleDateString('en-CA'),
+      end: sunday.toLocaleDateString('en-CA')
+    };
+  }
+
+  if (dataWindow === "last-month") {
+    let newMonth = month === 0 ? 11 : month - 1;
+    let newYear = month === 0 ? year - 1 : year;
+  
+    const start = new Date(newYear, newMonth, 1);
+    const end = new Date(newYear, newMonth + 1, 0); // last day of last month
+  
+    return {
+      start: start.toLocaleDateString('en-CA'),
+      end: end.toLocaleDateString('en-CA')
+    };
+  }
+  
+
   return null;
 }
 
-async function fetchTemperatureChart(lat, lon, selectedDate, dataWindow) {
-  const { start, end } = getStartEndFromDate(selectedDate, dataWindow);
+async function fetchAllCharts(lat, lon, selectedDate) {
+    // Current month
+    const { start, end } = getStartEndFromDate(selectedDate, "current-month");
+    if (!start || !end) return;
+  
+    // Fetch current month data
+    let res = await fetch(`/api/chart?lat=${lat}&lon=${lon}&start=${start}&end=${end}`);
+    let json = await res.json();
+  
+    const labels = [];
+    const minTemps = [];
+    const maxTemps = [];
+    const rainfallValues = [];
+    const windSpeeds = [];
+    
+    let avgtemp = 0;
+    let maxTemp = -999;
+    let totalRain = 0;
+    let count = 0;
+    json.data.forEach(day => {
+      count += 1 
+      if (!day) return;
+    
+      const dateStr = day.date || day.time;
+      const date = new Date(dateStr);
+      const label = date.toLocaleDateString("en-AU", { day: 'numeric', month: 'short', year: 'numeric' });
+  
+      labels.push(label);
+      minTemps.push(day.tmin ?? null);
+      maxTemps.push(day.tmax ?? null);
+      rainfallValues.push(day.prcp ?? null);
+      windSpeeds.push(day.wspd ?? null);
+  
+      if (day.tmax != null && day.tmax > maxTemp) maxTemp = day.tmax;
+      if (day.prcp != null) totalRain += day.prcp;
+      if (day?.tavg != null) avgtemp += day.tavg;
+    });
+  
+    renderTempChart(labels, minTemps, maxTemps);
+    renderRainChart(labels, rainfallValues);
+    renderWindChart(labels, windSpeeds);
+  
+    // Last month data for rain comparison
+    const { start: laststart, end: lastend } = getStartEndFromDate(selectedDate, "last-month");
+    let lastrain = 0;
+    let lasttemp = 0;
+    let lastcount = 0; 
+    if (laststart && lastend) {
+      const lastRes = await fetch(`/api/chart?lat=${lat}&lon=${lon}&start=${laststart}&end=${lastend}`);
+      const lastJson = await lastRes.json();
+    
+      lastJson.data.forEach(day => {
+        lastcount += 1 
+        if (day?.prcp != null) lastrain += day.prcp;
+        if (day?.tavg != null) lasttemp += day.tavg;
+        
+      });
+    }
+    const currentavgtemp = avgtemp / count
+    const lastavgtemp = lasttemp / lastcount
+    const tempdiff = currentavgtemp - lastavgtemp
+    const rainDiff = totalRain - lastrain;
+  
+    // This week data
+    const { start: weekStart, end: weekEnd } = getStartEndFromDate(selectedDate, "this-week");
+    let weekWindMax = -999;
+    let weekMinTemp = 999;
+  
+    if (weekStart && weekEnd) {
+      const weekRes = await fetch(`/api/chart?lat=${lat}&lon=${lon}&start=${weekStart}&end=${weekEnd}`);
+      const weekJson = await weekRes.json();
+  
+      weekJson.data.forEach(day => {
+        if (!day) return;
+        if (day.wspd != null && day.wspd > weekWindMax) weekWindMax = day.wspd;
+        if (day.tmin != null && day.tmin < weekMinTemp) weekMinTemp = day.tmin;
+      });
+    }
+  
+    // Set text content
+    document.getElementById("monthMaxTemp").textContent =
+      maxTemp !== undefined ? `${maxTemp}°C` : "N/A";
+  
+    document.getElementById("monthRain").textContent =
+      totalRain !== undefined ? `${totalRain.toFixed(1)}mm` : "N/A";
+  
+    document.getElementById("monthRainCompare").textContent =
+      rainDiff !== undefined ? `${rainDiff >= 0 ? '+' : ''}${rainDiff.toFixed(1)}mm` : "N/A";
 
-  if (!start || !end) return;
-
-  const res = await fetch(`/api/chart?lat=${lat}&lon=${lon}&start=${start}&end=${end}`);
-  const json = await res.json();
-
-  const labels = [];
-  const minTemps = [];
-  const maxTemps = [];
-
-  json.data.forEach(day => {
-    if (!day || (!day.tmin && !day.tmax)) return; // Skip if no valid data
-    const dateStr = day.date || day.time;
-    const date = new Date(dateStr);
-    const label = date.toLocaleDateString("en-AU", { day: 'numeric', month: 'short', year: 'numeric' });
-    labels.push(label);
-    minTemps.push(day.tmin ?? null);
-    maxTemps.push(day.tmax ?? null);
-  });
- 
-  renderTempChart(labels, minTemps, maxTemps);
-}
-
-async function fetchRainfallChart(lat, lon, selectedDate, dataWindow) {
-  const { start, end } = getStartEndFromDate(selectedDate, dataWindow);
-
-  if (!start || !end) return;
-
-  const res = await fetch(`/api/chart?lat=${lat}&lon=${lon}&start=${start}&end=${end}`);
-  const json = await res.json();
-
-  const labels = [];
-  const rainfallValues = [];
-
-  json.data.forEach(day => {
-    if (!day || (!day.tmin && !day.tmax)) return; // Skip if no valid data
-    const dateStr = day.date || day.time;
-    const date = new Date(dateStr);
-    const label = date.toLocaleDateString("en-AU", { day: 'numeric', month: 'short', year: 'numeric' });
-    labels.push(label);
-    rainfallValues.push(day.prcp ?? null);
-  });
-
-  renderRainChart(labels, rainfallValues);
-}
-
-async function fetchWindChart(lat, lon, selectedDate, dataWindow) {
-  const { start, end } = getStartEndFromDate(selectedDate, dataWindow);
-
-  if (!start || !end) return;
-
-  const res = await fetch(`/api/chart?lat=${lat}&lon=${lon}&start=${start}&end=${end}`);
-  const json = await res.json();
-
-  const labels = [];
-  const windSpeeds = [];
-
-  json.data.forEach(day => {
-    if (!day || (!day.tmin && !day.tmax)) return; // Skip if no valid data
-    const dateStr = day.date || day.time;
-    const date = new Date(dateStr);
-    const label = date.toLocaleDateString("en-AU", { day: 'numeric', month: 'short', year: 'numeric' });
-    labels.push(label);
-    windSpeeds.push(day.wspd ?? null);
-  });
-
-  renderWindChart(labels, windSpeeds);
-}
+      document.getElementById("monthavgtemp").textContent =
+      tempdiff !== undefined ? `${tempdiff >= 0 ? '+' : ''}${tempdiff.toFixed(2)}°C` : "N/A";
+  
+    document.getElementById("weekWind").textContent =
+      weekWindMax !== undefined ? `${weekWindMax}km/h` : "N/A";
+  
+    document.getElementById("weekMinTemp").textContent =
+      weekMinTemp !== undefined ? `${weekMinTemp}°C` : "N/A";
+  }
+  
 
 let tempChart;
 function renderTempChart(labels, minTemps, maxTemps) {
@@ -427,6 +483,3 @@ function updateSeasonDisplay(selectedDate) {
 
   document.getElementById("season").textContent = season;
 }
-
-
-
