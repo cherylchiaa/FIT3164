@@ -1,0 +1,171 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4; /* fallback background if needed */
+  }
+  
+  /* Container for two-column layout */
+  .container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh; /* fill full screen height */
+  }
+  
+  /* ===== Left Section ===== */
+  .left-section {
+    position: relative; 
+    width: 60%;
+    background: url('images/sky.jpg') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding:  -40px 40px 0px 20px; 
+  }
+  
+  .brand,
+  .left-content {
+    margin-left: -40px;
+  }
+
+  .brand {
+    display: flex;
+    justify-content: center;   
+    margin-bottom: -100px;    
+  }
+  
+  .brand-logo {
+    width: 500px;            
+    height: auto;
+  }
+
+  .left-content {
+    text-align: center;
+  }
+
+  .left-content h2 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .left-content h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin: 0 0 20px;
+  }
+  .left-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #eee;
+    max-width: 80%;
+    margin: 0 auto 30px;
+  }
+  .footer-links {
+    color: #ddd;
+    font-size: 0.85rem;
+  }
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+
+
+  /* Pseudo-element to create the fade-out effect */
+  .left-section::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;                   /* Attach it to the right edge */
+    width: 100px;               /* Adjust as needed for a smoother transition */
+    height: 100%;
+    background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0) 0%, 
+    #fff 100%
+    );
+  }
+
+  
+  /* ===== Right Section ===== */
+  .right-section {
+    width: 40%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+  
+  .form-container {
+    width: 80%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-container form label {
+    font-size: 14px;
+    color: #444;
+  }
+  .form-container form input[type="text"],
+  .form-container form input[type="email"],
+  .form-container form input[type="password"] {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .checkbox-row a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  .checkbox-row a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Buttons styling */
+  .signup-btn, .signin-btn {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .signup-btn {
+    background: #4285f4;
+    color: #fff;
+  }
+  .signup-btn:hover {
+    background: #3367d6;
+  }
+  .signin-btn {
+    background: #fff;
+    color: #4285f4;
+    border: 1px solid #4285f4;
+  }
+  .signin-btn:hover {
+    background: #f0f0f0;
+  }
+  

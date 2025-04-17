@@ -2,110 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Weather Visualization App</title>
-  <style>
-    /* Reset some default styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    
-    .login-container {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      width: 300px;
-      text-align: center;
-    }
-    
-    .login-container h1 {
-      margin-bottom: 20px;
-      font-size: 24px;
-      color: #333;
-    }
-    
-    .login-container form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .login-container input[type="text"],
-    .login-container input[type="password"] {
-      padding: 10px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    
-    .login-container button {
-      padding: 10px;
-      font-size: 14px;
-      border: none;
-      border-radius: 6px;
-      background-color: #4285f4;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    
-    .login-container button:hover {
-      background-color: #3367d6;
-    }
-    
-    .error-message {
-      color: red;
-      font-size: 13px;
-      display: none;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Registration</title>
+  <link rel="stylesheet" href="login_page.css"/>
 </head>
 <body>
-  <div class="login-container">
-    <h1>Login</h1>
-    <form id="loginForm" action="/login" method="POST">
-      <input type="text" name="username" placeholder="Username" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <p class="error-message" id="errorMessage">Invalid username or password.</p>
-      <button type="submit">Login</button>
-    </form>
-  </div>
-  
+
+  <div class="container">
+    <!-- Left section with gradient and wave -->
+    <div class="left-section">
+      <div class="brand">
+        <img src="images/logo.PNG" alt="Logo" class="brand-logo" />
+      </div>
+    
+      <div class="left-content">
+        <h2>Welcome to</h2>
+        <h1>Weatherviss</h1>
+        <p>
+          Discover Australia’s climate like never before with Weatherviss. 
+          Simply choose a date, location, and category to unveil interactive heatmaps and detailed monthly charts for temperature, 
+          rainfall, or wind—perfect for spotting seasonal trends and making data‑driven decisions. Whether you’re planning your next trip or studying regional weather patterns, 
+          our intuitive dashboard brings the story of the sky to life.
+        </p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Right section with form -->
+    <div class="right-section">
+      <div class="form-container">
+
+        <h2>Log in / Sign Up</h2>
+        <form id="signupForm">
+          <label for="nameInput">Name</label>
+          <input type="text" id="nameInput" placeholder="Enter your name" required />
+
+          <label for="emailInput">E‑mail Address</label>
+          <input type="email" id="emailInput" placeholder="Enter your mail" required />
+
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" placeholder="Enter your password" required />
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="termsCheck" required />
+            <label for="termsCheck">
+              By Signing Up I Agree with <a href="#">Terms &amp; Conditions</a>
+            </label>
+          </div>
+
+          <!-- 修改这里的按钮文本 -->
+          <button type="submit" class="signup-btn">
+            Don’t have an account?  Sign up now！
+          </button>
+          <button type="button" class="signin-btn">Sign In</button>
+
+                  <!-- Default Home Location 按钮 -->
+        <button 
+        type="button" 
+        id="homeLocationBtn" 
+        class="default-location-btn"
+        onclick="useDefaultHomeLocation()"
+        >
+          📍 Use Default Home Location
+        </button>
+        </form>
+      </div>
+    </div>
+
+
+
   <script>
-    // Uncomment the following code block to perform AJAX-based login.
-    /*
-    document.getElementById('loginForm').addEventListener('submit', async function(e){
-      e.preventDefault(); // Prevent default form submission
-      const formData = new FormData(this);
-      try {
-        const response = await fetch('/login', {
-          method: 'POST',
-          body: formData
-        });
-        if (!response.ok) {
-          // Display error message
-          document.getElementById('errorMessage').style.display = 'block';
-        } else {
-          // Successful login, redirect to main page
-          window.location.href = 'server.html';
-        }
-      } catch (err) {
-        console.error("Login error:", err);
-      }
+    // Basic form submission example
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Sign up form submitted!");
+      // Real implementation: send data to server, handle response, etc.
     });
-    */
   </script>
+
 </body>
 </html>
