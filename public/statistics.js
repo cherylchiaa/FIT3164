@@ -41,45 +41,52 @@ function showSuggestions() {
   suggestionList.style.display = matches.length ? 'block' : 'none';
 }
 
-async function fetchWeatherForSelectedPlace(place,date) {
-
+async function fetchWeatherForSelectedPlace(place, date) {
     if (!place || !date) {
       console.log("⚠️ Please select both a place and a date.");
       return;
     }
-
-    document.getElementById("location-label").textContent = place;
-    document.getElementById("location-display").textContent = place;
   
-    // Step 1: Get coordinates for the place
-    const coords = await getCoordinatesFromPlaceName(place);
-    if (!coords) return;
+    showLoading(); // Show loading spinner
   
-    // Step 2: Get nearest station using coordinates
-    const station = await getNearestWeatherStation(coords.lat, coords.lng, date);
-    console.log(station)
-    if (!station) {
-      console.log("⚠️ No nearby weather station found.");
-      return;
-    }
-    // Step 3: Fetch weather data from your backend using station and date
-    fetch(`/weather?station=${encodeURIComponent(station.name.en)}&date=${date}`)
-    .then(res => res.json())
-    .then(async data => {
-        if (!data.length) {
+    try {
+      document.getElementById("location-label").textContent = place;
+      document.getElementById("location-display").textContent = place;
+  
+      // Step 1: Get coordinates for the place
+      const coords = await getCoordinatesFromPlaceName(place);
+      if (!coords) return;
+  
+      // Step 2: Get nearest station using coordinates
+      const station = await getNearestWeatherStation(coords.lat, coords.lng, date);
+      console.log(station);
+      if (!station) {
+        console.log("⚠️ No nearby weather station found.");
+        return;
+      }
+  
+      // Step 3: Fetch weather data from your backend using station and date
+      const res = await fetch(`/weather?station=${encodeURIComponent(station.name.en)}&date=${date}`);
+      const data = await res.json();
+  
+      if (!data.length) {
         console.log(`⚠️ No weather data found for station ${station.name} on ${date}`);
         return;
-        }
-
-        const weather = data[0];
-        console.log(`✅ Weather for station ${station.name} on ${date}:`, weather);
-        updateWeatherInfo(weather)
-        updateSeasonDisplay(date);
-        await fetchAllCharts(coords.lat, coords.lng, date, getSelectedDataWindow());
-    })
-    .catch(err => console.error("❌ Fetch error:", err));
-   
+      }
+  
+      const weather = data[0];
+      console.log(`✅ Weather for station ${station.name} on ${date}:`, weather);
+      updateWeatherInfo(weather);
+      updateSeasonDisplay(date);
+      await fetchAllCharts(coords.lat, coords.lng, date, getSelectedDataWindow());
+  
+    } catch (err) {
+      console.error("❌ Fetch error:", err);
+    } finally {
+      hideLoading(); // Always hide the spinner
+    }
   }
+  
   
   async function getCoordinatesFromPlaceName(placeName) {
     const url = `/api/geocode?place=${encodeURIComponent(placeName)}`;
@@ -483,3 +490,11 @@ function updateSeasonDisplay(selectedDate) {
 
   document.getElementById("season").textContent = season;
 }
+
+function showLoading() {
+    document.getElementById("loading-overlay").style.display = "block";
+  }
+  
+  function hideLoading() {
+    document.getElementById("loading-overlay").style.display = "none";
+  }

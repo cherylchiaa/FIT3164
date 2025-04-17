@@ -10,11 +10,11 @@
 <body>
 
      <!-- Sidebar Navigation -->
-     <nav id="sidebar">
+     <nav id="sidebar" class="close">
         <ul>
           <li>
             <span class="logo">weatherviss</span>
-            <button onclick=toggleSidebar() id="toggle-btn">
+            <button onclick="toggleSidebar()" id="toggle-btn" class="rotate">
               <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m313-480 155 156q11 11 11.5 27.5T468-268q-11 11-28 11t-28-11L228-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T468-692q11 11 11 28t-11 28L313-480Zm264 0 155 156q11 11 11.5 27.5T732-268q-11 11-28 11t-28-11L492-452q-6-6-8.5-13t-2.5-15q0-8 2.5-15t8.5-13l184-184q11-11 27.5-11.5T732-692q11 11 11 28t-11 28L577-480Z"/></svg>
             </button>
           </li>
@@ -201,14 +201,40 @@
     </div>
 
 
-<!-- Bottom Navigation -->
-<div class="bottom-nav">
-    <!-- Link to Home Page -->
-    <button onclick="window.location.href = 'server.html'">🏠 Home</button>
-    
-    <!-- Link to Statistics Page (Redirect to another HTML file) -->
-    <button onclick="window.location.href = 'new_statistics.html'">📊 Statistics</button>
-</div>
+    <div id="loading-overlay" style="
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    text-align: center;
+  ">
+  
+    <div style="
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      display: inline-block;
+    ">
+      <img src="load.gif" id="spinner-image" style="
+        width: 120px;
+        height: 90px;
+        display: block;
+        margin: 0 auto;
+      " alt="Loading...">
+  
+      <div style="
+        margin-top: 4px;
+        font-size: 1em;
+        font-weight: 500;
+        color: #333;
+      ">
+        Loading...
+      </div>
+    </div>
+  </div>
     
 </div>
 </main>

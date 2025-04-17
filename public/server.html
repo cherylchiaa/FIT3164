@@ -28,9 +28,9 @@
         .control-panel {
             position: absolute;
             top: 10px;
-            left: 45px;
+            left: 10px;
             background: rgba(204,206,211, 0.9);
-            padding: 25px;
+            padding: 10px;
             border-radius: 16px;
             gap: 13px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
@@ -80,13 +80,21 @@
         }
         
         label[for="yearSelect"] {
+            color: black; 
             display: inline-block;
             margin-top: -20px;
         }
 
+        label[for="date"] {
+            color: black;       /* Make label text black */
+            font-weight: bold;  /* Optional: make it more readable */
+            font-size: 14px;     /* Adjust size if needed */
+            }
+
+
         .control-panel ul.suggestions {
             list-style: none;
-            padding: 10px;
+            padding: 5px;
             margin: 0;
             background: #fff;
             border: 1px solid #ccc;
@@ -265,6 +273,21 @@
             height: 20px;
         }
 
+        .control-panel.top-right-ui {
+            left: unset;
+            right: 30px;
+            top: 20px;
+            width: 200px;
+        }
+
+        input[type="date"] {
+            width: 93%;
+            font-size: 14px;
+            padding: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
 
     </style>
 </head>
@@ -299,9 +322,10 @@
           </button>
           <ul class="sub-menu">
             <div>
-              <li><a href="#">Temperature</a></li>
-              <li><a href="#">Windspeed</a></li>
-              <li><a href="#">Rainfall</a></li>
+              <li><a href="#" onclick="loadChoropleth('Base')">Base Map</a></li>
+              <li><a href="#" onclick="loadChoropleth('Temperature')">Temperature</a></li>
+              <li><a href="#" onclick="loadChoropleth('Wind')">Wind Speed</a></li>
+              <li><a href="#" onclick="loadChoropleth('Rain')">Rainfall</a></li>
             </div>
           </ul>
         </li>
@@ -339,52 +363,17 @@
 
     <!-- Map Container -->
     <div id="map"></div>
-
-    <!-- Control Panel -->
-    <!-- <div class="control-panel">
+    <div class="control-panel top-right-ui">
       <div class="search-container">
         <span class="search-icon">🔍</span>
         <input type="text" id="search-bar" placeholder="Search Location" oninput="showSuggestions()" onfocus="showSuggestions()">
       </div>
         <ul id="suggestion-list" class="suggestions"></ul>
-        <br>
-        <br>
         <label for="date">Date:</label>
-        <input type="date" id="date" value="2023-12-31">
-        <br><br>          
-        <div id="layerToggle">
-            <label>
-                <input type="radio" name="layer" value="Base" onchange="loadChoropleth('Base')" checked>
-                Base Map
-              </label>
-              <br><br>
-            <label>
-              <input type="radio" name="layer" value="Temperature" onchange="loadChoropleth('Temperature')">
-              Temperature
-            </label>
-            <br><br>
-            <label>
-              <input type="radio" name="layer" value="Wind" onchange="loadChoropleth('Wind')">
-              Wind Speed
-            </label>
-            <br><br>
-            <label>
-              <input type="radio" name="layer" value="Rain" onchange="loadChoropleth('Rain')">
-              Rainfall
-            </label>
-          </div>
-           -->
+        <input type="date" id="date" value="2023-12-31">  
     </div>
 
 
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <!-- Link to Home Page -->
-        <button onclick="window.location.href = 'server.html'">🏠 Home</button>
-        
-        <!-- Link to Statistics Page (Redirect to another HTML file) -->
-        <button onclick="window.location.href = 'new_statistics.html'">📊 Statistics</button>
-    </div>
 
     <!-- Info Popup -->
     <div id="info-popup" class="info-popup hidden">
