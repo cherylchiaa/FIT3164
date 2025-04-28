@@ -767,3 +767,16 @@ async function renderChoropleth(tempData,type) {
     legend.style.display = 'block';
   }
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+    const layer = params.get('layer');
+  
+    if (layer) {
+      console.log(`Loading choropleth for: ${layer}`);
+      loadChoropleth(layer);
+    } else {
+      console.log("No layer specified, loading default Base Map");
+      loadChoropleth('Base'); // fallback if no query given
+    }
+  });
+  
