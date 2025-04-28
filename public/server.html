@@ -297,6 +297,41 @@
             font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        .legend {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+  font-size: 14px;
+  color:black;
+  line-height: 20px;
+  z-index: 9999;
+}
+
+.legend h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.legend div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.legend div span {
+  display: inline-block;
+  width: 20px;
+  height: 12px;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+}
+
+
 
     </style>
 </head>
@@ -450,7 +485,16 @@
   </div>
 </div>
 
-
+<div id="legend" class="legend">
+    <h4>Wind Speed (km/h)</h4>
+    <div><span style="background:#004d00"></span> 50+ km/h</div>
+    <div><span style="background:#006400"></span> 40-49 km/h</div>
+    <div><span style="background:#228B22"></span> 30-39 km/h</div>
+    <div><span style="background:#2E8B57"></span> 20-29 km/h</div>
+    <div><span style="background:#3CB371"></span> 10-19 km/h</div>
+    <div><span style="background:#66CDAA"></span> 0-9 km/h</div>
+  </div>
+  
   
 <script src="sidebar.js" defer></script> 
 

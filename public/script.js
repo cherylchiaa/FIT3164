@@ -222,6 +222,7 @@ function loadSuburbsForState(stateName) {
 
 
 // Initial load of all states
+hideLegend();
 loadAllStateBorders();
 
 let stations = [];
@@ -512,6 +513,7 @@ const polygonFiles = [
       currentState = null;
     if (type == "Base"){
       loadAllStateBorders()
+      updateLegend(type)
     }
     else{
       showLoading()
@@ -527,6 +529,7 @@ const polygonFiles = [
         
           await renderChoropleth(tempData,type)
           loadAllStateBorders()
+          updateLegend(type)
       }
           catch (err) {
               console.error("⚠️ Choropleth loading error:", err);
@@ -693,7 +696,57 @@ async function renderChoropleth(tempData,type) {
     return '#cccccc'; // fallback
   }
   
+  function updateLegend(type) {
+    const legend = document.getElementById('legend');
+    
+    // First, CLEAR any old content to prevent duplicates
+    legend.innerHTML = '';
+    legend.style.display = 'block'; // make sure it is visible
+  
+    let grades, colors;
+  
+    if (type === "Temperature") {
+      grades = [5, 10, 15, 20, 25, 30, 35, 40];
+      colors = ['#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'];
+    } 
+    else if (type === "Wind") {
+      grades = [10, 20, 30, 40, 50];
+      colors = ['#BBBBBB', '#999999', '#777777', '#555555', '#333333'];
+    } 
+    else if (type === "Rain") {
+      grades = [1, 5, 10, 25, 50, 75, 100];
+      colors = ['#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#4292c6', '#2171b5', '#08519c', '#08306b'];
+    } 
+    else {
+      return; // Invalid type
+    }
+  
 
+    // Add subtitle (type and unit)
+    const subtitle = document.createElement('h4');
+    if (type === "Temperature") {
+      subtitle.textContent = "Temperature (°C)";
+    } else if (type === "Wind") {
+      subtitle.textContent = "Wind Speed (km/h)";
+    } else if (type === "Rain") {
+      subtitle.textContent = "Rainfall (mm)";
+    }
+    legend.appendChild(subtitle);
+
+  
+    // Create legend items
+    for (let i = 0; i < grades.length; i++) {
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <i style="background:${colors[i]}; width:18px; height:18px; display:inline-block; margin-right:8px;"></i> 
+        ${grades[i]}${grades[i + 1] ? ' – ' + grades[i + 1] : '+'}
+      `;
+      legend.appendChild(div);
+    }
+  }
+  
+  
+  
   function showLoading() {
     document.getElementById("loading-overlay").style.display = "block";
   }
@@ -702,4 +755,15 @@ async function renderChoropleth(tempData,type) {
     document.getElementById("loading-overlay").style.display = "none";
   }
 
+  function hideLegend() {
+    const legend = document.getElementById('legend');
+    legend.style.display = 'none';
+    legend.innerHTML = ''; // 🧹 Clear the legend content fully
+  }
+  
+
+  function showLegend() {
+    const legend = document.getElementById('legend');
+    legend.style.display = 'block';
+  }
   
