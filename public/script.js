@@ -667,18 +667,6 @@ async function renderChoropleth(tempData,type) {
              '#cccccc'; // no data
     }
   
-    // 🌀 Wind speed (white → yellow → grey)
-    // if (type === "Wind") {
-    //     return t >= 50 ? '#555555' :    // dark grey
-    //            t >= 40 ? '#777777' :    // medium-dark grey
-    //            t >= 30 ? '#999999' :    // medium grey
-    //            t >= 20 ? '#BBBBBB' :    // light-medium grey
-    //            t >= 10 ? '#DDDDDD' :    // very light grey
-    //            t >= 5  ? '#F0F0F0' :    // near-white grey
-    //            t != null ? '#FFFFFF' :  // white for near-zero
-    //            '#CCCCCC';               // fallback for no data
-    //   }
-
     if (type === "Wind") {
         return t >= 50 ? '#B69FD5' :
                t >= 40 ? '#DBC2EE' :  
@@ -709,30 +697,26 @@ async function renderChoropleth(tempData,type) {
   
   function updateLegend(type) {
     const legend = document.getElementById('legend');
-    
-    // First, CLEAR any old content to prevent duplicates
-    legend.innerHTML = '';
-    legend.style.display = 'block'; // make sure it is visible
   
-    let grades, colors;
+    // Clear previous content to prevent duplicates
+    legend.innerHTML = '';
+    legend.style.display = 'block'; // make sure legend is visible
+  
+    let grades = [];
   
     if (type === "Temperature") {
       grades = [5, 10, 15, 20, 25, 30, 35, 40];
-      colors = ['#FFEDA0', '#FED976', '#FEB24C', '#FD8D3C', '#FC4E2A', '#E31A1C', '#BD0026', '#800026'];
     } 
     else if (type === "Wind") {
-      grades = [10, 20, 30, 40, 50];
-      colors = ['#BBBBBB', '#999999', '#777777', '#555555', '#333333'];
+      grades = [5, 10, 20, 30, 40, 50];
     } 
     else if (type === "Rain") {
       grades = [1, 5, 10, 25, 50, 75, 100];
-      colors = ['#deebf7', '#c6dbef', '#9ecae1', '#6baed6', '#4292c6', '#2171b5', '#08519c', '#08306b'];
     } 
     else {
-      return; // Invalid type
+      return; // invalid type
     }
   
-
     // Add subtitle (type and unit)
     const subtitle = document.createElement('h4');
     if (type === "Temperature") {
@@ -743,13 +727,13 @@ async function renderChoropleth(tempData,type) {
       subtitle.textContent = "Rainfall (mm)";
     }
     legend.appendChild(subtitle);
-
   
     // Create legend items
     for (let i = 0; i < grades.length; i++) {
+      const color = getColor(grades[i], type); // 🎯 dynamically get color based on value + type
       const div = document.createElement('div');
       div.innerHTML = `
-        <i style="background:${colors[i]}; width:18px; height:18px; display:inline-block; margin-right:8px;"></i> 
+        <i style="background:${color}; width:18px; height:18px; display:inline-block; margin-right:8px; border:1px solid #999;"></i> 
         ${grades[i]}${grades[i + 1] ? ' – ' + grades[i + 1] : '+'}
       `;
       legend.appendChild(div);
