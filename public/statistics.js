@@ -269,9 +269,9 @@ function getStartEndFromDate(selectedDate, dataWindow) {
   return null;
 }
 
-async function fetchAllCharts(lat, lon, selectedDate) {
+async function fetchAllCharts(lat, lon, selectedDate, dataWindow) {
     // Current month
-    const { start, end } = getStartEndFromDate(selectedDate, "current-month");
+    const { start, end } = getStartEndFromDate(selectedDate, dataWindow);
     if (!start || !end) return;
   
     // Fetch current month data

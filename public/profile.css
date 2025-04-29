@@ -15,6 +15,7 @@ body {
     margin-left: 240px; /* Adjust based on sidebar width */
     transition: margin-left 0.3s ease;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #sidebar.close ~ #main-content {
@@ -68,8 +69,9 @@ body {
     background-color: #f9f9f9;
     padding: 40px 60px;
     overflow-y: auto;
-    width: 100%; 
+    width: 1400px; 
     max-width: 100%;
+    box-sizing: border-box;
 }
   
 .profile-content h2 {
