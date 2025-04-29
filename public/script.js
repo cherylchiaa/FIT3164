@@ -668,16 +668,27 @@ async function renderChoropleth(tempData,type) {
     }
   
     // 🌀 Wind speed (white → yellow → grey)
+    // if (type === "Wind") {
+    //     return t >= 50 ? '#555555' :    // dark grey
+    //            t >= 40 ? '#777777' :    // medium-dark grey
+    //            t >= 30 ? '#999999' :    // medium grey
+    //            t >= 20 ? '#BBBBBB' :    // light-medium grey
+    //            t >= 10 ? '#DDDDDD' :    // very light grey
+    //            t >= 5  ? '#F0F0F0' :    // near-white grey
+    //            t != null ? '#FFFFFF' :  // white for near-zero
+    //            '#CCCCCC';               // fallback for no data
+    //   }
+
     if (type === "Wind") {
-        return t >= 50 ? '#555555' :    // dark grey
-               t >= 40 ? '#777777' :    // medium-dark grey
-               t >= 30 ? '#999999' :    // medium grey
-               t >= 20 ? '#BBBBBB' :    // light-medium grey
-               t >= 10 ? '#DDDDDD' :    // very light grey
-               t >= 5  ? '#F0F0F0' :    // near-white grey
-               t != null ? '#FFFFFF' :  // white for near-zero
-               '#CCCCCC';               // fallback for no data
-      }
+        return t >= 50 ? '#B69FD5' :
+               t >= 40 ? '#DBC2EE' :  
+               t >= 30 ? '#F4DAF9' : 
+               t >= 20 ? '#FEC5D8' :
+               t >= 10 ? '#F9D7E2' : 
+               t >= 5  ? '#FFECE9' :   
+               t != null ? '#FFFFFF' :  
+               '#CCCCCC';  // no data
+    }
       
     // 🌧 Rainfall (light blue to deep blue)
     if (type === "Rain") {

@@ -1,0 +1,117 @@
+/* profile.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+body {
+    margin: 0;
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121217;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#main-content {
+    margin-left: 240px; /* Adjust based on sidebar width */
+    transition: margin-left 0.3s ease;
+    overflow-y: auto;
+}
+
+#sidebar.close ~ #main-content {
+    margin-left: 50px; 
+}
+
+  
+/* Profile Container */
+.profile-container {
+    grid-column: span 5 / span 5;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 20px 40px;
+    color: white;
+    background: url('images/sky.jpg') center/cover no-repeat;
+    border-radius: 15px;
+    width: 1400px; 
+    max-width: 100%;
+    gap: 20px; 
+}
+
+.profile-container h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+  
+/* Profile Form Section */
+.profile-content {
+    grid-column: span 5 / span 5;
+    grid-row: span 4 / span 4;
+    grid-row-start: 2;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 40px 60px;
+    overflow-y: auto;
+    width: 100%; 
+    max-width: 100%;
+}
+  
+.profile-content h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+  
+form .section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 30px;
+    row-gap: 15px;
+    margin-bottom: 30px;
+}
+  
+form label {
+    font-weight: 600;
+    color: #666;
+    grid-column: span 2;
+}
+  
+form input, form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    grid-column: span 2;
+}
+  
+button[type="submit"] {
+    background-color: #0f4c81;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+}
+  
+button[type="submit"]:hover {
+    background-color: #0a3a63;
+}
+  
