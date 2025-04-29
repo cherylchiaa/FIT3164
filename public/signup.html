@@ -1,99 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Create Account</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background: #f5f6f8;
-      margin: 0;
-    }
-    .signup-form {
-      background: #fff;
-      padding: 32px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      width: 320px;
-    }
-    .signup-form h2 {
-      margin-top: 0;
-      font-size: 24px;
-      text-align: center;
-    }
-    .signup-form label {
-      display: block;
-      margin-top: 16px;
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .signup-form input,
-    .signup-form select {
-      width: 100%;
-      padding: 8px 12px;
-      margin-top: 4px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    .signup-form .btn {
-      margin-top: 24px;
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      background: #1a73e8;
-      color: #fff;
-      cursor: pointer;
-    }
-    .signup-form .btn:hover {
-      background: #1669c1;
-    }
-    .signup-form .back-link {
-      display: block;
-      text-align: center;
-      margin-top: 12px;
-      font-size: 14px;
-      color: #1a73e8;
-      text-decoration: none;
-    }
-    .signup-form .back-link:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <title>Sign Up – Weatherviss</title>
+  <link rel="stylesheet" href="login_page.css"/>
 </head>
 <body>
+  <div class="container">
+    <!-- —— 左侧保持不变 —— -->
+    <div class="left-section">
+      <div class="brand">
+        <img src="images/logo.PNG" alt="Logo" class="brand-logo" />
+      </div>
+      <div class="left-content">
+        <h2>Welcome to</h2>
+        <h1>Weatherviss</h1>
+        <p>
+            Discover Australia’s climate like never before with Weatherviss. 
+            Simply choose a date, location, and category to unveil interactive heatmaps and detailed monthly charts for temperature, 
+            rainfall, or wind—perfect for spotting seasonal trends and making data‑driven decisions. Whether you’re planning your next trip or studying regional weather patterns, 
+            our intuitive dashboard brings the story of the sky to life.
+        </p>
+      </div>
+    </div>
 
-  <form class="signup-form" id="signupForm" action="/create-account" method="POST">
-    <h2>Create Account</h2>
+    <!-- 右侧：Sign Up 表单 —— -->
+    <div class="right-section">
+      <div class="form-container">
+        <h2>Create Account</h2>
+        <form id="signupForm" action="/signup" method="POST">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required/>
 
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" placeholder="Enter your username" required/>
+          <label for="emailInput">E-mail Address</label>
+          <input type="email" id="emailInput" name="email" placeholder="Enter your e-mail" required/>
 
-    <label for="email">E‑mail Address</label>
-    <input type="email" id="email" name="email" placeholder="Enter your e‑mail" required/>
+          <label for="passwordInput">Password</label>
+          <input type="password" id="passwordInput" name="password"
+                 placeholder="At least 8 characters" minlength="8" required/>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="At least 8 characters" minlength="8" required/>
+          <label for="confirmPasswordInput">Confirm Password</label>
+          <input type="password" id="confirmPasswordInput" name="confirmPassword"
+                 placeholder="Re-enter your password" required/>
 
-    <label for="confirmPassword">Confirm Password</label>
-    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re‑enter your password" required/>
+          <label for="homeLocation">Default Home Location</label>
+          <input type="text" id="homeLocation" name="homeLocation"
+                 placeholder="e.g. Melbourne, VIC" required/>
 
-    <label for="homeLocation">Default Home Location</label>
-    <input type="text" id="homeLocation" name="homeLocation" placeholder="e.g. Melbourne, VIC" required/>
+          <!-- 注册按钮 -->
+          <button type="submit" class="signup-btn">Sign Up</button>
 
-    <button type="submit" class="btn">Sign Up</button>
+          <!-- 回到登录页 -->
+          <div class="signup-prompt" style="text-align:center; margin-top:16px;">
+            Already have an account?
+            <a href="login_page.html" class="signup-link">Log in</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    <!-- back to login page -->
-    <a href="login_page.html" class="back-link">Already have an account? Log in</a>
-  </form>
-
+  <script>
+    // （可选）拦截提交，做 AJAX 或者前端验证
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      // e.preventDefault();
+      // TODO: 发到后端，拿到结果后再跳转
+    });
+  </script>
 </body>
 </html>
