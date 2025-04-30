@@ -100,6 +100,42 @@ function handleStateClick(e, feature, layer, stateName) {
     resetHighlight()
 }
 
+function setTooltipFontSize(size) {
+  // Remove existing custom tooltip style if any
+  const existingStyle = document.getElementById("custom-tooltip-style");
+  if (existingStyle) {
+    existingStyle.remove();
+  }
+
+  // Create a new style block with updated font size
+  const style = document.createElement('style');
+  style.id = "custom-tooltip-style"; // So it can be found and replaced
+  style.textContent = `
+    .leaflet-tooltip.custom-tooltip {
+      font-size: ${size};
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+let tooltipFontSize = '12px'; // default
+let isFontZoomed = false;     // tracks toggle state
+
+function toggleFontZoom() {
+  isFontZoomed = !isFontZoomed;
+  tooltipFontSize = isFontZoomed ? '22px' : '12px';
+
+  // Update tooltip font size via helper
+  setTooltipFontSize(tooltipFontSize);
+
+  // Toggle active class
+  const toggleZoom = document.getElementById("fontZoom");
+  if (toggleZoom) {
+    toggleZoom.classList.toggle("active", isFontZoomed);
+  }
+}
+
+
 function loadAllStateBorders(excludeState = null) {
     allStatesLayer.clearLayers(); // Clear existing state borders
 
@@ -119,7 +155,7 @@ function loadAllStateBorders(excludeState = null) {
                         const tooltip = L.tooltip({
                             permanent: false,
                             direction: 'center',
-                            className: 'state-tooltip'
+                            className: 'custom-tooltip'
                         })
                         .setContent(stateName)
                         .setLatLng(center);
@@ -835,7 +871,6 @@ async function renderChoropleth(tempData,type) {
     if (toggleLi) {
       toggleLi.classList.toggle("active", isAccessibilityMode);
     }
-    console.log(currentType)
     if (currentType) {
       // Reload the current layer using the new color scheme
       map.removeLayer(choroplethLayer);
