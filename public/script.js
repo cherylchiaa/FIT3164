@@ -3,7 +3,8 @@ var map = L.map('map').setView([-28.2744, 133.7751], 5);
 
 // Add Google Satellite Tile Layer
 let baseLayer, temperatureLayer, windspeedLayer, precipitationLayer;
-
+let isAccessibilityMode = false;
+let currentType;
 baseLayer = L.tileLayer('https://mt1.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}', {
     attribution: '©️ Google Maps'
   }).addTo(map);  // Add base by default
@@ -504,6 +505,7 @@ const polygonFiles = [
   
 
   async function loadChoropleth(type) {
+      currentType = type
       map.removeLayer(temperatureLayer);
       map.removeLayer(windspeedLayer);
       map.removeLayer(precipitationLayer);
@@ -654,6 +656,12 @@ async function renderChoropleth(tempData,type) {
   }
   
   function getColor(t, type) {
+    return isAccessibilityMode
+      ? getColorAccessibility(t, type)
+      : getColorNormal(t, type);
+  }
+
+  function getColorNormal(t, type) {
     if (type === "Temperature") {
       return t >= 40 ? '#800026' :
              t >= 35 ? '#BD0026' :
@@ -694,6 +702,52 @@ async function renderChoropleth(tempData,type) {
   
     return '#cccccc'; // fallback
   }
+
+
+  function getColorAccessibility(t, type) {
+    if (type === "Temperature") {
+      return t >= 40 ? '#67001f' :
+             t >= 35 ? '#b2182b' :
+             t >= 30 ? '#d6604d' :
+             t >= 25 ? '#f4a582' :
+             t >= 20 ? '#fddbc7' :
+             t >= 15 ? '#e0e0e0' :
+             t >= 10 ? '#d1e5f0' :
+             t >= 5  ? '#92c5de' :
+             t != null ? '#4393c3' :
+             '#cccccc'; // no data
+    }
+  
+    // 💨 Wind: purple to green (Viridis-like)
+    if (type === "Wind") {
+      return t >= 50 ? '#542788' :  // dark purple
+             t >= 40 ? '#756bb1' :
+             t >= 30 ? '#9e9ac8' :
+             t >= 20 ? '#bcbddc' :
+             t >= 10 ? '#d9f0a3' :
+             t >= 5  ? '#addd8e' :
+             t != null ? '#78c679' :  // light green
+             '#cccccc';
+    }
+  
+      
+    // 🌧 Rainfall (light blue to deep blue)
+    if (type === "Rain") {
+      return t >= 100 ? '#08306b' :
+             t >= 75  ? '#08519c' :
+             t >= 50  ? '#2171b5' :
+             t >= 25  ? '#4292c6' :
+             t >= 10  ? '#6baed6' :
+             t >= 5   ? '#9ecae1' :
+             t >= 1   ? '#c6dbef' :
+             t > 0    ? '#deebf7' :
+             t === 0  ? '#f7fbff' :
+             '#cccccc'; // no data
+    }
+  
+    return '#cccccc'; // fallback
+  }
+  
   
   function updateLegend(type) {
     const legend = document.getElementById('legend');
@@ -775,3 +829,19 @@ async function renderChoropleth(tempData,type) {
     }
   });
   
+  function toggleAccessibilityMode() {
+    isAccessibilityMode = !isAccessibilityMode;
+    const toggleLi = document.getElementById("colorBlindToggle");
+    if (toggleLi) {
+      toggleLi.classList.toggle("active", isAccessibilityMode);
+    }
+    console.log(currentType)
+    if (currentType) {
+      // Reload the current layer using the new color scheme
+      map.removeLayer(choroplethLayer);
+      loadChoropleth(currentType); // you must track the active layer type
+    }
+
+  }
+
+ 
