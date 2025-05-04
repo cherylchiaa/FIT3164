@@ -8,7 +8,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- —— 左侧保持不变 —— -->
     <div class="left-section">
       <div class="brand">
         <img src="images/logo.PNG" alt="Logo" class="brand-logo" />
@@ -48,10 +47,10 @@
           <input type="text" id="homeLocation" name="homeLocation"
                  placeholder="e.g. Melbourne, VIC" required/>
 
-          <!-- 注册按钮 -->
+          <!-- sign up button -->
           <button type="submit" class="signup-btn">Sign Up</button>
 
-          <!-- 回到登录页 -->
+          <!-- back to login page-->
           <div class="signup-prompt" style="text-align:center; margin-top:16px;">
             Already have an account?
             <a href="login_page.html" class="signup-link">Log in</a>
@@ -60,13 +59,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    // （可选）拦截提交，做 AJAX 或者前端验证
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      // e.preventDefault();
-      // TODO: 发到后端，拿到结果后再跳转
-    });
-  </script>
+  <script src="signup.js"></script>
 </body>
 </html>

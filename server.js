@@ -7,6 +7,11 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+// sign up infor collecting
+app.use(express.json());
+require('./routeserver')(app);
+
+
 // Define the port number
 const PORT = process.env.PORT || 3000;
 
@@ -240,7 +245,6 @@ app.get('/weather', async (req, res) => {
     res.status(500).json({ message: "Database query failed" });
   }
 });
-  
 
 
 // Start the server
