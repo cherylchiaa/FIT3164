@@ -22,7 +22,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Define a route for the home page
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'server.html'));
+  // res.sendFile(path.join(__dirname, 'public', 'server.html'));
+  res.sendFile(path.join(__dirname, 'public', 'login_page.html'));
 });
 
 let stations = [];
