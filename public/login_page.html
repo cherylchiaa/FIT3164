@@ -3,54 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login / Registration</title>
+  <title>Log in / Registration</title>
   <link rel="stylesheet" href="login_page.css"/>
 </head>
 <body>
 
   <div class="container">
-    <!-- Left section with gradient and wave -->
+    <!-- 左侧介绍区 -->
     <div class="left-section">
       <div class="brand">
         <img src="images/logo.PNG" alt="Logo" class="brand-logo" />
       </div>
-    
       <div class="left-content">
         <h2>Welcome to</h2>
         <h1>Weatherviss</h1>
         <p>
           Discover Australia’s climate like never before with Weatherviss. 
-          Simply choose a date, location, and category to unveil interactive heatmaps and detailed monthly charts for temperature, 
-          rainfall, or wind—perfect for spotting seasonal trends and making data‑driven decisions. Whether you’re planning your next trip or studying regional weather patterns, 
-          our intuitive dashboard brings the story of the sky to life.
+          Simply choose a date, location, and category to unveil interactive heatmaps 
+          and detailed monthly charts for temperature, rainfall, or wind—perfect for 
+          spotting seasonal trends and making data-driven decisions. Whether you’re 
+          planning your next trip or studying regional weather patterns, our intuitive 
+          dashboard brings the story of the sky to life.
         </p>
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- Right section with form -->
+    <!-- 右侧登录表单区 -->
     <div class="right-section">
       <div class="form-container">
+        <h2>Log in</h2>
 
-        <h2>Log in </h2>
-        <form id="signupForm">
-
-          <label for="emailInput">E‑mail Address</label>
+        <form id="loginForm">
+          <label for="emailInput">E-mail Address</label>
           <input type="email" id="emailInput" placeholder="Enter your mail" required />
 
           <label for="passwordInput">Password</label>
           <input type="password" id="passwordInput" placeholder="Enter your password" required />
 
           <div class="checkbox-row">
-            <input type="checkbox" id="termsCheck" required />
+            <input type="checkbox" id="termsCheck" />
             <label for="termsCheck">
-              By Signing Up I Agree with <a href="#">Terms &amp; Conditions</a>
+              I agree with <a href="#">Terms &amp; Conditions</a>
             </label>
           </div>
 
-          <!-- 修改这里的按钮文本 -->
-          <button type="button" class="signin-btn">Log In</button>
+          <!-- 2. 按钮 type 改成 submit -->
+          <button type="submit" class="signin-btn">Log In</button>
+
           <div class="signup-prompt" style="margin-top:20px; text-align:center;">
             <span>Don’t have an account?</span>
             <a href="signup.html" class="signup-link">Sign up now!</a>
@@ -58,17 +59,37 @@
         </form>
       </div>
     </div>
-
-
+  </div>
 
   <script>
-    // Basic form submission example
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert("Sign up form submitted!");
-      // Real implementation: send data to server, handle response, etc.
-    });
+    document
+      .getElementById('loginForm')
+      .addEventListener('submit', async e => {
+        e.preventDefault();
+        const email    = document.getElementById('emailInput').value.trim();
+        const password = document.getElementById('passwordInput').value;
+    
+        try {
+          const res = await fetch('/api/auth/login', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ email, password })
+          });
+          const data = await res.json();
+    
+          if (res.ok) {
+            // 登录成功，跳到首页
+            window.location.href = '/server.html';
+          } else {
+            alert(data.message || 'Login failed');
+          }
+        } catch (err) {
+          console.error(err);
+          alert('Network error');
+        }
+      });
   </script>
+  
 
 </body>
 </html>

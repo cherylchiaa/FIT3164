@@ -15,7 +15,15 @@ router.post("/signup", async (req, res) => {
       return res.status(409).json({ message: "Email already registered" });
     }
 
-    const user = new User({ username, email, password, homeLocation });
+    const hashed = await bcrypt.hash(password, 12);
+
+    const user = new User({
+        username,
+        email,
+        password: hashed,       
+        homeLocation
+      });
+      
     await user.save();
     return res.status(201).json({ message: "Signup successful" });
   } catch (err) {
@@ -34,17 +42,20 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+    console.log("🛎️ [LOGIN] body:", req.body);
     if (!email || !password) {
       return res.status(400).json({ message: "Missing email or password" });
     }
 
     const user = await User.findOne({ email });
+    console.log("🔍 [LOGIN] user from DB:", user);
     if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    
+    console.log("🔑 [LOGIN] stored hash:", user.password);
     const ok = await bcrypt.compare(password, user.password);
+    console.log("✅ [LOGIN] bcrypt.compare result:", ok);
     if (!ok) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
