@@ -86,6 +86,12 @@ form .section {
     row-gap: 15px;
     margin-bottom: 30px;
 }
+
+form .suggestion-wrapper {
+    position: relative;
+    width: 100%; 
+    padding-top: 10px;
+}
   
 form label {
     font-weight: 600;
@@ -99,6 +105,7 @@ form input, form select {
     border-radius: 8px;
     font-size: 14px;
     grid-column: span 2;
+    width: 100%;
 }
   
 button[type="submit"] {
@@ -115,5 +122,42 @@ button[type="submit"] {
   
 button[type="submit"]:hover {
     background-color: #0a3a63;
+}
+
+.suggestions {
+    list-style-type: none;
+    margin: 0;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.95); 
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%; /* 👈 ensures it sits just below the input */
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: none;
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+}
+  
+
+.suggestions li {
+    padding: 1px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    /* color: blue; 
+    background-color: rgba(169, 169, 169, 0.7);  */
+    background-color: rgb(36, 80, 152); /* Change background color to light blue on hover */
+    color: white; /* Change text color to white on hover */
+    border-radius: 5px;
+}
+
+.grid-span-2 {
+    grid-column: span 2;
 }
   

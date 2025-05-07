@@ -61,7 +61,7 @@
         <div class="profile-container">
             <img src="images/user_profile.png" alt="User Profile Picture" class="profile-picture">
             <div class="profile-details">
-                <h2>John Doe</h2>
+                <h2 id="username-header">John Doe</h2>
             </div>
         </div>
 
@@ -69,43 +69,32 @@
             <form id="profile-form">
             <h2>Your Profile</h2>
             <div class="section">
-                <label>First Name</label>
-                <input type="text" placeholder="John" />
-
-                <label>Last Name</label>
-                <input type="text" placeholder="Doe" />
+                <label>Username</label>
+                <input type="text" id="username-placeholder" placeholder="John Doe" />
 
                 <label>Email</label>
-                <input type="email" placeholder="you@example.com" />
-
-                <label>Home Location</label>
-                <input type="text" placeholder="Melbourne, VIC" />
-
-                <label>Font Size</label>
-                <select>
-                    <option>Small</option>
-                    <option>Medium</option>
-                    <option>Large</option>
-                </select>
-
-                <label>Map Theme</label>
-                <select>
-                    <option>Light</option>
-                    <option>Dark</option>
-                    <option>Colour Blind Mode</option>
-                </select>
+                <input type="email" id="email-placeholder" placeholder="john@gmail.com" />
+                
+                <div class="grid-span-2">
+                  <label>Home Location</label>
+                  <div class="suggestion-wrapper">
+                    <input type="text" id="location-placeholder" placeholder="Melbourne, VIC" oninput="showLocationSuggestions()" />
+                    <ul id="suggestion-list" class="suggestions"></ul>
+                  </div>
+                </div>
+                
             </div>
 
             <h2>Change Password</h2>
             <div class="section">
                 <label>Old Password</label>
-                <input type="password" />
+                <input type="password" id="old-password"/>
 
                 <label>New Password</label>
-                <input type="password" />
+                <input type="password" id="new-password"/>
 
                 <label>Confirm New Password</label>
-                <input type="password" />
+                <input type="password" id="confirm-password"/>
             </div>
 
             <button type="submit">Save Settings</button>
@@ -115,5 +104,7 @@
     </div>
 
 <script src="sidebar.js" defer></script> 
+<script src="profile.js" defer></script>
+
 </body>
 </html>

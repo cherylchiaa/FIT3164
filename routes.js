@@ -75,4 +75,39 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/update", async (req, res) => {
+  try {
+    const { username, email, homeLocation, oldPassword, newPassword } = req.body;
+
+    if (!username || !email || !homeLocation) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    const user = await User.findOne({ email });
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // If user wants to change password
+    if (oldPassword && newPassword) {
+      const match = await bcrypt.compare(oldPassword, user.password);
+      if (!match) return res.status(401).json({ message: "Old password is incorrect" });
+
+      const hashed = await bcrypt.hash(newPassword, 12);
+      user.password = hashed;
+    }
+
+    // Update profile fields
+    user.username = username;
+    user.email = email;
+    user.homeLocation = homeLocation;
+
+    await user.save();
+
+    return res.json({ message: "Profile updated successfully" });
+
+  } catch (err) {
+    console.error("❌ [PROFILE UPDATE ERROR]", err);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 module.exports = router;
