@@ -68,6 +68,7 @@ router.post("/login", async (req, res) => {
         homeLocation:user.homeLocation
       }
     });
+
   } catch (err) {
     console.error("Login Error:", err);
     res.status(500).json({ message: "Server error" });

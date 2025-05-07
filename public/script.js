@@ -1,6 +1,28 @@
 // Initialize Map (Centered on Australia)
 var map = L.map('map').setView([-28.2744, 133.7751], 5);
 
+
+window.addEventListener("DOMContentLoaded", async () => {
+  const homeLocation = localStorage.getItem("homeLocation");
+  if (homeLocation) {
+    const coords = await getCoordinatesFromPlaceName(homeLocation);
+    if (coords) {
+      map.setView([coords.lat, coords.lng], 12); // Adjust zoom level if needed
+      console.log(`📍 Zoomed to home location: ${homeLocation}`);
+
+      L.marker([coords.lat, coords.lng])
+        .addTo(map)
+        .bindPopup(`Home : ${homeLocation}`)
+        .openPopup();
+    } else {
+      console.warn("⚠️ Could not geocode home location");
+    }
+  }
+
+  // Then load layers (move this inside the event listener if not already)
+  loadChoropleth("Base");
+});
+
 // Add Google Satellite Tile Layer
 let baseLayer, temperatureLayer, windspeedLayer, precipitationLayer;
 let isAccessibilityMode = false;

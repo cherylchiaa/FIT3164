@@ -19,7 +19,6 @@ document.getElementById("signupForm").addEventListener("submit", async e => {
       const data = await res.json();
   
       if (res.ok) {
-        // 注册成功后跳到登录页
         window.location.href = "/login_page.html";
       } else {
         alert(data.message || "Signup failed");

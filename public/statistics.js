@@ -41,6 +41,39 @@ function showSuggestions() {
   suggestionList.style.display = matches.length ? 'block' : 'none';
 }
 
+
+function showHomeLocationSuggestions() {
+  const input = document.getElementById("homeLocation").value.toLowerCase();
+  const suggestionList = document.getElementById("home-suggestions");
+
+  suggestionList.innerHTML = '';
+
+  const matches = input
+    ? locations.filter(loc =>
+        (loc.suburb || loc.state).toLowerCase().startsWith(input)
+      ).slice(0, 5)
+    : locations.slice(0, 8);
+
+  matches.forEach(loc => {
+    const name = loc.suburb || loc.state;
+    const li = document.createElement("li");
+    li.textContent = name;
+
+    li.onclick = () => {
+      document.getElementById("homeLocation").value = name;
+      suggestionList.style.display = 'none';
+      console.log(`✅ Home location selected: ${name}`);
+      // Optional: trigger any other logic for selected home location
+    };
+
+    suggestionList.appendChild(li);
+  });
+
+  suggestionList.style.display = matches.length ? 'block' : 'none';
+}
+
+
+
 async function fetchWeatherForSelectedPlace(place, date) {
     if (!place || !date) {
       console.log("⚠️ Please select both a place and a date.");

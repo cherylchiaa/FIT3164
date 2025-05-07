@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Log in / Registration</title>
   <link rel="stylesheet" href="login_page.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -30,7 +32,7 @@
 
     <div class="divider"></div>
 
-    <!-- 右侧登录表单区 -->
+
     <div class="right-section">
       <div class="form-container">
         <h2>Log in</h2>
@@ -49,7 +51,6 @@
             </label>
           </div>
 
-          <!-- 2. 按钮 type 改成 submit -->
           <button type="submit" class="signin-btn">Log In</button>
 
           <div class="signup-prompt" style="margin-top:20px; text-align:center;">
@@ -78,7 +79,7 @@
           const data = await res.json();
     
           if (res.ok) {
-            // 登录成功，跳到首页
+            localStorage.setItem("homeLocation", data.user.homeLocation);
             window.location.href = '/server.html';
           } else {
             alert(data.message || 'Login failed');
@@ -89,7 +90,5 @@
         }
       });
   </script>
-  
-
 </body>
 </html>

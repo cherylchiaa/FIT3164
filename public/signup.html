@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up – Weatherviss</title>
   <link rel="stylesheet" href="login_page.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <div class="container">
@@ -24,7 +26,6 @@
       </div>
     </div>
 
-    <!-- 右侧：Sign Up 表单 —— -->
     <div class="right-section">
       <div class="form-container">
         <h2>Create Account</h2>
@@ -42,7 +43,8 @@
             <input type="password" id="confirmPasswordInput" name="confirmPassword" required />
         
             <label for="homeLocation">Default Home Location</label>
-            <input type="text" id="homeLocation" name="homeLocation" required />
+            <input type="text" id="homeLocation" name="homeLocation" oninput="showHomeLocationSuggestions()" required />
+              <ul id="home-suggestions" class="suggestions"></ul>
         
 
           <!-- sign up button -->
@@ -58,5 +60,6 @@
     </div>
   </div>
   <script src="signup.js"></script>
+  <script src="statistics.js"></script>
 </body>
 </html>
