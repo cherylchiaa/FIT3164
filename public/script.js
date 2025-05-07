@@ -4,7 +4,7 @@ var map = L.map('map').setView([-28.2744, 133.7751], 5);
 
 window.addEventListener("DOMContentLoaded", async () => {
   const homeLocation = localStorage.getItem("homeLocation");
-  if (homeLocation) {
+  if (homeLocation != "None") {
     const coords = await getCoordinatesFromPlaceName(homeLocation);
     if (coords) {
       map.setView([coords.lat, coords.lng], 9); // Adjust zoom level if needed
@@ -24,8 +24,9 @@ window.addEventListener("DOMContentLoaded", async () => {
           data.wspd
         );
 
-    } else {
-      console.warn("⚠️ Could not geocode home location");
+    } 
+    else {
+      map.setView([-28.2744, 133.7751], 5)
     }
   }
 

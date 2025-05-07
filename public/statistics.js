@@ -190,7 +190,12 @@ async function fetchWeatherForSelectedPlace(place, date) {
   });
 
   document.addEventListener("DOMContentLoaded", () => {
-    const defaultLocation = localStorage.getItem("homeLocation") || "Melbourne";
+    defaultLocation = localStorage.getItem("homeLocation");
+
+    if (defaultLocation == "None") {
+      defaultLocation = "Melbourne"
+    }
+
     const defaultDate = "2023-12-31";
   
     // Set defaults in the input fields
