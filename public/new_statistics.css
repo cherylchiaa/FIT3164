@@ -52,7 +52,7 @@ body {
     border-radius: 15px;
     margin-bottom: 1%; /* Space between Good Morning and Chart */
     width: 98%;
-    height: 18%;
+    height: 20%;
 }
 
 /* Container for the search bar */
@@ -141,7 +141,7 @@ body {
     padding: 15px;
     width: 10%; /* Set width for the container */
     margin-left: 45%;
-    margin-top: -6.5%;
+    margin-top: -4%;
     gap: 8px;
 }
 
@@ -178,7 +178,7 @@ select:focus {
     font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     margin-left: 45.8%;
-    margin-top: 0%;
+    margin-top: 2.5%;
     width: 9%
 }
 
@@ -186,7 +186,7 @@ select:focus {
     font-size: 14px; /* Font size for the label */
     /* margin-right: 10px;  */
     /* font-weight: bold;  */
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 #date {
@@ -214,7 +214,7 @@ select:focus {
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 3%; 
-    height: 25%;
+    height: 30%;
     margin-top: 18px; 
 }
 
@@ -235,7 +235,7 @@ select:focus {
     justify-content: space-between; /* Space out the boxes */
     gap: 20px; /* Adds space between the boxes */
     width: 93%;
-    height: 27%;
+    height: 33%;
     margin-bottom: -10%;
     
 }
@@ -323,8 +323,8 @@ select:focus {
 .trends-container {
     display: flex;
     justify-content: center; /* Space between the cards */
-    margin-top: 2%;
-    margin-bottom: 30px;
+    margin-top: 3%;
+    margin-bottom: -50px;
     flex-wrap: wrap; 
     align-items: center; 
     text-align: center;
@@ -332,7 +332,7 @@ select:focus {
 
 .trend-card {
     background-color: white;
-    padding: 20px;
+    padding: 18px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 36%; /* Adjust width so that two cards fit per row */
@@ -345,7 +345,13 @@ select:focus {
 .trend-card h4 {
     font-size: 16px;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
+    margin-top: 3%;
+}
+.trend-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 7px;
     margin-top: 3%;
 }
 

@@ -173,9 +173,14 @@ async function fetchWeatherForSelectedPlace(place, date) {
     }
   }
   
+  document.addEventListener("DOMContentLoaded", () => {
+    const username = localStorage.getItem("username");
+    if (username) {
+      document.getElementById("username-placeholder").textContent = username;
+    }
+  });
   
   
-    
   document.addEventListener("DOMContentLoaded", () => {
     const searchBar = document.getElementById("search-bar");
     if (searchBar) {
@@ -185,7 +190,7 @@ async function fetchWeatherForSelectedPlace(place, date) {
   });
 
   document.addEventListener("DOMContentLoaded", () => {
-    const defaultLocation = "Melbourne";
+    const defaultLocation = localStorage.getItem("homeLocation") || "Melbourne";
     const defaultDate = "2023-12-31";
   
     // Set defaults in the input fields

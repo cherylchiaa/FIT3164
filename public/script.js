@@ -7,13 +7,23 @@ window.addEventListener("DOMContentLoaded", async () => {
   if (homeLocation) {
     const coords = await getCoordinatesFromPlaceName(homeLocation);
     if (coords) {
-      map.setView([coords.lat, coords.lng], 12); // Adjust zoom level if needed
+      map.setView([coords.lat, coords.lng], 9); // Adjust zoom level if needed
       console.log(`📍 Zoomed to home location: ${homeLocation}`);
 
       L.marker([coords.lat, coords.lng])
         .addTo(map)
-        .bindPopup(`Home : ${homeLocation}`)
-        .openPopup();
+
+      const selectedDate = document.getElementById("date").value;
+                          
+      // Fetch weather data from the nearest available station
+      const data = await fetchWeatherData(coords.lat, coords.lng, selectedDate);
+      showPopup(
+          homeLocation || "Unknown Suburb",
+          data.tavg,
+          data.prcp,
+          data.wspd
+        );
+
     } else {
       console.warn("⚠️ Could not geocode home location");
     }

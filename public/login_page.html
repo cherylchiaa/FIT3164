@@ -80,6 +80,7 @@
     
           if (res.ok) {
             localStorage.setItem("homeLocation", data.user.homeLocation);
+            localStorage.setItem("username", data.user.username);
             window.location.href = '/server.html';
           } else {
             alert(data.message || 'Login failed');
