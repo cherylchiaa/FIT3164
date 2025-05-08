@@ -154,8 +154,27 @@ main p{
   h2, p { margin-top: 1em }
 }
 
-@media(max-width: 800px){
+#colorBlindToggle,
+#fontZoom {
+  position: absolute;
+  left: 10px;
+  width: 100%;
+}
 
+#colorBlindToggle {
+  bottom: 100px; /* or adjust as needed to give space above fontZoom */
+}
+
+#fontZoom {
+  bottom: 40px;
+}
+
+@media(max-width: 800px){
+  #colorBlindToggle,
+  #fontZoom {
+    position: static;
+    width: auto;
+  }
   
   body{
     grid-template-columns: 1fr;
