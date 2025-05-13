@@ -541,3 +541,51 @@ function showLoading() {
   function hideLoading() {
     document.getElementById("loading-overlay").style.display = "none";
   }
+
+  let modalChartInstance;
+
+  function zoomChart(originalChartId) {
+    const originalCanvas = document.getElementById(originalChartId);
+    if (!originalCanvas) return;
+  
+    const modal = document.getElementById("chartModal");
+    const modalCanvas = document.getElementById("modalChartCanvas");
+  
+    // Destroy previous chart in modal if exists
+    if (modalChartInstance) {
+      modalChartInstance.destroy();
+    }
+  
+    // Clone original chart config
+    const originalChart = Chart.getChart(originalCanvas);
+    if (!originalChart) return;
+  
+    const chartConfig = {
+      type: originalChart.config.type,
+      data: JSON.parse(JSON.stringify(originalChart.config.data)),
+      options: Object.assign({}, originalChart.config.options)
+    };
+
+    const titleMap = {
+      temperatureChart: "Min and Max Temperature",
+      rainfallChart: "Average Rainfall",
+      windChart: "Average Windspeed"
+    };
+    const title = titleMap[originalChartId] || "Chart View";
+    document.getElementById("modalChartTitle").textContent = title;
+    // Show modal and draw chart
+    modal.style.display = "block";
+    modalChartInstance = new Chart(modalCanvas.getContext("2d"), chartConfig);
+  }
+  
+  function closeModal() {
+    const modal = document.getElementById("chartModal");
+    modal.style.display = "none";
+    if (modalChartInstance) {
+      modalChartInstance.destroy();
+      modalChartInstance = null;
+    }
+  }
+  
+
+

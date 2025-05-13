@@ -367,3 +367,99 @@ select:focus {
     
 }
 
+.zoom-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 8px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  }
+  
+  
+  .chart-section {
+    position: relative; /* Needed for absolute button positioning */
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  .modal canvas {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 80vh;
+  }
+  
+  .modal .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Modal background */
+  #chartModal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  
+  #chartModal .modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 20px 30px 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 1000px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    text-align: center;
+  }
+  
+  #chartModal .modal-title {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  #chartModal canvas {
+    width: 100% !important;
+    height: 450px !important;
+  }
+  
+  #chartModal .close {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10001;
+  }

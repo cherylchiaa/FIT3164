@@ -91,26 +91,38 @@
 
         <!-- Chart Section -->
         <div class="chart-section">
+          
             <h3>Min and Max Temperatures</h3>
             <canvas id="temperatureChart" width="800" height="200"></canvas>
+            <button class="zoom-btn" onclick="zoomChart('temperatureChart')" >
+              <img src="icons/maximize.png" alt="Zoom" style="width: 18px; height: 18px;">
+            </button>
         </div>
 
         <div class="white-box-container">
             <!-- First White Box (e.g., Hourly Forecast) -->
-            <div class="white-box">
-                <h3>Average Rainfall</h3>
-                <div class="chart-wrapper move-up-chart">
-                    <canvas id="rainfallChart" width="400" height="200"></canvas>
-                </div>
+            <div class="white-box" style="position: relative;">
+              
+              <h3>Average Rainfall</h3>
+              <div class="chart-wrapper move-up-chart">
+                  <canvas id="rainfallChart" width="400" height="200"></canvas>
+              </div>
+              <button class="zoom-btn" onclick="zoomChart('rainfallChart')">
+                <img src="icons/maximize.png" alt="Zoom" style="width: 18px; height: 18px;">
+              </button>
             </div>
-
-            <!-- Second White Box (e.g., Monthly Rainfall) -->
-            <div class="white-box">
-                <h3>Average Windspeed</h3>
-                <div class="chart-wrapper move-up-chart">
-                    <canvas id="windChart" width="400" height="200"></canvas>
-                </div>
+            
+            <div class="white-box" style="position: relative;">
+              
+              <h3>Average Windspeed</h3>
+              <div class="chart-wrapper move-up-chart">
+                  <canvas id="windChart" width="400" height="200"></canvas>
+              </div>
+              <button class="zoom-btn" onclick="zoomChart('windChart')" >
+                <img src="icons/maximize.png" alt="Zoom" style="width: 18px; height: 18px;">
+              </button>
             </div>
+            
         </div>
     </div>
 
@@ -221,6 +233,14 @@
 <script src="sidebar.js" defer></script> 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="statistics.js"></script>
+<div id="chartModal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <h2 id="modalChartTitle" class="modal-title">Chart Title</h2>
+    <canvas id="modalChartCanvas"></canvas>
+  </div>
+</div>
+
 
 </body>
 </html>
