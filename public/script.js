@@ -1,39 +1,6 @@
 // Initialize Map (Centered on Australia)
 var map = L.map('map').setView([-28.2744, 133.7751], 5);
 
-
-window.addEventListener("DOMContentLoaded", async () => {
-  const homeLocation = localStorage.getItem("homeLocation");
-  if (homeLocation != "None") {
-    const coords = await getCoordinatesFromPlaceName(homeLocation);
-    if (coords) {
-      map.setView([coords.lat, coords.lng], 9); // Adjust zoom level if needed
-      console.log(`📍 Zoomed to home location: ${homeLocation}`);
-
-      L.marker([coords.lat, coords.lng])
-        .addTo(map)
-
-      const selectedDate = document.getElementById("date").value;
-                          
-      // Fetch weather data from the nearest available station
-      const data = await fetchWeatherData(coords.lat, coords.lng, selectedDate);
-      showPopup(
-          homeLocation || "Unknown Suburb",
-          data.tavg,
-          data.prcp,
-          data.wspd
-        );
-
-    } 
-    else {
-      map.setView([-28.2744, 133.7751], 5)
-    }
-  }
-
-  // Then load layers (move this inside the event listener if not already)
-  loadChoropleth("Base");
-});
-
 // Add Google Satellite Tile Layer
 let baseLayer, temperatureLayer, windspeedLayer, precipitationLayer;
 let isAccessibilityMode = false;
@@ -169,9 +136,33 @@ function toggleFontZoom() {
 }
 
 
-function loadAllStateBorders(excludeState = null) {
+async function loadAllStateBorders(excludeState = null) {
     allStatesLayer.clearLayers(); // Clear existing state borders
 
+    const homeLocation = localStorage.getItem("homeLocation");
+    if (homeLocation != "None") {
+      const coords =  await getCoordinatesFromPlaceName(homeLocation);
+      console.log(coords)
+      if (coords) {
+        map.setView([coords.lat, coords.lng], 9); // Adjust zoom level if needed
+        console.log(`📍 Zoomed to home location: ${homeLocation}`);
+
+        L.marker([coords.lat, coords.lng])
+          .addTo(map)
+
+        const selectedDate = document.getElementById("date").value;
+                            
+        // Fetch weather data from the nearest available station
+        const data =  await fetchWeatherData(coords.lat, coords.lng, selectedDate);
+        showPopup(
+            homeLocation || "Unknown Suburb",
+            data.tavg,
+            data.prcp,
+            data.wspd
+          );
+
+      } }
+      
     Object.entries(stateGeoJSONUrls).forEach(([stateName, url]) => {
         if (stateName === excludeState) return;
 

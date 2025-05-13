@@ -8,6 +8,16 @@ fetch('all-suburbs-with-coords.json')
   })
   .catch(err => console.error("❌ Failed to load all-suburbs.json:", err));
 
+  let stations = [];
+
+  fetch('all-stations.json')
+    .then(res => res.json())
+    .then(data => {
+      stations = data;
+      console.log("✅ All stations loaded");
+    });
+  
+
 function showSuggestions() {
   const input = document.getElementById("search-bar").value.toLowerCase();
   const suggestionList = document.getElementById("suggestion-list");
@@ -95,21 +105,44 @@ async function fetchWeatherForSelectedPlace(place, date) {
       console.log(station);
       if (!station) {
         console.log("⚠️ No nearby weather station found.");
-        return;
+        return
       }
-  
+      let weather_data = -1
       // Step 3: Fetch weather data from your backend using station and date
       const res = await fetch(`/weather?station=${encodeURIComponent(station.name.en)}&date=${date}`);
       const data = await res.json();
   
       if (!data.length) {
         console.log(`⚠️ No weather data found for station ${station.name} on ${date}`);
-        return;
+        const nearest = findNearestStations(coords.lat, coords.lng, stations, 5);
+        console.log(nearest)
+        for (const station of nearest) {
+            const fallbackRes = await fetch(`/weather?station=${encodeURIComponent(station.name)}&date=${date}`);
+            const fallbackData = await fallbackRes.json();
+          
+            // If it's an array, check first item
+            const record = Array.isArray(fallbackData) ? fallbackData[0] : fallbackData;
+          
+            console.log(station.name, record);
+          
+            if (record && record.tavg != null) {
+              console.log(`🪂 Fallback: Found data from ${station.name}`);
+              weather_data = record
+              break
+            }
+        }
+        if (weather_data == -1){
+          console.log("❌ No fallback weather data found either.");
+        return null;
+        }
       }
   
       const weather = data[0];
-      console.log(`✅ Weather for station ${station.name} on ${date}:`, weather);
-      updateWeatherInfo(weather);
+      if (weather_data == -1) {
+        weather_data = weather
+      }
+      console.log(`✅ Weather for station ${station.name} on ${date}:`, weather_data);
+      updateWeatherInfo(weather_data);
       updateSeasonDisplay(date);
       await fetchAllCharts(coords.lat, coords.lng, date, getSelectedDataWindow());
   
@@ -119,7 +152,29 @@ async function fetchWeatherForSelectedPlace(place, date) {
       hideLoading(); // Always hide the spinner
     }
   }
+  function findNearestStations(lat, lon, stations, N = 5) {
+    return stations
+      .map(station => ({
+        ...station,
+        distance: getDistanceInKm(lat, lon, station.latitude, station.longitude)
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, N);
+  }
+
+  function getDistanceInKm(lat1, lon1, lat2, lon2) {
+    const R = 6371; // Earth's radius in KM
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) *
+      Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
   
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
   
   async function getCoordinatesFromPlaceName(placeName) {
     const url = `/api/geocode?place=${encodeURIComponent(placeName)}`;
