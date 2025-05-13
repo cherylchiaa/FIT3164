@@ -20,6 +20,10 @@ document.getElementById("profile-form").addEventListener("submit", async (e) => 
     e.preventDefault();
   
     const username = document.getElementById("username-placeholder").value.trim();
+    if (username.toLowerCase() === "guest") {
+        alert("⚠️ Guest users cannot update their profile.");
+        return;
+    }
     const email = document.getElementById("email-placeholder").value.trim();
     const homeLocation = document.getElementById("location-placeholder").value.trim();
   
