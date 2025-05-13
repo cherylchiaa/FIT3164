@@ -36,11 +36,11 @@
   .brand {
     display: flex;
     justify-content: center;   
-    margin-bottom: -100px;    
+    margin-bottom: -200px;    
   }
   
   .brand-logo {
-    width: 500px;            
+    width: 600px;            
     height: auto;
   }
 
@@ -65,8 +65,8 @@
     font-size: 1rem;
     line-height: 1.5;
     color: #eee;
-    max-width: 80%;
-    margin: 0 auto 30px;
+    max-width: 63%;
+    margin: 0 auto 20px;
     font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
   .footer-links {
