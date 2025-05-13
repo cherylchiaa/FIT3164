@@ -382,6 +382,11 @@ select:focus {
   }
   
   
+  .chart-section {
+    position: relative; /* Needed for absolute button positioning */
+    z-index: 1;
+  }
+  
   /* Modal styles */
   .modal {
     display: none;

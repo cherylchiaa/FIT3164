@@ -49,6 +49,7 @@ body{
   transition: 300ms ease-in-out;
   overflow: hidden;
   text-wrap: nowrap;
+  z-index: 1000;
 }
 #sidebar.close{
   padding: 5px;
