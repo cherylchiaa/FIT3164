@@ -95,7 +95,7 @@ async function fetchWeatherForSelectedPlace(place, date) {
     try {
       document.getElementById("location-label").textContent = place;
       document.getElementById("location-display").textContent = place;
-  
+      console.log(place)
       // Step 1: Get coordinates for the place
       const coords = await getCoordinatesFromPlaceName(place);
       if (!coords) return;
@@ -177,31 +177,62 @@ async function fetchWeatherForSelectedPlace(place, date) {
   }
   
   async function getCoordinatesFromPlaceName(placeName) {
-    const url = `/api/geocode?place=${encodeURIComponent(placeName)}`;
+    // Mapping of state abbreviations to full names
+    const stateMap = {
+      'NSW': 'New South Wales',
+      'VIC': 'Victoria',
+      'QLD': 'Queensland',
+      'SA': 'South Australia',
+      'WA': 'Western Australia',
+      'TAS': 'Tasmania',
+      'NT': 'Northern Territory',
+      'ACT': 'Australian Capital Territory'
+    };
+  
+    // Extract suburb and state abbreviation from format: "Llanarth (Qld)"
+    const match = placeName.match(/^(.+?)\s*\((.+?)\)$/i);
+    let suburb, stateFull = "";
+  
+    if (match) {
+      suburb = match[1].trim();
+      const stateAbbr = match[2].trim().toUpperCase();
+      stateFull = stateMap[stateAbbr] || "";
+    } else {
+      suburb = placeName.trim();
+    }
+    console.log(suburb,stateFull)
+    // Construct the full place string to query
+    const query = `${suburb}${stateFull ? ", " + stateFull : ""}, Australia`;
+    const url = `/api/geocode?place=${encodeURIComponent(query)}`;
   
     try {
       const res = await fetch(url);
       const data = await res.json();
-
+  
       if (data.results.length > 0) {
         const result = data.results.find(r =>
-            (r.components.suburb && r.components.suburb.toLowerCase() === placeName.toLowerCase()) ||
-            (r.components.city && r.components.city.toLowerCase() === placeName.toLowerCase()) ||
-            (r.components.town && r.components.town.toLowerCase() === placeName.toLowerCase()) ||
-            (r.components.municipality && r.components.municipality.toLowerCase() === placeName.toLowerCase())
-          );
-
-        if (!result) return null;
+          r.components.country_code === 'au' &&
+          (
+            (r.components.suburb && r.components.suburb.toLowerCase() === suburb.toLowerCase()) ||
+            (r.components.city && r.components.city.toLowerCase() === suburb.toLowerCase()) ||
+            (r.components.town && r.components.town.toLowerCase() === suburb.toLowerCase())
+          )
+        );
+  
+        if (!result) {
+          console.warn("⚠️ No exact suburb match found within Australia.");
+          return null;
+        }
   
         const { lat, lng } = result.geometry;
-        console.log(lat,lng)
+        console.log(`✅ Found: ${suburb}, ${stateFull} ➝`, lat, lng);
         return { lat, lng };
       } else {
-        console.warn("No coordinates found for", placeName);
+        console.warn("❌ No geocoding results.");
         return null;
       }
     } catch (err) {
-      console.error("Geocoding error:", err);
+      console.error("❌ Geocoding error:", err);
       return null;
     }
   }
@@ -252,7 +283,7 @@ async function fetchWeatherForSelectedPlace(place, date) {
     }
 
     const defaultDate = "2023-12-31";
-  
+    console.log(defaultLocation)
     // Set defaults in the input fields
     document.getElementById("search-bar").value = defaultLocation;
     document.getElementById("date").value = defaultDate;
