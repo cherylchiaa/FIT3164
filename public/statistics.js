@@ -438,10 +438,7 @@ async function fetchAllCharts(lat, lon, selectedDate, dataWindow) {
       maxTemps.push(day.tmax ?? null);
       rainfallValues.push(day.prcp ?? null);
       windSpeeds.push(day.wspd ?? null);
-  
-      if (day.tmax != null && day.tmax > maxTemp) maxTemp = day.tmax;
-      if (day.prcp != null) totalRain += day.prcp;
-      if (day?.tavg != null) avgtemp += day.tavg;
+
     });
   
     renderTempChart(labels, minTemps, maxTemps);
@@ -464,10 +461,28 @@ async function fetchAllCharts(lat, lon, selectedDate, dataWindow) {
         
       });
     }
-    const currentavgtemp = avgtemp / count
+    
+    const { start: thisstart, end: thisend } = getStartEndFromDate(selectedDate, "current-month");
+    let thisrain = 0;
+    let thistemp = 0;
+    let thiscount = 0; 
+    if (thisstart && thisend) {
+      const thisRes = await fetch(`/api/chart?lat=${lat}&lon=${lon}&start=${thisstart}&end=${thisend}`);
+      const thisJson = await thisRes.json();
+
+      thisJson.data.forEach(day => {
+        thiscount += 1 
+        if (day?.prcp != null) thisrain += day.prcp;
+        if (day?.tavg != null) thistemp += day.tavg;
+        if (day.tmax != null && day.tmax > maxTemp) maxTemp = day.tmax;
+        if (day.prcp != null) totalRain += day.prcp;
+
+      });
+    }
+    const currentavgtemp = thistemp / thiscount
     const lastavgtemp = lasttemp / lastcount
     const tempdiff = currentavgtemp - lastavgtemp
-    const rainDiff = totalRain - lastrain;
+    const rainDiff = thisrain - lastrain;
   
     // This week data
     const { start: weekStart, end: weekEnd } = getStartEndFromDate(selectedDate, "this-week");
