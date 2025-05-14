@@ -94,7 +94,7 @@ async function fetchWeatherForSelectedPlace(place, date) {
   
     try {
       document.getElementById("location-label").textContent = place;
-      document.getElementById("location-display").textContent = place;
+      // document.getElementById("location-display").textContent = place;
       console.log(place)
       // Step 1: Get coordinates for the place
       const coords = await getCoordinatesFromPlaceName(place);
@@ -261,9 +261,17 @@ async function fetchWeatherForSelectedPlace(place, date) {
   
   document.addEventListener("DOMContentLoaded", () => {
     const username = localStorage.getItem("username");
+    const homeLocation = localStorage.getItem("homeLocation");
     if (username) {
       document.getElementById("username-placeholder").textContent = username;
     }
+    if(homeLocation == "None"){
+      document.getElementById("location-display").textContent = "--";
+    }
+    else{
+      document.getElementById("location-display").textContent = homeLocation;
+    }
+
   });
   
   
